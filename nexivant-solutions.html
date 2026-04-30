@@ -1186,8 +1186,119 @@ footer { background: var(--cream); padding: 72px 64px 0; }
   nav{height:52px!important}
   .nav-links{top:52px!important}
 }
+/* Cream nav and hero refresh */
+nav {
+  background: rgba(243,237,227,0.96) !important;
+  border-bottom: 1px solid rgba(71,17,50,0.12) !important;
+}
+.logo,
+.nav-links a { color: rgba(71,17,50,0.68) !important; }
+.nav-links a:hover,
+.nav-links a.active,
+.logo { color: var(--plum) !important; }
+.nav-cta {
+  background: var(--plum) !important;
+  color: var(--cream) !important;
+}
+.nav-hamburger span { background: var(--plum) !important; }
+.hero { background: var(--cream) !important; }
+.hero-panel {
+  flex-direction: column;
+  gap: 16px;
+}
+.hero-image-card {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(71,17,50,0.14);
+  box-shadow: 0 22px 60px rgba(71,17,50,0.12);
+}
+.hero-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 900px) {
+  .nav-links {
+    background: rgba(243,237,227,0.98) !important;
+    border-bottom: 1px solid rgba(71,17,50,0.12) !important;
+  }
+  .nav-links a { color: rgba(71,17,50,0.72) !important; }
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--plum) !important; }
+}
+
+/* Mobile card carousels */
+@media (max-width: 768px) {
+  .pain-grid,
+  .phil-pillars,
+  .journey-track,
+  .team-grid {
+    display: flex !important;
+    grid-template-columns: none !important;
+    gap: 12px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 20px;
+    -webkit-overflow-scrolling: touch;
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+    padding: 0 20px 10px !important;
+  }
+  .pain-grid::-webkit-scrollbar,
+  .phil-pillars::-webkit-scrollbar,
+  .journey-track::-webkit-scrollbar,
+  .team-grid::-webkit-scrollbar { display: none; }
+  .pain-grid,
+  .phil-pillars,
+  .journey-track,
+  .team-grid { scrollbar-width: none; }
+
+  .pain-card,
+  .phil-pillar,
+  .jstage,
+  .team-card {
+    flex: 0 0 min(84vw, 330px) !important;
+    min-height: 210px;
+    scroll-snap-align: start;
+  }
+  .jstage {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    margin-bottom: 0 !important;
+  }
+  .jstage-card { width: 100% !important; }
+}
+
 /* Reliable mobile menu override */
 body.nav-lock { overflow: hidden; }
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px 18px !important;
+    align-items: start;
+  }
+  .footer-grid > div:first-child {
+    grid-column: 1 / -1 !important;
+  }
+  .footer-brand-sub { max-width: 100% !important; }
+  .footer-col-label { margin-bottom: 14px !important; }
+  .footer-contact-list,
+  .footer-quick-links { gap: 10px !important; }
+  .footer-contact-list li,
+  .footer-quick-links a {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+  }
+  .footer-contact-list li { align-items: flex-start !important; }
+  .footer-contact-list .footer-city { padding-left: 0 !important; }
+}
 @media (max-width: 900px) {
   nav { z-index: 1000 !important; }
   .nav-hamburger { position: relative; z-index: 1002 !important; }
@@ -1211,13 +1322,24 @@ body.nav-lock { overflow: hidden; }
   }
 }
 
+/* Final cream mobile nav override */
+@media (max-width: 900px) {
+  .nav-links {
+    background: rgba(243,237,227,0.98) !important;
+    border-bottom: 1px solid rgba(71,17,50,0.12) !important;
+  }
+  .nav-links a,
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--plum) !important; }
+}
+
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="nexivant-homepage.html" class="logo">Nexivant</a>
+  <a href="index.html" class="logo">Nexivant</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="nexivant-industries.html">Industries</a></li>
     <li><a href="nexivant-solutions.html" class="active">Our Solutions</a></li>
@@ -1243,6 +1365,9 @@ body.nav-lock { overflow: hidden; }
     </div>
   </div>
   <div class="hero-panel fade-in stagger-2">
+    <div class="hero-image-card">
+      <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80" alt="Business team reviewing AI workflow dashboards">
+    </div>
     <div class="hero-panel-inner">
       <span class="hero-panel-eyebrow">What we hear from leaders</span>
       <p class="hero-panel-q">"We ran an AI session. Two weeks later the team was back to working the same way."</p>
@@ -1769,7 +1894,7 @@ body.nav-lock { overflow: hidden; }
   <p class="cta-sub">We will ask you a few questions about your team, your workflows, and what you are trying to solve. From that, we can tell you honestly where to start and what to expect.</p>
   <div class="cta-btns">
     <a href="nexivant-contact.html" class="btn-cta-w">Book a Discovery Call</a>
-    <a href="nexivant-homepage.html" class="btn-cta-o">Back to Home</a>
+    <a href="index.html" class="btn-cta-o">Back to Home</a>
   </div>
 </div>
 
@@ -1793,7 +1918,7 @@ body.nav-lock { overflow: hidden; }
     <div>
       <span class="footer-col-label">Quick Links</span>
       <ul class="footer-quick-links">
-        <li><a href="nexivant-homepage.html">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="nexivant-solutions.html">Our Solutions</a></li>
         <li><a href="nexivant-industries.html">We Work With</a></li>
         <li><a href="nexivant-vision.html">Our Vision</a></li>

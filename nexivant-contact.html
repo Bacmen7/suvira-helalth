@@ -367,8 +367,118 @@ footer{background:var(--plum);border-top:1px solid rgba(243,237,227,.12);padding
   nav{height:52px!important}
   .nav-links{top:52px!important}
 }
+/* Cream nav and hero refresh */
+nav {
+  background: rgba(243,237,227,0.96) !important;
+  border-bottom: 1px solid rgba(71,17,50,0.12) !important;
+}
+.logo,
+.nav-links a { color: rgba(71,17,50,0.68) !important; }
+.nav-links a:hover,
+.nav-links a.active,
+.logo { color: var(--plum) !important; }
+.nav-cta {
+  background: var(--plum) !important;
+  color: var(--cream) !important;
+}
+.nav-hamburger span { background: var(--plum) !important; }
+.hero {
+  background: var(--cream) !important;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.72fr);
+  gap: 52px;
+  align-items: center;
+}
+.hero::before { opacity: 0.45; }
+.label { color: rgba(71,17,50,0.45) !important; }
+h1 { color: var(--plum) !important; }
+h1 em { color: var(--plum-mid) !important; }
+.hero p { color: var(--muted) !important; }
+.hero-media {
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(71,17,50,0.14);
+  box-shadow: 0 22px 60px rgba(71,17,50,0.12);
+}
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.wave { background: var(--cream) !important; }
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .hero-media {
+    aspect-ratio: 16 / 10;
+    max-height: 320px;
+  }
+  .nav-links {
+    background: rgba(243,237,227,0.98) !important;
+    border-bottom: 1px solid rgba(71,17,50,0.12) !important;
+  }
+  .nav-links a { color: rgba(71,17,50,0.72) !important; }
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--plum) !important; }
+}
+
+/* Mobile card carousels */
+@media (max-width: 768px) {
+  .next-grid {
+    display: flex !important;
+    grid-template-columns: none !important;
+    gap: 12px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 16px;
+    -webkit-overflow-scrolling: touch;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    padding: 0 16px 10px !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+  .next-grid::-webkit-scrollbar { display: none; }
+  .next-grid { scrollbar-width: none; }
+  .next-card {
+    flex: 0 0 min(84vw, 320px) !important;
+    min-height: 180px;
+    scroll-snap-align: start;
+    border: 1px solid var(--plum-border);
+    border-radius: 8px;
+  }
+}
+
 /* Reliable mobile menu override */
 body.nav-lock { overflow: hidden; }
+@media (max-width: 768px) {
+  footer {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    align-items: start !important;
+    gap: 18px 16px !important;
+  }
+  footer .fb,
+  footer .fl,
+  footer .fc {
+    grid-column: 1 / -1 !important;
+  }
+  footer .fl {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    justify-content: stretch !important;
+    gap: 10px 16px !important;
+  }
+  footer .fl a {
+    display: block;
+    line-height: 1.4;
+  }
+}
 @media (max-width: 900px) {
   nav { z-index: 1000 !important; }
   .nav-hamburger { position: relative; z-index: 1002 !important; }
@@ -392,11 +502,22 @@ body.nav-lock { overflow: hidden; }
   }
 }
 
+/* Final cream mobile nav override */
+@media (max-width: 900px) {
+  .nav-links {
+    background: rgba(243,237,227,0.98) !important;
+    border-bottom: 1px solid rgba(71,17,50,0.12) !important;
+  }
+  .nav-links a,
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--plum) !important; }
+}
+
 </style>
 </head>
 <body>
 <nav>
-  <a href="nexivant-homepage.html" class="logo">Nexivant</a>
+  <a href="index.html" class="logo">Nexivant</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="nexivant-industries.html">Industries</a></li>
     <li><a href="nexivant-solutions.html">Our Solutions</a></li>
@@ -413,6 +534,9 @@ body.nav-lock { overflow: hidden; }
     <span class="label">Contact Nexivant</span>
     <h1>Tell us where AI needs to work <em>inside your business.</em></h1>
     <p>Share a little about your team, your industry, and the operational problem you are trying to solve. We will come back with a clear, honest view of where to start.</p>
+  </div>
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80" alt="Business consultation meeting">
   </div>
 </section>
 <div class="wave"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#ffffff"/></svg></div>
@@ -488,7 +612,7 @@ body.nav-lock { overflow: hidden; }
 <footer>
   <div class="fb">Nexivant<span>We make AI work inside your business.</span></div>
   <ul class="fl">
-    <li><a href="nexivant-homepage.html">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="nexivant-industries.html">Industries</a></li>
     <li><a href="nexivant-solutions.html">Our Solutions</a></li>
     <li><a href="nexivant-vision.html">Our Vision</a></li>

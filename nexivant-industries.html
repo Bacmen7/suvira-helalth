@@ -534,8 +534,141 @@ footer{background:var(--cream);padding:72px 72px 0}
   nav{height:52px!important}
   .nav-links{top:52px!important}
 }
+/* Cream nav and hero refresh */
+nav {
+  background: rgba(243,237,227,0.96) !important;
+  border-bottom: 1px solid rgba(71,17,50,0.12) !important;
+}
+.logo,
+.nav-links a { color: rgba(71,17,50,0.68) !important; }
+.nav-links a:hover,
+.nav-links a.active,
+.logo { color: var(--plum) !important; }
+.nav-cta {
+  background: var(--plum) !important;
+  color: var(--cream) !important;
+}
+.nav-hamburger span { background: var(--plum) !important; }
+.pg-header {
+  background: var(--cream) !important;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.72fr);
+  gap: 52px;
+  align-items: center;
+  border-bottom: 1px solid rgba(71,17,50,0.1) !important;
+}
+.pg-header::before { opacity: 0.45; }
+.pg-header > :not(.pg-header-image) { grid-column: 1; }
+.pg-header .sl { color: var(--teal) !important; }
+.pg-header h1 { color: var(--maroon) !important; }
+.pg-header h1 em { color: var(--maroon-md) !important; }
+.pg-header p { color: var(--muted) !important; }
+.pg-header-image {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(74,25,66,0.14);
+  box-shadow: 0 22px 60px rgba(74,25,66,0.12);
+}
+.pg-header-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.wave.bg-m { background: var(--cream) !important; }
+@media (max-width: 900px) {
+  .pg-header {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .pg-header-image {
+    grid-column: 1;
+    grid-row: auto;
+    aspect-ratio: 16 / 10;
+    max-height: 320px;
+  }
+  .nav-links {
+    background: rgba(243,237,227,0.98) !important;
+    border-bottom: 1px solid rgba(71,17,50,0.12) !important;
+  }
+  .nav-links a { color: rgba(71,17,50,0.72) !important; }
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--plum) !important; }
+}
+
+/* Mobile card carousels */
+@media (max-width: 768px) {
+  .ch-grid,
+  .tech-grid,
+  .uc-grid,
+  .phil-right {
+    display: flex !important;
+    grid-template-columns: none !important;
+    gap: 12px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 20px;
+    -webkit-overflow-scrolling: touch;
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+    padding: 0 20px 10px !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+  .ch-grid::-webkit-scrollbar,
+  .tech-grid::-webkit-scrollbar,
+  .uc-grid::-webkit-scrollbar,
+  .phil-right::-webkit-scrollbar { display: none; }
+  .ch-grid,
+  .tech-grid,
+  .uc-grid,
+  .phil-right { scrollbar-width: none; }
+
+  .ch-card,
+  .tech-card,
+  .uc-card,
+  .phil-card {
+    flex: 0 0 min(84vw, 330px) !important;
+    min-height: 210px;
+    scroll-snap-align: start;
+  }
+  .ch-card { text-align: left !important; }
+  .ch-card .ic { margin: 0 0 14px 0 !important; }
+  .tech-card {
+    border: 1px solid var(--border) !important;
+    border-radius: 10px;
+    padding: 24px 18px !important;
+  }
+  .uc-card { background: var(--white); }
+}
+
 /* Reliable mobile menu override */
 body.nav-lock { overflow: hidden; }
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px 18px !important;
+    align-items: start;
+  }
+  .footer-grid > div:first-child {
+    grid-column: 1 / -1 !important;
+  }
+  .footer-brand-sub { max-width: 100% !important; }
+  .footer-col-label { margin-bottom: 14px !important; }
+  .footer-contact-list,
+  .footer-quick-links { gap: 10px !important; }
+  .footer-contact-list li,
+  .footer-quick-links a {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+  }
+  .footer-contact-list li { align-items: flex-start !important; }
+  .footer-contact-list .footer-city { padding-left: 0 !important; }
+}
 @media (max-width: 900px) {
   nav { z-index: 1000 !important; }
   .nav-hamburger { position: relative; z-index: 1002 !important; }
@@ -559,13 +692,24 @@ body.nav-lock { overflow: hidden; }
   }
 }
 
+/* Final cream mobile nav override */
+@media (max-width: 900px) {
+  .nav-links {
+    background: rgba(243,237,227,0.98) !important;
+    border-bottom: 1px solid rgba(71,17,50,0.12) !important;
+  }
+  .nav-links a,
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--plum) !important; }
+}
+
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="nexivant-homepage.html" class="logo">Nexivant</a>
+  <a href="index.html" class="logo">Nexivant</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="nexivant-industries.html" class="active">Industries</a></li>
     <li><a href="nexivant-solutions.html">Our Solutions</a></li>
@@ -582,6 +726,9 @@ body.nav-lock { overflow: hidden; }
   <span class="sl">Industries We Work With</span>
   <h1>We work inside your business.<br><em>Not on the outside looking in.</em></h1>
   <p>AI is not industry-agnostic. The tools may be the same across sectors, but the workflows, the people, the data, and the outcomes are entirely different. We do not bring a standard programme to any industry. We bring a combination of deep AI capability and genuine domain understanding — and we design every engagement from your operational reality, not from a product brochure.</p>
+  <div class="pg-header-image">
+    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80" alt="Healthcare team using digital systems">
+  </div>
 </div>
 
 <div class="wave bg-m"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#ffffff"/></svg></div>
@@ -1190,7 +1337,7 @@ body.nav-lock { overflow: hidden; }
     <div>
       <span class="footer-col-label">Quick Links</span>
       <ul class="footer-quick-links">
-        <li><a href="nexivant-homepage.html">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="nexivant-solutions.html">Our Solutions</a></li>
         <li><a href="nexivant-industries.html">We Work With</a></li>
         <li><a href="nexivant-vision.html">Our Vision</a></li>
