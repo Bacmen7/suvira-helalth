@@ -1,0 +1,13 @@
+{
+  "name": "nexivant",
+  "version": "1.0.0",
+  "description": "Nexivant — We make AI work inside your business.",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static site - no build required'"
+  },
+  "keywords": ["ai", "business"],
+  "author": "Bacmen7",
+  "license": "MIT",
+  "private": true
+}

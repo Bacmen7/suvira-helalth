@@ -1,0 +1,12 @@
+{
+  "buildCommand": "echo 'Static HTML site'",
+  "outputDirectory": ".",
+  "routes": [
+    { "src": "/", "dest": "/nexivant-homepage.html" },
+    { "src": "/solutions", "dest": "/nexivant-solutions.html" },
+    { "src": "/industries", "dest": "/nexivant-industries.html" },
+    { "src": "/vision", "dest": "/nexivant-vision.html" },
+    { "src": "/contact", "dest": "/nexivant-contact.html" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+}
