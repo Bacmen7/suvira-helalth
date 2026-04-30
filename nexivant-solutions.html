@@ -1186,6 +1186,30 @@ footer { background: var(--cream); padding: 72px 64px 0; }
   nav{height:52px!important}
   .nav-links{top:52px!important}
 }
+/* Reliable mobile menu override */
+body.nav-lock { overflow: hidden; }
+@media (max-width: 900px) {
+  nav { z-index: 1000 !important; }
+  .nav-hamburger { position: relative; z-index: 1002 !important; }
+  .nav-links {
+    display: flex !important;
+    width: 100% !important;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 1001 !important;
+  }
+  .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+}
 
 </style>
 </head>
@@ -1202,7 +1226,7 @@ footer { background: var(--cream); padding: 72px 64px 0; }
   </ul>
   <a href="nexivant-contact.html" class="nav-cta">Talk to Us</a>
 
-  <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- ══════════════════════════════════════════
@@ -1840,20 +1864,45 @@ document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 </script>
 <script>
 (function(){
-  var btn=document.getElementById('navHamburger');
-  var menu=document.getElementById('navLinks');
-  if(!btn||!menu)return;
-  btn.addEventListener('click',function(){
-    var open=menu.classList.contains('open');
-    menu.classList.toggle('open',!open);
-    btn.classList.toggle('open',!open);
-  });
-  menu.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click',function(){
-      menu.classList.remove('open');
-      btn.classList.remove('open');
+  function initMobileNav(){
+    var btn=document.getElementById('navHamburger');
+    var menu=document.getElementById('navLinks');
+    if(!btn||!menu)return;
+
+    function setMenu(open){
+      menu.classList.toggle('open',open);
+      btn.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+      document.body.classList.toggle('nav-lock',open);
+    }
+
+    btn.addEventListener('click',function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      setMenu(!menu.classList.contains('open'));
     });
-  });
+
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){ setMenu(false); });
+    });
+
+    document.addEventListener('click',function(event){
+      if(!menu.classList.contains('open'))return;
+      if(menu.contains(event.target)||btn.contains(event.target))return;
+      setMenu(false);
+    });
+
+    document.addEventListener('keydown',function(event){
+      if(event.key==='Escape')setMenu(false);
+    });
+
+    window.addEventListener('resize',function(){
+      if(window.innerWidth>900)setMenu(false);
+    });
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initMobileNav);
+  else initMobileNav();
 })();
 </script>
 </body>
