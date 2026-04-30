@@ -41,8 +41,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 64px;
-  height: 68px;
+  padding: 0 72px;
+  height: 80px;
   background: rgba(71,17,50,0.97);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(243,237,227,0.1);
@@ -50,7 +50,7 @@ nav {
 
 .logo {
   font-family: var(--sans);
-  font-size: 1.35rem;
+  font-size: 1.65rem;
   font-weight: 700;
   color: var(--text-on-plum);
   letter-spacing: 0.01em;
@@ -59,7 +59,7 @@ nav {
 .logo em {
   font-style: normal;
   color: rgba(243,237,227,0.5);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-family: var(--sans);
   font-weight: 300;
   letter-spacing: 0.06em;
@@ -70,13 +70,13 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 36px;
+  gap: 40px;
   list-style: none;
 }
 .nav-links a {
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   font-weight: 400;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-on-plum-muted);
   text-decoration: none;
@@ -85,13 +85,13 @@ nav {
 .nav-links a:hover { color: var(--text-on-plum); }
 
 .nav-cta {
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.07em;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   color: var(--plum);
   background: var(--cream);
   text-decoration: none;
-  padding: 9px 22px;
+  padding: 12px 28px;
   border-radius: 4px;
   transition: background 0.2s;
 }
@@ -246,7 +246,7 @@ nav {
 
 .hero-stat {
   flex: 1;
-  padding: 32px 64px !important;
+  padding: 22px 32px !important;
   border-right: 1px solid rgba(71,17,50,0.12) !important;
   border-bottom: 1px solid rgba(71,17,50,0.12) !important;
   display: flex;
@@ -583,20 +583,20 @@ section { padding: 104px 64px; }
 
 /* ─── MID MARKET ─── */
 .midmarket-section {
-  background: var(--plum);
+  background: #3a0e26;
 }
 
 .midmarket-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1px;
-  background: rgba(243,237,227,0.1);
+  background: rgba(255,255,255,0.08);
   margin-top: 60px;
-  border: 1px solid rgba(243,237,227,0.1);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .midmarket-card {
-  background: var(--plum);
+  background: #3a0e26;
   padding: 36px 28px;
 }
 
@@ -867,29 +867,34 @@ footer {
   display: none;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
-  width: 36px;
-  height: 36px;
-  background: none;
-  border: none;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  background: rgba(243,237,227,0.1);
+  border: 1px solid rgba(243,237,227,0.2);
+  border-radius: 6px;
   cursor: pointer;
-  padding: 4px;
+  padding: 10px;
   z-index: 301;
+  transition: background 0.2s;
 }
+.nav-hamburger:hover { background: rgba(243,237,227,0.18); }
 .nav-hamburger span {
   display: block;
   height: 2px;
-  background: var(--plum);
+  width: 100%;
+  background: rgba(243,237,227,0.9);
   border-radius: 2px;
   transition: all 0.28s ease;
   transform-origin: center;
 }
-.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open { background: rgba(243,237,227,0.15); }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 @media (max-width: 900px) {
-  nav { padding: 0 24px; position: relative; }
+  nav { padding: 0 20px; height: 68px; }
   .nav-hamburger { display: flex; }
   .nav-links {
     display: none;
@@ -897,24 +902,27 @@ footer {
     top: 68px;
     left: 0;
     right: 0;
-    background: rgba(245,240,232,0.98);
-    backdrop-filter: blur(16px);
+    background: rgba(60,8,36,0.97);
+    backdrop-filter: blur(20px);
     flex-direction: column;
     gap: 0;
-    padding: 12px 0 20px;
-    border-bottom: 1px solid var(--border);
+    padding: 8px 0 24px;
+    border-bottom: 1px solid rgba(243,237,227,0.1);
     z-index: 200;
-    box-shadow: 0 8px 32px rgba(71,17,50,0.08);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
   }
   .nav-links.open { display: flex; }
-  .nav-links li { border-bottom: 1px solid rgba(71,17,50,0.06); }
+  .nav-links li { border-bottom: 1px solid rgba(243,237,227,0.07); }
+  .nav-links li:last-child { border-bottom: none; }
   .nav-links a {
     display: block;
-    padding: 14px 28px;
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
+    padding: 16px 24px;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    color: rgba(243,237,227,0.75) !important;
   }
-  .nav-cta { font-size: 0.78rem; padding: 8px 18px; }
+  .nav-links a:hover { color: rgba(243,237,227,1) !important; background: rgba(243,237,227,0.05); }
+  .nav-cta { font-size: 0.85rem; padding: 10px 20px; }
 }
 
 @media (max-width: 768px) {
@@ -1244,8 +1252,8 @@ footer {
   .outcome-metric-num{font-size:1.75rem!important}
   .jstage-name{font-size:.88rem!important}
   .hero-stat-num{font-size:1rem!important}
-  nav{height:52px!important}
-  .nav-links{top:52px!important}
+  nav{height:60px!important}
+  .nav-links{top:60px!important}
 }
 
 /* Cream nav and hero refresh */
@@ -1263,68 +1271,117 @@ nav {
   color: var(--cream) !important;
 }
 .nav-hamburger span { background: var(--plum) !important; }
+/* ── HERO: 2-col left-text right-image ── */
 .hero {
   background: var(--cream) !important;
   display: grid !important;
-  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.82fr);
-  gap: 56px;
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-rows: 1fr auto !important;
+  min-height: 100vh !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
 }
 .hero-noise,
 .hero-glow { display: none !important; }
-.hero-content { max-width: 720px; }
+
+.hero-content {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  padding: 140px 56px 48px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 100% !important;
+  align-self: center !important;
+}
+
+.hero-media {
+  grid-column: 2 !important;
+  grid-row: 1 / 3 !important;
+  overflow: hidden !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  aspect-ratio: unset !important;
+  position: relative !important;
+  min-height: 100vh !important;
+}
+.hero-media img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Stat bar spans full width under both columns */
+.hero-stat-bar {
+  grid-column: 1 / -1 !important;
+  grid-row: 2 !important;
+  display: flex !important;
+  position: relative !important;
+  left: auto !important; right: auto !important; bottom: auto !important;
+  width: 100% !important;
+  margin: 0 !important;
+  border-top: 1px solid rgba(71,17,50,0.12) !important;
+  background: var(--cream) !important;
+  z-index: 2 !important;
+}
+.hero-stat { border-right: 1px solid rgba(71,17,50,0.1) !important; }
+
 .hero-eyebrow,
 .hero-sub,
-.hero-stat-label { color: rgba(71,17,50,0.62) !important; }
+.hero-stat-label { color: rgba(71,17,50,0.65) !important; }
 .hero-eyebrow::before { background: rgba(71,17,50,0.28) !important; }
 .hero h1,
 .hero-stat-num { color: var(--plum) !important; }
 .hero h1 em { color: var(--plum-mid) !important; }
-.btn-primary {
-  background: var(--plum) !important;
-  color: var(--cream) !important;
-}
-.btn-ghost {
-  color: var(--plum) !important;
-  border-color: rgba(71,17,50,0.22) !important;
-}
+.btn-primary { background: var(--plum) !important; color: var(--cream) !important; }
+.btn-ghost { color: var(--plum) !important; border-color: rgba(71,17,50,0.22) !important; }
 .hero-actions { margin-bottom: 0 !important; }
-.hero-media {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid rgba(71,17,50,0.14);
-  box-shadow: 0 24px 70px rgba(71,17,50,0.14);
-}
-.hero-media img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-.hero-stat-bar {
-  position: relative !important;
-  left: auto !important;
-  right: auto !important;
-  bottom: auto !important;
-  grid-column: 1 / -1;
-  border-top: 1px solid rgba(71,17,50,0.12) !important;
-  background: rgba(255,255,255,0.42);
-}
-.hero-stat { border-right: 1px solid rgba(71,17,50,0.1) !important; }
 .wave-plum-to-white,
 .wave-plum-to-cream { background: var(--cream) !important; }
-@media (max-width: 900px) {
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
   .hero {
     grid-template-columns: 1fr !important;
-    gap: 28px !important;
+    grid-template-rows: 55vw auto auto !important;
+    min-height: auto !important;
   }
   .hero-media {
-    aspect-ratio: 16 / 10;
-    max-height: 320px;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    height: 55vw !important;
+    min-height: 240px !important;
+    max-height: 420px !important;
+    width: 100% !important;
   }
+  .hero-media img {
+    object-position: center top !important;
+  }
+  .hero-content {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    padding: 40px 20px 32px !important;
+  }
+  .hero-stat-bar {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+  }
+  .hero-stat { padding: 18px 12px !important; flex: 1 !important; text-align: center !important; }
+  .hero-stat-num { font-size: 1.1rem !important; }
+  .hero-stat-label { font-size: 0.6rem !important; }
+}
+
+@media (max-width: 900px) {
   .nav-links {
     background: rgba(243,237,227,0.98) !important;
     border-bottom: 1px solid rgba(71,17,50,0.12) !important;
@@ -1396,19 +1453,7 @@ body.nav-lock { overflow: hidden; }
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="index.html" class="logo">Nexivant</a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="nexivant-industries.html">Industries</a></li>
-    <li><a href="nexivant-solutions.html">Our Solutions</a></li>
-    <li><a href="nexivant-vision.html">Our Vision</a></li>
-    <li><a href="nexivant-contact.html">Contact Us</a></li>
-  </ul>
-  <a href="nexivant-contact.html" class="nav-cta">Talk to Us</a>
-  <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<div id="shared-nav"></div>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -1417,8 +1462,7 @@ body.nav-lock { overflow: hidden; }
   <div class="hero-content">
     <div class="hero-eyebrow">AI Integration for Growing Businesses</div>
     <h1>
-      AI is already inside your<br>
-      competitor's operations.<br>
+      AI is already inside your competitor's operations.<br>
       <em>The gap is growing.</em>
     </h1>
     <p class="hero-sub">
@@ -1615,7 +1659,7 @@ body.nav-lock { overflow: hidden; }
     </div>
   </div>
 </section>
-<div class="wave wave-white-to-plum"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#471132"/></svg></div>
+<div class="wave wave-white-to-plum"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#3a0e26"/></svg></div>
 
 <!-- SECTION 6 — BUILT FOR GROWING CLINICS -->
 <section class="midmarket-section on-plum">
@@ -1723,35 +1767,7 @@ body.nav-lock { overflow: hidden; }
 <div style="background:var(--plum)"><svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none" style="display:block;width:100%;margin-bottom:-1px"><path d="M0 0C240 80 480 80 720 40C960 0 1200 80 1440 40V80H0V0Z" fill="#f3ede3"/></svg></div>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-brand">Nexivant</div>
-      <p class="footer-brand-sub">A Backend Operating System for Modern Clinics</p>
-    </div>
-    <div>
-      <span class="footer-col-label">Contact Us</span>
-      <ul class="footer-contact-list">
-        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2.5A1.5 1.5 0 013.5 1h1.236a.5.5 0 01.474.342l.966 2.9a.5.5 0 01-.115.525l-1.06 1.06a7.014 7.014 0 003.172 3.172l1.06-1.06a.5.5 0 01.525-.115l2.9.966A.5.5 0 0113 9.264V10.5A1.5 1.5 0 0111.5 12C5.701 12 1 7.299 1 1.5" stroke="#471132" stroke-width="1.2" stroke-linecap="round"/></svg> +91 9833943177</li>
-        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="#471132" stroke-width="1.2"/><path d="M1 4l6 4 6-4" stroke="#471132" stroke-width="1.2" stroke-linecap="round"/></svg> chirag@navighealth.com</li>
-        <li class="footer-city">Navi Mumbai</li>
-      </ul>
-    </div>
-    <div>
-      <span class="footer-col-label">Quick Links</span>
-      <ul class="footer-quick-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="nexivant-solutions.html">Our Solutions</a></li>
-        <li><a href="nexivant-industries.html">We Work With</a></li>
-        <li><a href="nexivant-vision.html">Our Vision</a></li>
-        <li><a href="nexivant-contact.html">Contact Us</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p class="footer-copy">© 2025 Suvira Health. All rights reserved.</p>
-  </div>
-</footer>
+<div id="shared-footer"></div>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
@@ -1813,5 +1829,6 @@ body.nav-lock { overflow: hidden; }
   else initMobileNav();
 })();
 </script>
+<script src="assets/shared.js"></script>
 </body>
 </html>

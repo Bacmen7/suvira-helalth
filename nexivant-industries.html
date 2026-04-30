@@ -25,20 +25,20 @@ html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--cream);color:var(--plum);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
 /* ── NAV ── */
-nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 64px;height:68px;background:rgba(71,17,50,0.97);backdrop-filter:blur(14px);border-bottom:1px solid rgba(243,237,227,0.1)}
-.logo{font-family:var(--sans);font-size:1.35rem;font-weight:700;color:var(--text-on-plum);text-decoration:none;letter-spacing:0.01em}
-.nav-links{display:flex;gap:36px;list-style:none}
-.nav-links a{font-size:0.78rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-on-plum-muted);text-decoration:none;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--text-on-plum)}
-.nav-cta{background:var(--cream);color:var(--plum);font-size:0.78rem;font-weight:500;padding:9px 22px;border-radius:4px;text-decoration:none;transition:background .2s}
-.nav-cta:hover{background:#fff}
+nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 72px;height:80px;background:rgba(243,237,227,0.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(71,17,50,0.12)}
+.logo{font-family:var(--sans);font-size:1.65rem;font-weight:700;color:var(--plum);text-decoration:none;letter-spacing:0.01em}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{font-size:0.88rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(71,17,50,0.68);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--plum)}
+.nav-cta{background:var(--plum);color:var(--cream);font-size:0.88rem;font-weight:600;padding:12px 28px;border-radius:4px;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:#5a1a40}
 
 /* ── SHARED UTILITIES ── */
 .bg-c{background:var(--cream)} .bg-w{background:var(--white)} .bg-m{background:var(--maroon)}
 .pad{padding:88px 72px} .pad-md{padding:68px 72px} .pad-sm{padding:48px 72px}
 .sl{font-family:'DM Sans',system-ui,sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:14px}
 .sh{font-family:p22-mackinac-pro,"P22 Mackinac Pro",Georgia,serif;font-size:clamp(1.9rem,3vw,2.6rem);font-weight:500;line-height:1.2;color:var(--maroon);margin-bottom:20px}
-.sb{font-family:'DM Sans',system-ui,sans-serif;font-size:1rem;font-weight:400;line-height:1.7;color:var(--muted)}
+.sb{font-family:'DM Sans',system-ui,sans-serif;font-size:1.125rem;font-weight:400;line-height:1.625;color:var(--muted)}
 .sep{border:none;border-top:1px solid var(--border)}
 .ic{width:64px;height:64px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .ic svg{width:27px;height:27px}
@@ -124,8 +124,8 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .tech-card-icon{width:44px;height:44px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;margin-bottom:20px;flex-shrink:0}
 .tech-card-icon svg{width:18px;height:18px}
 .tech-card-label{font-size:.65rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:10px}
-.tech-card-title{font-family:var(--serif);font-size:1rem;font-weight:500;color:var(--maroon);margin-bottom:12px;line-height:1.35}
-.tech-card-text{font-size:.9rem;font-weight:400;line-height:1.7;color:var(--muted);flex:1}
+.tech-card-title{font-family:var(--serif);font-size:1.2rem;font-weight:500;color:var(--maroon);margin-bottom:12px;line-height:1.35}
+.tech-card-text{font-size:1.125rem;font-weight:400;line-height:1.625;color:var(--muted);flex:1}
 .tech-tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
 .tech-pill{font-size:.72rem;font-weight:400;color:rgba(71,17,50,0.6);background:rgba(30,127,127,0.07);border:none;border-radius:3px;padding:4px 10px}
 .tech-note{margin-top:36px;padding:24px 32px;background:rgba(30,127,127,0.06);border-left:3px solid var(--teal);font-size:.95rem;font-weight:400;line-height:1.75;color:var(--muted)}
@@ -144,18 +144,18 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
    SECTION 6: INDUSTRY ACCORDIONS
 ───────────────────────────────────────────── */
 .ind-header{text-align:center;max-width:600px;margin:0 auto 44px}
-.ind-nav{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:36px}
-.ind-nav-btn{background:var(--white);border:1.5px solid var(--border);border-radius:22px;padding:8px 18px;font-size:.79rem;font-weight:500;color:var(--muted);cursor:pointer;transition:all .18s;font-family:var(--sans)}
-.ind-nav-btn:hover{color:var(--maroon);border-color:rgba(74,25,66,.3)}
-.ind-nav-btn.active{background:var(--maroon);color:#fff;border-color:var(--maroon)}
+.ind-nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.ind-nav-btn{background:var(--white);border:1.5px solid var(--border);border-radius:24px;padding:10px 22px;font-size:.85rem;font-weight:500;color:var(--muted);cursor:pointer;transition:all .2s;font-family:var(--sans)}
+.ind-nav-btn:hover{color:var(--maroon);border-color:rgba(74,25,66,.35);background:var(--cream-lt)}
+.ind-nav-btn.active{background:var(--maroon);color:#fff;border-color:var(--maroon);box-shadow:0 2px 12px rgba(71,17,50,.2)}
 
 /* accordion */
 .acc-list{border:1px solid var(--border);border-radius:12px;overflow:hidden}
 .acc-item{border-bottom:1px solid var(--border)}
 .acc-item:last-child{border-bottom:none}
-.acc-btn{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:18px;padding:22px 28px;text-align:left;transition:background .18s}
+.acc-btn{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:20px;padding:26px 32px;text-align:left;transition:background .2s}
 .acc-btn:hover{background:var(--cream-lt)}
-.acc-btn.open{background:var(--cream);border-bottom:1px solid var(--border)}
+.acc-btn.open{background:linear-gradient(135deg,var(--cream) 0%,rgba(243,237,227,0.6) 100%);border-bottom:1px solid var(--border)}
 .acc-btn-icon{width:46px;height:46px;border-radius:50%;background:var(--teal-bg);border:1px solid rgba(30,127,127,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .22s,border-color .22s}
 .acc-btn.open .acc-btn-icon{background:var(--teal);border-color:var(--teal)}
 .acc-btn-icon svg{width:20px;height:20px}
@@ -165,8 +165,8 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 .acc-btn.open .acc-btn-icon svg circle{stroke:#fff}
 .acc-meta{flex:1}
 .acc-meta-label{font-family:'DM Sans',system-ui,sans-serif;font-size:.67rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:4px}
-.acc-meta-name{font-family:p22-mackinac-pro,"P22 Mackinac Pro",Georgia,serif;font-size:1.3rem;font-weight:500;color:var(--maroon);display:block;margin-bottom:4px;line-height:1.3}
-.acc-meta-sub{font-family:'DM Sans',system-ui,sans-serif;font-size:.82rem;font-weight:400;color:var(--muted)}
+.acc-meta-name{font-family:p22-mackinac-pro,"P22 Mackinac Pro",Georgia,serif;font-size:1.5rem;font-weight:500;color:var(--maroon);display:block;margin-bottom:6px;line-height:1.25}
+.acc-meta-sub{font-family:'DM Sans',system-ui,sans-serif;font-size:1rem;font-weight:400;color:var(--muted)}
 .acc-chev{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s,border-color .22s}
 .acc-chev svg{width:11px;height:11px}
 .acc-btn.open .acc-chev{transform:rotate(180deg);border-color:var(--teal)}
@@ -177,38 +177,40 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 @keyframes ain{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 
 /* reality strip */
-.reality{padding:22px 28px;background:var(--cream);border-bottom:1px solid var(--border);display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
-.reality-label{font-size:.66rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);white-space:nowrap;padding-top:2px;display:block}
-.reality-text{font-size:18px;font-weight:400;line-height:29px;color:var(--muted)}
-.reality-text strong{color:var(--maroon);font-weight:500}
+.reality{padding:32px 36px;background:linear-gradient(135deg,var(--cream) 0%,rgba(243,237,227,0.5) 100%);border-bottom:1px solid var(--border);display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+.reality-label-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;padding-top:3px}
+.reality-label{font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);white-space:nowrap;display:block}
+.reality-icon{width:36px;height:36px;border-radius:8px;background:rgba(30,127,127,.1);border:1px solid rgba(30,127,127,.2);display:flex;align-items:center;justify-content:center}
+.reality-text{font-size:1.05rem;font-weight:400;line-height:1.75;color:var(--muted)}
+.reality-text strong{color:var(--maroon);font-weight:600}
 
 /* use cases */
-.uc-wrap{padding:26px 28px 0}
-.uc-section-label{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:16px;display:block}
-.uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.uc-card{border:1px solid var(--border);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s}
-.uc-card:hover{border-color:rgba(74,25,66,.22)}
-.uc-top{padding:18px 16px 14px}
-.uc-num{font-size:.65rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--teal);margin-bottom:7px;display:block}
-.uc-title{font-family:var(--serif);font-size:.95rem;font-weight:500;color:var(--maroon);line-height:1.3;margin-bottom:9px}
-.uc-body{font-size:18px;font-weight:400;line-height:29px;color:var(--muted)}
-.uc-div{height:1px;background:var(--border);margin:0 16px}
-.uc-outcome{padding:11px 16px;background:var(--teal-bg);display:flex;gap:7px;align-items:flex-start;flex:1}
-.uc-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:5px}
-.uc-outcome-text{font-size:18px;font-weight:400;color:var(--teal-lt);line-height:29px}
+.uc-wrap{padding:32px 36px 0}
+.uc-section-label{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:20px;display:block}
+.uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.uc-card{border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s;background:#fff}
+.uc-card:hover{border-color:rgba(30,127,127,.3);box-shadow:0 4px 20px rgba(30,127,127,.08)}
+.uc-top{padding:22px 20px 16px}
+.uc-num{font-size:.63rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:9px;display:block}
+.uc-title{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--maroon);line-height:1.3;margin-bottom:12px}
+.uc-body{font-size:1rem;font-weight:400;line-height:1.7;color:var(--muted)}
+.uc-div{height:1px;background:var(--border);margin:0 20px}
+.uc-outcome{padding:14px 20px;background:rgba(30,127,127,.06);display:flex;gap:10px;align-items:flex-start;flex:1}
+.uc-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:6px}
+.uc-outcome-text{font-size:.95rem;font-weight:500;color:var(--teal);line-height:1.6}
 
 /* tier table */
-.tier-wrap{padding:18px 28px 28px}
-.tier-section-label{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;display:block;margin-top:4px}
-.tier-table{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
-.tier-table thead th{padding:9px 14px;background:var(--maroon);color:#fff;font-size:.71rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-align:left}
-.tier-table thead th:first-child{width:30%}
-.tier-table tbody tr{border-bottom:1px solid var(--border)}
+.tier-wrap{padding:28px 36px 36px}
+.tier-section-label{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:16px;display:block;margin-top:4px}
+.tier-table{width:100%;border-collapse:collapse;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.tier-table thead th{padding:12px 18px;background:var(--maroon);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;text-align:left}
+.tier-table thead th:first-child{width:28%}
+.tier-table tbody tr{border-bottom:1px solid var(--border);transition:background .15s}
 .tier-table tbody tr:last-child{border-bottom:none}
-.tier-table tbody tr:hover{background:var(--cream-lt)}
-.tier-table td{padding:11px 14px;font-family:var(--sans);font-size:18px;line-height:29px;vertical-align:top;font-weight:400}
-.tier-table td:first-child{font-weight:500;color:var(--maroon)}
-.tier-table td:last-child{font-weight:300;color:var(--muted)}
+.tier-table tbody tr:hover{background:rgba(30,127,127,.04)}
+.tier-table td{padding:16px 18px;font-family:var(--sans);font-size:1rem;line-height:1.65;vertical-align:top;font-weight:400}
+.tier-table td:first-child{font-weight:600;color:var(--maroon);font-size:.95rem}
+.tier-table td:last-child{font-weight:400;color:var(--muted)}
 
 /* ─────────────────────────────────────────────
    CTA
@@ -229,17 +231,17 @@ nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-co
 footer{background:var(--cream);padding:72px 72px 0}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:64px;padding-bottom:56px}
 .footer-brand{font-family:var(--serif);font-size:1.6rem;font-weight:600;color:var(--plum);letter-spacing:.01em;line-height:1.1;margin-bottom:14px}
-.footer-brand-sub{font-family:var(--sans);font-size:.9rem;font-weight:400;color:rgba(71,17,50,0.55);line-height:1.6;max-width:280px}
-.footer-col-label{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);margin-bottom:20px;display:block}
+.footer-brand-sub{font-family:var(--sans);font-size:1rem;font-weight:400;color:rgba(71,17,50,0.55);line-height:1.65;max-width:280px}
+.footer-col-label{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);margin-bottom:20px;display:block}
 .footer-contact-list{list-style:none;display:flex;flex-direction:column;gap:12px}
-.footer-contact-list li{display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:.88rem;font-weight:400;color:rgba(71,17,50,0.65)}
+.footer-contact-list li{display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:1rem;font-weight:400;color:rgba(71,17,50,0.65)}
 .footer-contact-list li svg{flex-shrink:0;opacity:.5}
-.footer-contact-list .footer-city{padding-left:26px;color:rgba(71,17,50,0.5);font-size:.85rem}
+.footer-contact-list .footer-city{padding-left:26px;color:rgba(71,17,50,0.5);font-size:.92rem}
 .footer-quick-links{list-style:none;display:flex;flex-direction:column;gap:12px}
-.footer-quick-links a{font-family:var(--sans);font-size:.88rem;font-weight:400;color:rgba(71,17,50,0.65);text-decoration:none;transition:color .2s}
+.footer-quick-links a{font-family:var(--sans);font-size:1rem;font-weight:400;color:rgba(71,17,50,0.65);text-decoration:none;transition:color .2s}
 .footer-quick-links a:hover{color:var(--plum)}
 .footer-bottom{border-top:1px solid rgba(71,17,50,0.15);padding:22px 0;display:flex;align-items:center;justify-content:center}
-.footer-copy{font-family:var(--sans);font-size:.78rem;font-weight:400;color:rgba(71,17,50,0.45)}
+.footer-copy{font-family:var(--sans);font-size:.85rem;font-weight:400;color:rgba(71,17,50,0.45)}
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    NEXIVANT MOBILE SYSTEM — ALL 5 PAGES
@@ -551,44 +553,65 @@ nav {
 .nav-hamburger span { background: var(--plum) !important; }
 .pg-header {
   background: var(--cream) !important;
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.72fr);
-  gap: 52px;
-  align-items: center;
-  border-bottom: 1px solid rgba(71,17,50,0.1) !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-rows: 1fr !important;
+  min-height: 100vh !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
+  border-bottom: none !important;
 }
-.pg-header::before { opacity: 0.45; }
-.pg-header > :not(.pg-header-image) { grid-column: 1; }
+.pg-header::before { display: none !important; }
+.pg-header-text {
+  padding: 60px 56px 60px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-column: 1;
+  grid-row: 1;
+}
 .pg-header .sl { color: var(--teal) !important; }
 .pg-header h1 { color: var(--maroon) !important; }
 .pg-header h1 em { color: var(--maroon-md) !important; }
 .pg-header p { color: var(--muted) !important; }
 .pg-header-image {
-  grid-column: 2;
-  grid-row: 1 / span 3;
-  aspect-ratio: 4 / 5;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid rgba(74,25,66,0.14);
-  box-shadow: 0 22px 60px rgba(74,25,66,0.12);
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  overflow: hidden !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  aspect-ratio: unset !important;
+  align-self: stretch !important;
+  min-height: 100vh !important;
 }
 .pg-header-image img {
   width: 100%;
   height: 100%;
+  min-height: 100vh !important;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 .wave.bg-m { background: var(--cream) !important; }
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .pg-header {
     grid-template-columns: 1fr !important;
-    gap: 28px !important;
+    grid-template-rows: 280px auto !important;
+    min-height: auto !important;
   }
   .pg-header-image {
-    grid-column: 1;
-    grid-row: auto;
-    aspect-ratio: 16 / 10;
-    max-height: 320px;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    min-height: 280px !important;
+    height: 280px !important;
+  }
+  .pg-header-image img { min-height: 280px !important; }
+  .pg-header-text {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    padding: 40px 20px 32px !important;
   }
   .nav-links {
     background: rgba(243,237,227,0.98) !important;
@@ -708,26 +731,17 @@ body.nav-lock { overflow: hidden; }
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="index.html" class="logo">Nexivant</a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="nexivant-industries.html" class="active">Industries</a></li>
-    <li><a href="nexivant-solutions.html">Our Solutions</a></li>
-    <li><a href="nexivant-vision.html">Our Vision</a></li>
-    <li><a href="nexivant-contact.html">Contact Us</a></li>
-  </ul>
-  <a href="nexivant-contact.html" class="nav-cta">Talk to Us</a>
-
-  <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
-</nav>
+<div id="shared-nav"></div>
 
 <!-- PAGE HEADER -->
 <div class="pg-header">
-  <span class="sl">Industries We Work With</span>
-  <h1>We work inside your business.<br><em>Not on the outside looking in.</em></h1>
-  <p>AI is not industry-agnostic. The tools may be the same across sectors, but the workflows, the people, the data, and the outcomes are entirely different. We do not bring a standard programme to any industry. We bring a combination of deep AI capability and genuine domain understanding — and we design every engagement from your operational reality, not from a product brochure.</p>
+  <div class="pg-header-text">
+    <span class="sl">Industries We Work With</span>
+    <h1>We work inside your business.<br><em>Not on the outside looking in.</em></h1>
+    <p>AI is not industry-agnostic. The tools may be the same across sectors, but the workflows, the people, the data, and the outcomes are entirely different. We do not bring a standard programme to any industry. We bring a combination of deep AI capability and genuine domain understanding — and we design every engagement from your operational reality, not from a product brochure.</p>
+  </div>
   <div class="pg-header-image">
-<img src="assets/hero2.png"  alt="Healthcare team using digital systems">
+    <img src="assets/hero2.png" alt="Healthcare team using digital systems">
   </div>
 </div>
 
@@ -994,7 +1008,10 @@ body.nav-lock { overflow: hidden; }
       </button>
       <div class="acc-body">
         <div class="reality">
-          <span class="reality-label">The Reality</span>
+          <div class="reality-label-wrap">
+            <span class="reality-label">The Reality</span>
+            <div class="reality-icon"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#1E7F7F" stroke-width="1.4"/><path d="M8 5v3.5l2 2" stroke="#1E7F7F" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
           <p class="reality-text">Healthcare organisations carry some of the highest administrative burden of any sector. <strong>A significant portion of clinical and non-clinical staff time goes into documentation, reporting, and coordination that does not directly involve patient care.</strong> AI awareness in healthcare is high. Actual implementation is low — because most vendors do not understand ward workflows, shift handovers, or why a 40-field discharge form exists. We do. We start with the lowest-risk, highest-return workflows — documentation, communication, administrative coordination — and build trust through measurable outcomes before moving deeper into clinical applications.</p>
         </div>
         <div class="uc-wrap">
@@ -1059,7 +1076,10 @@ body.nav-lock { overflow: hidden; }
       </button>
       <div class="acc-body">
         <div class="reality">
-          <span class="reality-label">The Reality</span>
+          <div class="reality-label-wrap">
+            <span class="reality-label">The Reality</span>
+            <div class="reality-icon"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#1E7F7F" stroke-width="1.4"/><path d="M8 5v3.5l2 2" stroke="#1E7F7F" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
           <p class="reality-text">Professional services firms run on two things — expertise and time. <strong>Billable hours are the unit of value. Anything that consumes time without directly contributing to client output is a cost.</strong> Documentation, research, report preparation, compliance checklists, client communication — essential but time-intensive, sitting in the way of the work that generates revenue. The hesitation is also real: a CA firm cannot afford to send a client a report with an AI-generated error. Our approach starts with supervised AI assistance — where the professional remains fully in control — and only expands once trust in the output is established through consistent performance.</p>
         </div>
         <div class="uc-wrap">
@@ -1124,7 +1144,10 @@ body.nav-lock { overflow: hidden; }
       </button>
       <div class="acc-body">
         <div class="reality">
-          <span class="reality-label">The Reality</span>
+          <div class="reality-label-wrap">
+            <span class="reality-label">The Reality</span>
+            <div class="reality-icon"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#1E7F7F" stroke-width="1.4"/><path d="M8 5v3.5l2 2" stroke="#1E7F7F" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
           <p class="reality-text">Agencies and outsourcing firms operate under constant pressure — client expectations are high, margins are tight, and the question is always the same: <strong>how do you do more without proportionally growing headcount?</strong> Most agencies are approaching AI wrong — giving individual team members tool access without a structured approach to how those tools fit into delivery workflows. The result is inconsistent quality, unpredictable output, and a team that is partly using AI and partly not — which creates more coordination problems than it solves. What agencies need is AI embedded systematically into delivery, not scattered across individual users without a common approach.</p>
         </div>
         <div class="uc-wrap">
@@ -1189,7 +1212,10 @@ body.nav-lock { overflow: hidden; }
       </button>
       <div class="acc-body">
         <div class="reality">
-          <span class="reality-label">The Reality</span>
+          <div class="reality-label-wrap">
+            <span class="reality-label">The Reality</span>
+            <div class="reality-icon"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#1E7F7F" stroke-width="1.4"/><path d="M8 5v3.5l2 2" stroke="#1E7F7F" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
           <p class="reality-text">Manufacturing is often underestimated as an AI opportunity. <strong>The operational complexity of a manufacturing business generates significant documentation, communication, and reporting burden every single day</strong> — procurement managing vendor relationships across dozens of suppliers, production producing shift reports and quality logs, supply chain tracking inventory and coordinating logistics. Much of this is still done manually or through systems that do not talk to each other. We design for the operations head or plant manager who is deeply practical, does not have time for technology that sounds good in a boardroom and fails on the floor, and will only commit to something they can see working in their specific context.</p>
         </div>
         <div class="uc-wrap">
@@ -1254,7 +1280,10 @@ body.nav-lock { overflow: hidden; }
       </button>
       <div class="acc-body">
         <div class="reality">
-          <span class="reality-label">The Reality</span>
+          <div class="reality-label-wrap">
+            <span class="reality-label">The Reality</span>
+            <div class="reality-icon"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#1E7F7F" stroke-width="1.4"/><path d="M8 5v3.5l2 2" stroke="#1E7F7F" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          </div>
           <p class="reality-text">Hospitality runs on experience — but delivering a consistent, high-quality guest experience at scale requires enormous coordination, communication, and operational effort, <strong>much of which is still handled manually.</strong> The sector is highly competitive and increasingly review-driven: a single negative guest experience surfaces publicly, and response time to guest queries directly affects conversion. AI creates real, immediate value in hospitality not by replacing the human warmth of the sector but by removing the operational friction that gets in the way of it. The front desk team spending two hours a day on standard booking queries could spend those two hours on genuine guest interaction instead.</p>
         </div>
         <div class="uc-wrap">
@@ -1320,35 +1349,7 @@ body.nav-lock { overflow: hidden; }
 
 <div style="background:var(--plum)"><svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none" style="display:block;width:100%;margin-bottom:-1px"><path d="M0 0C240 80 480 80 720 40C960 0 1200 80 1440 40V80H0V0Z" fill="#f3ede3"/></svg></div>
 
-<footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-brand">Nexivant</div>
-      <p class="footer-brand-sub">A Backend Operating System for Modern Clinics</p>
-    </div>
-    <div>
-      <span class="footer-col-label">Contact Us</span>
-      <ul class="footer-contact-list">
-        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2.5A1.5 1.5 0 013.5 1h1.236a.5.5 0 01.474.342l.966 2.9a.5.5 0 01-.115.525l-1.06 1.06a7.014 7.014 0 003.172 3.172l1.06-1.06a.5.5 0 01.525-.115l2.9.966A.5.5 0 0113 9.264V10.5A1.5 1.5 0 0111.5 12C5.701 12 1 7.299 1 1.5" stroke="#471132" stroke-width="1.2" stroke-linecap="round"/></svg> +91 9833943177</li>
-        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="#471132" stroke-width="1.2"/><path d="M1 4l6 4 6-4" stroke="#471132" stroke-width="1.2" stroke-linecap="round"/></svg> chirag@navighealth.com</li>
-        <li class="footer-city">Navi Mumbai</li>
-      </ul>
-    </div>
-    <div>
-      <span class="footer-col-label">Quick Links</span>
-      <ul class="footer-quick-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="nexivant-solutions.html">Our Solutions</a></li>
-        <li><a href="nexivant-industries.html">We Work With</a></li>
-        <li><a href="nexivant-vision.html">Our Vision</a></li>
-        <li><a href="nexivant-contact.html">Contact Us</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p class="footer-copy">© 2025 Suvira Health. All rights reserved.</p>
-  </div>
-</footer>
+<div id="shared-footer"></div>
 
 <script>
 function toggleAcc(btn) {
@@ -1422,5 +1423,6 @@ document.querySelectorAll('.fi').forEach(el => obs.observe(el));
   else initMobileNav();
 })();
 </script>
+<script src="assets/shared.js"></script>
 </body>
 </html>

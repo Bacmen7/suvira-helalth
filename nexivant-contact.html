@@ -17,12 +17,12 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--cream);color:var(--plum);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 64px;height:68px;background:rgba(71,17,50,0.97);backdrop-filter:blur(14px);border-bottom:1px solid rgba(243,237,227,0.1)}
-.logo{font-size:1.35rem;font-weight:700;color:var(--text-on-plum);text-decoration:none;letter-spacing:0.01em}
-.nav-links{display:flex;gap:36px;list-style:none}
-.nav-links a{font-size:.78rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--text-on-plum-muted);text-decoration:none;transition:color .2s}
+nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 72px;height:80px;background:rgba(71,17,50,0.97);backdrop-filter:blur(14px);border-bottom:1px solid rgba(243,237,227,0.1)}
+.logo{font-size:1.65rem;font-weight:700;color:var(--text-on-plum);text-decoration:none;letter-spacing:0.01em}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--text-on-plum-muted);text-decoration:none;transition:color .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--text-on-plum)}
-.nav-cta{background:var(--cream);color:var(--plum);font-size:.78rem;font-weight:500;padding:9px 22px;border-radius:4px;text-decoration:none;transition:background .2s}
+.nav-cta{background:var(--cream);color:var(--plum);font-size:.88rem;font-weight:600;padding:12px 28px;border-radius:4px;text-decoration:none;transition:background .2s}
 .nav-cta:hover{background:#fff}
 .hero{background:var(--plum);padding:112px 64px 104px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(243,237,227,.018) 0,rgba(243,237,227,.018) 1px,transparent 1px,transparent 80px);pointer-events:none}
@@ -516,27 +516,14 @@ body.nav-lock { overflow: hidden; }
 </style>
 </head>
 <body>
-<nav>
-  <a href="index.html" class="logo">Nexivant</a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="nexivant-industries.html">Industries</a></li>
-    <li><a href="nexivant-solutions.html">Our Solutions</a></li>
-    <li><a href="nexivant-vision.html">Our Vision</a></li>
-    <li><a href="nexivant-contact.html" class="active">Contact Us</a></li>
-  </ul>
-  <a href="nexivant-contact.html" class="nav-cta">Talk to Us</a>
-
-  <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
-</nav>
+<!-- NAV -->
+<div id="shared-nav"></div>
 
 <section class="hero">
   <div class="hero-inner">
     <span class="label">Contact Nexivant</span>
     <h1>Tell us where AI needs to work <em>inside your business.</em></h1>
     <p>Share a little about your team, your industry, and the operational problem you are trying to solve. We will come back with a clear, honest view of where to start.</p>
-  </div>
-  <div class="hero-media">
-    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80" alt="Business consultation meeting">
   </div>
 </section>
 <div class="wave"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#ffffff"/></svg></div>
@@ -609,17 +596,7 @@ body.nav-lock { overflow: hidden; }
   </div>
 </section>
 
-<footer>
-  <div class="fb">Nexivant<span>We make AI work inside your business.</span></div>
-  <ul class="fl">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="nexivant-industries.html">Industries</a></li>
-    <li><a href="nexivant-solutions.html">Our Solutions</a></li>
-    <li><a href="nexivant-vision.html">Our Vision</a></li>
-    <li><a href="nexivant-contact.html">Contact Us</a></li>
-  </ul>
-  <p class="fc">&copy; 2026 Nexivant. All rights reserved.</p>
-</footer>
+<div id="shared-footer"></div>
 <script>
 (function(){
   function initMobileNav(){
@@ -663,5 +640,6 @@ body.nav-lock { overflow: hidden; }
   else initMobileNav();
 })();
 </script>
+<script src="assets/shared.js"></script>
 </body>
 </html>
