@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexivant — We make AI work inside your business.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream:        #f3ede3;
+  --cream-dark:   #ede5d8;
+  --plum:         #471132;
+  --plum-mid:     rgba(71,17,50,0.65);
+  --plum-soft:    rgba(71,17,50,0.08);
+  --plum-border:  rgba(71,17,50,0.15);
+  --white:        #ffffff;
+  --text-on-plum: rgba(243,237,227,0.92);
+  --text-on-plum-muted: rgba(243,237,227,0.55);
+  --serif: p22-mackinac-pro, "P22 Mackinac Pro", Georgia, serif;
+  --sans:  'DM Sans', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--plum);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 64px;
+  height: 68px;
+  background: rgba(71,17,50,0.97);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(243,237,227,0.1);
+}
+
+.logo {
+  font-family: var(--sans);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-on-plum);
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+.logo em {
+  font-style: normal;
+  color: rgba(243,237,227,0.5);
+  font-size: 0.75rem;
+  font-family: var(--sans);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-on-plum-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text-on-plum); }
+
+.nav-cta {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  color: var(--plum);
+  background: var(--cream);
+  text-decoration: none;
+  padding: 9px 22px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: #fff; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  background: var(--plum);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 128px 64px 100px;
+}
+
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(243,237,227,0.025) 0px,
+      rgba(243,237,227,0.025) 1px,
+      transparent 1px,
+      transparent 72px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(243,237,227,0.025) 0px,
+      rgba(243,237,227,0.025) 1px,
+      transparent 1px,
+      transparent 72px
+    );
+  pointer-events: none;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  right: -120px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(243,237,227,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(243,237,227,0.55);
+  margin-bottom: 36px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: rgba(243,237,227,0.35);
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 5.2vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1.12;
+  color: var(--text-on-plum);
+  margin-bottom: 32px;
+  letter-spacing: normal;
+}
+.hero h1 em {
+  font-style: italic;
+  color: rgba(243,237,227,0.55);
+}
+
+.hero-sub {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.625;
+  color: var(--text-on-plum-muted);
+  max-width: 560px;
+  margin-bottom: 52px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+/* ─── WAVE DIVIDERS ─── */
+.wave{display:block;width:100%;line-height:0;font-size:0;margin:0;padding:0;overflow:hidden}.wave svg{display:block;width:100%;height:auto;margin-bottom:-1px}
+.wave-plum-to-white { background: var(--plum); }
+.wave-white-to-plum { background: var(--white); }
+.wave-white-to-cream { background: var(--white); }
+.wave-cream-to-white { background: var(--cream); }
+.wave-cream-to-plum  { background: var(--cream); }
+.wave-plum-to-cream  { background: var(--plum); }
+
+.btn-primary {
+  background: var(--cream);
+  color: var(--plum);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  padding: 14px 32px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+.btn-primary:hover { background: #fff; transform: translateY(-1px); }
+
+.btn-ghost {
+  color: var(--text-on-plum-muted);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  padding: 14px 28px;
+  border: 1px solid rgba(243,237,227,0.2);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-block;
+}
+.btn-ghost:hover { color: var(--text-on-plum); border-color: rgba(243,237,227,0.45); }
+
+.hero-stat-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  display: flex;
+  border-top: 1px solid rgba(243,237,227,0.1);
+}
+.hero-stat {
+  flex: 1;
+  padding: 22px 64px;
+  border-right: 1px solid rgba(243,237,227,0.1);
+}
+.hero-stat:last-child { border-right: none; }
+.hero-stat-num {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-on-plum);
+  display: block;
+  margin-bottom: 4px;
+}
+.hero-stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-on-plum-muted);
+}
+
+/* ─── SECTION COMMONS ─── */
+section { padding: 104px 64px; }
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(71,17,50,0.45);
+  margin-bottom: 18px;
+  display: block;
+}
+.section-h {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--plum);
+  margin-bottom: 22px;
+  letter-spacing: normal;
+}
+.section-body {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.625;
+  color: rgba(71,17,50,0.65);
+  max-width: 620px;
+}
+
+/* on-plum overrides */
+.on-plum .section-label { color: rgba(243,237,227,0.45); }
+.on-plum .section-h     { color: var(--text-on-plum); }
+.on-plum .section-body  { color: var(--text-on-plum-muted); }
+
+/* ─── CONTEXT SECTION ─── */
+.context-section {
+  background: var(--white);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.context-quote {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--plum);
+  border-left: 2px solid rgba(71,17,50,0.2);
+  padding-left: 28px;
+}
+
+/* ─── WHO WE ARE ─── */
+.who-section {
+  background: var(--plum);
+  position: relative;
+  overflow: hidden;
+}
+.who-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(243,237,227,0.018) 0px,
+    rgba(243,237,227,0.018) 1px,
+    transparent 1px,
+    transparent 80px
+  );
+  pointer-events: none;
+}
+
+.who-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-top: 64px;
+}
+
+.who-pillar {
+  border-top: 1px solid rgba(243,237,227,0.12);
+  padding-top: 28px;
+}
+.who-pillar-num {
+  font-family: var(--serif);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: rgba(243,237,227,0.1);
+  display: block;
+  margin-bottom: 10px;
+}
+.who-pillar-title {
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--text-on-plum);
+  margin-bottom: 12px;
+}
+.who-pillar-text {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.625;
+  color: var(--text-on-plum-muted);
+}
+
+/* ─── TIERS / SOLUTIONS ─── */
+.tiers-section {
+  background: var(--cream);
+}
+.tiers-intro {
+  max-width: 660px;
+  margin-bottom: 72px;
+}
+
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--plum-border);
+  border: 1px solid var(--plum-border);
+}
+
+.tier-card {
+  background: var(--cream);
+  padding: 40px 30px;
+  position: relative;
+  transition: background 0.22s;
+}
+.tier-card:hover { background: var(--cream-dark); }
+
+.tier-card.highlight {
+  background: var(--plum);
+}
+.tier-card.highlight:hover { background: #5a1a40; }
+
+.tier-num {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(71,17,50,0.4);
+  letter-spacing: 0.07em;
+  margin-bottom: 16px;
+  display: block;
+}
+.tier-card.highlight .tier-num { color: rgba(243,237,227,0.4); }
+
+.tier-name {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--plum);
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+.tier-card.highlight .tier-name { color: var(--text-on-plum); }
+
+.tier-text {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.625;
+  color: rgba(71,17,50,0.65);
+}
+.tier-card.highlight .tier-text { color: var(--text-on-plum-muted); }
+
+.tier-tag {
+  display: inline-block;
+  margin-top: 22px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(71,17,50,0.5);
+  border: 1px solid var(--plum-border);
+  padding: 5px 12px;
+  border-radius: 2px;
+}
+.tier-card.highlight .tier-tag {
+  color: rgba(243,237,227,0.55);
+  border-color: rgba(243,237,227,0.2);
+}
+
+.tier-arrow {
+  position: absolute;
+  top: 40px; right: 20px;
+  font-size: 1.1rem;
+  color: rgba(71,17,50,0.12);
+}
+
+/* ─── INDUSTRIES ─── */
+.industries-section {
+  background: var(--white);
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.industry-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.industry-tile {
+  background: var(--cream);
+  border: 1px solid var(--plum-border);
+  padding: 22px 20px;
+  border-radius: 3px;
+  transition: all 0.2s;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+.industry-tile::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--plum);
+  transform: scaleX(0);
+  transition: transform 0.22s;
+  transform-origin: left;
+}
+.industry-tile:hover::after { transform: scaleX(1); }
+.industry-tile:hover { border-color: rgba(71,17,50,0.3); }
+
+.industry-tile-icon {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 12px;
+  background: var(--plum-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.industry-tile-name {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  color: var(--plum);
+  margin-bottom: 8px;
+}
+.industry-tile-sub {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(71,17,50,0.9);
+  line-height: 29px;
+}
+
+.industry-tile.wide {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+}
+.industry-tile.wide .industry-tile-icon { margin-bottom: 0; flex-shrink: 0; }
+
+/* ─── MID MARKET ─── */
+.midmarket-section {
+  background: var(--plum);
+}
+
+.midmarket-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: rgba(243,237,227,0.1);
+  margin-top: 60px;
+  border: 1px solid rgba(243,237,227,0.1);
+}
+
+.midmarket-card {
+  background: var(--plum);
+  padding: 36px 28px;
+}
+
+.midmarket-card-icon {
+  width: 38px;
+  height: 38px;
+  background: rgba(243,237,227,0.07);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.midmarket-card-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  color: var(--text-on-plum);
+  margin-bottom: 8px;
+}
+.midmarket-card-text {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 29px;
+  color: var(--text-on-plum-muted);
+}
+
+/* ─── PARTNERS ─── */
+.partners-section {
+  background: var(--cream);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.partner-callout {
+  background: var(--plum);
+  padding: 52px 44px;
+  position: relative;
+}
+.partner-callout::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 56px;
+  background: rgba(243,237,227,0.35);
+}
+
+/* ─── OUTCOME ─── */
+.outcome-section {
+  background: var(--white);
+  text-align: center;
+  padding: 120px 64px;
+}
+
+.outcome-section .section-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.outcome-section .section-label::before,
+.outcome-section .section-label::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: rgba(71,17,50,0.3);
+}
+
+.outcome-section .section-h {
+  max-width: 660px;
+  margin: 0 auto 24px;
+}
+.outcome-section .section-body {
+  max-width: 520px;
+  margin: 0 auto 64px;
+}
+
+.outcome-metrics {
+  display: flex;
+  justify-content: center;
+  gap: 64px;
+  padding-top: 60px;
+  border-top: 1px solid var(--plum-border);
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.outcome-metric-num {
+  font-family: var(--serif);
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--plum);
+  display: block;
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+.outcome-metric-label {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: rgba(71,17,50,0.45);
+  text-transform: uppercase;
+}
+
+/* ─── CLOSING CTA ─── */
+.cta-section {
+  background: var(--plum);
+  text-align: center;
+  padding: 120px 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: 'S';
+  position: absolute;
+  font-family: var(--serif);
+  font-size: 38vw;
+  font-weight: 400;
+  color: rgba(243,237,227,0.025);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.cta-section .section-h {
+  color: var(--text-on-plum);
+  max-width: 660px;
+  margin: 0 auto 20px;
+}
+.cta-section .section-h em {
+  font-style: italic;
+  color: rgba(243,237,227,0.55);
+}
+
+.cta-sub {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--text-on-plum-muted);
+  max-width: 480px;
+  margin: 0 auto 48px;
+  line-height: 1.625;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  position: relative;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--plum);
+  border-top: 1px solid rgba(243,237,227,0.08);
+  padding: 36px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  font-weight: 400;
+  color: var(--text-on-plum);
+}
+.footer-brand span {
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  font-weight: 300;
+  color: var(--text-on-plum-muted);
+  display: block;
+  margin-top: 4px;
+  letter-spacing: 0.03em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+.footer-links a {
+  font-size: 0.76rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-on-plum-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--text-on-plum); }
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--text-on-plum-muted);
+}
+
+/* ─── FADE IN ─── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.stagger-1 { transition-delay: 0.08s; }
+.stagger-2 { transition-delay: 0.18s; }
+.stagger-3 { transition-delay: 0.28s; }
+.stagger-4 { transition-delay: 0.38s; }
+@media (max-width: 1100px) {
+  nav { padding: 16px 24px; height: auto; flex-wrap: wrap; gap: 14px 20px; }
+  .nav-links { order: 3; width: 100%; flex-wrap: wrap; gap: 14px 18px; }
+  .hero, section, .outcome-section, .cta-section, footer { padding-left: 24px; padding-right: 24px; }
+  .hero { padding-top: 160px; }
+  .context-section, .industries-section, .partners-section, .who-grid, .midmarket-grid { grid-template-columns: 1fr; }
+  .tiers-grid { grid-template-columns: repeat(2, 1fr); }
+  .outcome-metrics { gap: 28px; }
+  footer { flex-wrap: wrap; gap: 18px; }
+  .footer-links { flex-wrap: wrap; gap: 14px 18px; }
+}
+
+@media (max-width: 768px) {
+  nav { align-items: flex-start; }
+  .logo { font-size: 1.2rem; }
+  .nav-links a, .nav-cta { font-size: 0.72rem; }
+  .hero { min-height: auto; padding: 176px 20px 72px; }
+  .hero h1 { font-size: clamp(2.2rem, 10vw, 3.2rem); }
+  .hero-sub, .section-body, .who-pillar-text, .tier-text, .industry-tile-sub, .midmarket-card-text, .cta-sub { font-size: 1rem; }
+  .hero-actions, .cta-actions { flex-direction: column; align-items: stretch; }
+  .hero-stat-bar { position: static; flex-direction: column; margin-top: 16px; border-top: 1px solid rgba(243,237,227,0.12); }
+  .hero-stat { padding: 18px 0; border-right: none; border-bottom: 1px solid rgba(243,237,227,0.12); }
+  .hero-stat:last-child { border-bottom: none; }
+  section, .outcome-section, .cta-section, footer { padding: 64px 20px; }
+  .tiers-grid, .industry-tiles { grid-template-columns: 1fr; }
+  .industry-tile.wide { grid-column: auto; }
+  .outcome-metrics { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  .outcome-section { text-align: left; }
+  .outcome-section .section-body, .outcome-section .section-h { margin-left: 0; margin-right: 0; max-width: none; }
+  .partner-callout { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="nexivant-homepage.html" class="logo">Nexivant</a>
+  <ul class="nav-links">
+    <li><a href="nexivant-industries.html">Industries</a></li>
+    <li><a href="nexivant-solutions.html">Our Solutions</a></li>
+    <li><a href="nexivant-vision.html">Our Vision</a></li>
+    <li><a href="nexivant-contact.html">Contact Us</a></li>
+  </ul>
+  <a href="nexivant-contact.html" class="nav-cta">Talk to Us</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-noise"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">AI Integration for Growing Businesses</div>
+    <h1>
+      AI is already inside your<br>
+      competitor's operations.<br>
+      <em>The gap is growing.</em>
+    </h1>
+    <p class="hero-sub">
+      Nexivant is not a technology company. We are not a generic AI training firm.
+      We are business people who have gone deep into AI — and we work with companies
+      to embed it into how they actually operate.
+    </p>
+    <div class="hero-actions">
+      <a href="nexivant-solutions.html" class="btn-primary">See How We Work</a>
+      <a href="nexivant-contact.html" class="btn-ghost">Talk to Us</a>
+    </div>
+  </div>
+
+  <div class="hero-stat-bar">
+    <div class="hero-stat">
+      <span class="hero-stat-num">4 Tiers</span>
+      <span class="hero-stat-label">From Training to Full Build</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">5 Sectors</span>
+      <span class="hero-stat-label">Industry-Specific Programmes</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">Lean & Fast</span>
+      <span class="hero-stat-label">Built for Growing Businesses</span>
+    </div>
+  </div>
+</section>
+<div class="wave wave-plum-to-white"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#ffffff"/></svg></div>
+
+<!-- SECTION 2 — CONTEXT -->
+<section class="context-section fade-in" id="context">
+  <div>
+    <span class="section-label">Where Most Businesses Stand Right Now</span>
+    <h2 class="section-h">Most organisations are aware of AI. Very few have it working inside their business.</h2>
+    <p class="section-body">
+      The awareness is there. Almost every leadership team we speak to has explored the tools, attended a session, or seen what AI is doing to their industry. But awareness and implementation are two very different things.
+    </p>
+    <br>
+    <p class="section-body">
+      The gap — across markets — is not access to tools. The tools are available to everyone. The gap is knowing which workflows to change, how to build the capability inside your team, and eventually, how to build the systems that make the change permanent.
+    </p>
+  </div>
+  <div>
+    <blockquote class="context-quote fade-in stagger-2">
+      "That is the gap Nexivant is built to close. And the window to move ahead of your competition is shorter than most people think."
+    </blockquote>
+  </div>
+</section>
+<div class="wave wave-white-to-plum"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#471132"/></svg></div>
+
+<!-- SECTION 3 — WHO WE ARE -->
+<section class="who-section on-plum" id="vision">
+  <span class="section-label">Our Starting Point</span>
+  <h2 class="section-h" style="max-width: 560px;">We come from business.<br>That is what makes this different.</h2>
+  <p class="section-body" style="max-width: 600px;">
+    Most AI training comes from the technology side — people who understand the tools but have never run a sales operation, managed a hospital unit, built a recruitment pipeline, or handled a client-facing services practice.
+  </p>
+  <p class="section-body" style="margin-top: 20px; max-width: 600px;">
+    We come from the other direction. Our starting point is always the business problem — the inefficiency, the bottleneck, the process that is eating your team's time or costing you clients. AI is the solution we bring to that problem. Not the other way around.
+  </p>
+  <div class="who-grid">
+    <div class="who-pillar fade-in stagger-1">
+      <span class="who-pillar-num">01</span>
+      <div class="who-pillar-title">Business-First Thinking</div>
+      <p class="who-pillar-text">We start with your workflows, your inefficiencies, your team. The technology follows the problem — not the other way around.</p>
+    </div>
+    <div class="who-pillar fade-in stagger-2">
+      <span class="who-pillar-num">02</span>
+      <div class="who-pillar-title">Deep Domain Knowledge</div>
+      <p class="who-pillar-text">We understand what a hospital unit faces, what a recruitment pipeline looks like, what a CA firm actually needs. We do not bring generic frameworks.</p>
+    </div>
+    <div class="who-pillar fade-in stagger-3">
+      <span class="who-pillar-num">03</span>
+      <div class="who-pillar-title">We Stay Until It's Done</div>
+      <p class="who-pillar-text">We do not hand you a framework and leave. This shapes how we train, how we run workshops, and how we build the systems your business runs on.</p>
+    </div>
+    <div class="who-pillar fade-in stagger-4">
+      <span class="who-pillar-num">04</span>
+      <div class="who-pillar-title">Honest Engagement</div>
+      <p class="who-pillar-text">If working together makes sense, we will say so honestly. If it doesn't, we will say that too. Our measure of success is your business running better.</p>
+    </div>
+  </div>
+</section>
+<div class="wave wave-plum-to-cream"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#f3ede3"/></svg></div>
+
+<!-- SECTION 4 — SOLUTIONS / TIERS -->
+<section class="tiers-section" id="solutions">
+  <div class="tiers-intro">
+    <span class="section-label">Our Engagement Model</span>
+    <h2 class="section-h">We start with understanding.<br>We end with something your business runs on.</h2>
+    <p class="section-body">
+      Every engagement begins with a conversation about your team, your workflows, and what you are trying to solve. From there, there are four ways we work together — and the journey through them is where the real transformation happens.
+    </p>
+  </div>
+  <div class="tiers-grid">
+    <div class="tier-card fade-in stagger-1">
+      <span class="tier-num">Tier 01</span>
+      <h3 class="tier-name">Training</h3>
+      <p class="tier-text">A structured 4 to 5 day programme, 4 hours per day, built specifically for your team's function and industry. Your people learn the right tools, understand how to apply them to their actual work, and leave with something they can use immediately.</p>
+      <span class="tier-tag">Entry Point</span>
+      <div class="tier-arrow">→</div>
+    </div>
+    <div class="tier-card fade-in stagger-2">
+      <span class="tier-num">Tier 02</span>
+      <h3 class="tier-name">Training + Workshop</h3>
+      <p class="tier-text">Everything in the training, followed by a hands-on workshop where we work through your real business context together. Actual workflows, actual problems, real solutions — not hypothetical ones. By the end, your team has not just learned. They have practised.</p>
+      <span class="tier-tag">Practise & Apply</span>
+      <div class="tier-arrow">→</div>
+    </div>
+    <div class="tier-card fade-in stagger-3">
+      <span class="tier-num">Tier 03</span>
+      <h3 class="tier-name">Training + Workshop + Hand-Holding</h3>
+      <p class="tier-text">For organisations that want the change to be lasting. After the training and workshop, we stay engaged — typically over 4 to 6 months — as your team implements, experiments, and refines. We troubleshoot. We course correct. We push where it is needed.</p>
+      <span class="tier-tag">Lasting Change</span>
+      <div class="tier-arrow">→</div>
+    </div>
+    <div class="tier-card highlight fade-in stagger-4">
+      <span class="tier-num">Tier 04</span>
+      <h3 class="tier-name">AI Build & Deploy</h3>
+      <p class="tier-text">For organisations ready to move from capability to infrastructure. We design, build, and deploy the AI systems your business actually needs — custom to your workflows, your data, and your operations. We build it. We deploy it. We maintain it. You own it.</p>
+      <span class="tier-tag">↑ The Destination</span>
+    </div>
+  </div>
+</section>
+<div class="wave wave-cream-to-white"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#ffffff"/></svg></div>
+
+<!-- SECTION 5 — INDUSTRIES -->
+<section class="industries-section" id="industries">
+  <div>
+    <span class="section-label">Where We Work</span>
+    <h2 class="section-h">Every industry has a different problem. We treat it that way.</h2>
+    <p class="section-body">
+      We work across sectors — but we never bring a generic programme to an industry-specific challenge. A hospital's AI opportunity looks nothing like a marketing agency's. We go deep into the specifics of each industry before we design anything.
+    </p>
+    <br>
+    <a href="nexivant-industries.html" class="btn-primary" style="margin-top: 8px; display: inline-block;">Explore by Industry →</a>
+  </div>
+  <div class="industry-tiles">
+    <div class="industry-tile fade-in stagger-1">
+      <div class="industry-tile-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M9 3v12M3 9h12" stroke="#471132" stroke-width="1.4" stroke-linecap="round"/>
+          <rect x="6" y="6" width="6" height="6" rx="0.5" stroke="#471132" stroke-width="1" fill="none"/>
+        </svg>
+      </div>
+      <div class="industry-tile-name">Hospitals & Healthcare</div>
+      <div class="industry-tile-sub">Operations, Patient Flow, Admin</div>
+    </div>
+    <div class="industry-tile fade-in stagger-2">
+      <div class="industry-tile-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <circle cx="9" cy="7" r="3.5" stroke="#471132" stroke-width="1.4" fill="none"/>
+          <path d="M3 16c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#471132" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="industry-tile-name">Digital Marketing Agencies</div>
+      <div class="industry-tile-sub">Content, Campaign, Analytics</div>
+    </div>
+    <div class="industry-tile fade-in stagger-3">
+      <div class="industry-tile-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <rect x="2" y="5" width="14" height="10" rx="1" stroke="#471132" stroke-width="1.4" fill="none"/>
+          <path d="M6 5V3.5h6V5" stroke="#471132" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M6 9h6M6 12h4" stroke="#471132" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="industry-tile-name">Recruitment Agencies</div>
+      <div class="industry-tile-sub">Pipeline, Screening, Placement</div>
+    </div>
+    <div class="industry-tile fade-in stagger-4">
+      <div class="industry-tile-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M4 14V8l5-4 5 4v6" stroke="#471132" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="7" y="10" width="4" height="4" rx="0.5" stroke="#471132" stroke-width="1" fill="none"/>
+        </svg>
+      </div>
+      <div class="industry-tile-name">CA & Finance Firms</div>
+      <div class="industry-tile-sub">Compliance, Reporting, Advisory</div>
+    </div>
+    <div class="industry-tile wide fade-in stagger-4">
+      <div class="industry-tile-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M3 13l4-7 4 5 2-3 3 5" stroke="#471132" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="industry-tile-name">Services & Others</div>
+        <div class="industry-tile-sub">Legal, Consulting, Professional Services — we tailor the programme to your specific workflows</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="wave wave-white-to-plum"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#471132"/></svg></div>
+
+<!-- SECTION 6 — BUILT FOR GROWING CLINICS -->
+<section class="midmarket-section on-plum">
+  <span class="section-label">Who We Are Designed For</span>
+  <h2 class="section-h" style="max-width: 580px;">This is not built for large enterprises with 12-month transformation roadmaps.</h2>
+  <p class="section-body" style="max-width: 560px;">
+    What growing businesses need is something lean, practical, and fast to show results. Teams that understand the constraints of a scaling business, know how to move quickly, and can build something that works — without overengineering it.
+  </p>
+  <div class="midmarket-grid">
+    <div class="midmarket-card fade-in stagger-1">
+      <div class="midmarket-card-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M4 10l4 4 8-8" stroke="#f3ede3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="midmarket-card-title">Priced for Growing Businesses</div>
+      <p class="midmarket-card-text">Not enterprise budgets. Not generic SaaS. Structured for the financial reality of a scaling mid-market business.</p>
+    </div>
+    <div class="midmarket-card fade-in stagger-2">
+      <div class="midmarket-card-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="10" r="7" stroke="#f3ede3" stroke-width="1.5"/>
+          <path d="M10 6v4l3 3" stroke="#f3ede3" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="midmarket-card-title">Structured for Busy Teams</div>
+      <p class="midmarket-card-text">Minimal disruption to operations. Maximum impact where it counts. We work around your team — not against them.</p>
+    </div>
+    <div class="midmarket-card fade-in stagger-3">
+      <div class="midmarket-card-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M4 14l4-8 4 6 2-3 3 5" stroke="#f3ede3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="midmarket-card-title">Early Impact, Permanent Change</div>
+      <p class="midmarket-card-text">Designed to show results quickly and build towards something that becomes a permanent part of how you operate.</p>
+    </div>
+  </div>
+</section>
+<div class="wave wave-plum-to-cream"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#f3ede3"/></svg></div>
+
+<!-- SECTION 7 — PARTNERS -->
+<section class="partners-section">
+  <div>
+    <span class="section-label">Are You a Domain Expert?</span>
+    <h2 class="section-h">We are building something larger than a training company.</h2>
+    <p class="section-body">
+      Our model is built on a straightforward belief — the best outcomes happen when deep AI knowledge meets deep industry knowledge. Nexivant holds the AI methodology, the tools expertise, and the build capability. What we bring in through partnerships is the operational depth of specific industries and markets.
+    </p>
+    <p class="section-body" style="margin-top: 20px;">
+      If you are an expert in your field and you believe your clients need to move on AI, we would like to explore what building together looks like. This is not a reseller arrangement. It is a genuine collaboration, built on shared revenue and shared upside.
+    </p>
+  </div>
+  <div class="partner-callout fade-in stagger-2 on-plum">
+    <span class="section-label">The Proposition</span>
+    <h3 class="section-h" style="font-size: 1.75rem;">We bring the capability. You bring the domain.</h3>
+    <p class="section-body" style="font-size: 0.9rem; max-width: 100%; margin-bottom: 32px;">
+      Together we deliver something neither of us could alone. A genuine collaboration with shared revenue and shared upside — built for long-term value, not a one-time transaction.
+    </p>
+    <a href="nexivant-contact.html" class="btn-primary">Let's Have That Conversation →</a>
+  </div>
+</section>
+<div class="wave wave-cream-to-white"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#ffffff"/></svg></div>
+
+<!-- SECTION 8 — OUTCOME -->
+<section class="outcome-section fade-in">
+  <span class="section-label">What We Are Actually Here To Do</span>
+  <h2 class="section-h">We are not in the business of making your team dependent on us.</h2>
+  <p class="section-body">
+    Every engagement we take on has one honest measure of success — does your organisation run better because of what we built together?
+    For some clients that means a team that now handles in hours what used to take days. For others it means an AI system running inside their core operations that did not exist six months ago.
+  </p>
+  <div class="outcome-metrics">
+    <div>
+      <span class="outcome-metric-num">Hours</span>
+      <span class="outcome-metric-label">Not Days, for the Same Work</span>
+    </div>
+    <div>
+      <span class="outcome-metric-num">6 Months</span>
+      <span class="outcome-metric-label">To a Running AI System</span>
+    </div>
+    <div>
+      <span class="outcome-metric-num">You Own It</span>
+      <span class="outcome-metric-label">No Lock-In, No Dependency</span>
+    </div>
+  </div>
+</section>
+<div class="wave wave-white-to-plum"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#471132"/></svg></div>
+
+<!-- SECTION 9 — CLOSING CTA -->
+<section class="cta-section" id="contact">
+  <h2 class="section-h">
+    Most conversations start with one question —<br>
+    <em>what does AI actually look like for a business like mine?</em>
+  </h2>
+  <p class="cta-sub">
+    At Nexivant, we are happy to answer that with no agenda. If it makes sense to work together, we will say so honestly. If it doesn't, we will say that too.
+  </p>
+  <div class="cta-actions">
+    <a href="nexivant-contact.html" class="btn-primary">Book a Discovery Call</a>
+    <a href="nexivant-solutions.html" class="btn-ghost">See Our Solutions</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    Nexivant
+    <span>We make AI work inside your business.</span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="nexivant-homepage.html">Home</a></li>
+    <li><a href="nexivant-industries.html">Industries</a></li>
+    <li><a href="nexivant-solutions.html">Our Solutions</a></li>
+    <li><a href="nexivant-vision.html">Our Vision</a></li>
+    <li><a href="nexivant-contact.html">Contact Us</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 Nexivant. All rights reserved.</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>

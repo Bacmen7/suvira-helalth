@@ -1,0 +1,410 @@
+/* ═══════════════════════════════════════════════════════════════
+   SUVIRA HEALTH — Global Design System
+   Apply to all pages via: <link rel="stylesheet" href="suvira-global.css">
+   Font import: add in <head> before this stylesheet
+   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+═══════════════════════════════════════════════════════════════ */
+
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ─── DESIGN TOKENS ─── */
+:root {
+  /* Brand Colors — from suvirahealth.com */
+  --plum:         #471132;   /* primary dark text, headings */
+  --plum-mid:     #803663;   /* secondary accent, subheadings */
+  --plum-dark:    #34001F;   /* deep plum for dark sections */
+  --teal:         #116978;   /* CTA, links, highlights */
+  --teal-dark:    #00697D;   /* teal hover state */
+  --teal-deep:    #005151;   /* darkest teal, dark section bg */
+  --coral:        #D95300;   /* warm accent / alerts */
+  --coral-light:  #F2542D;   /* lighter coral for icons */
+
+  /* Backgrounds */
+  --bg-warm:      #F5F0E8;   /* primary warm off-white */
+  --bg-beige:     #F6EFE0;   /* section alternate bg */
+  --bg-beige-mid: #EDE8DC;   /* slightly darker bg for cards */
+  --bg-beige-dark:#E5DFD5;   /* borders and dividers */
+  --bg-white:     #FFFFFF;
+
+  /* Dark section backgrounds */
+  --bg-dark:      #0D2B27;   /* primary dark section */
+  --bg-dark-mid:  #023430;   /* secondary dark panel */
+
+  /* Text */
+  --text-primary:   #471132;   /* plum — headings, primary text */
+  --text-secondary: #803663;   /* plum-mid — subtext, labels */
+  --text-body:      #1a1a1a;   /* near-black for body copy */
+  --text-muted:     #4b5563;   /* gray-600 equivalent */
+  --text-light:     #F5F0E8;   /* on dark backgrounds */
+  --text-light-muted: #E5DFD5; /* muted text on dark bg */
+
+  /* Borders */
+  --border:       #E5E1D8;
+  --border-light: rgba(17,105,120,0.12);
+  --border-dark:  rgba(245,240,232,0.12);
+
+  /* Typography */
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* Type Scale */
+  --text-xs:   0.72rem;   /* 11.5px — labels, captions */
+  --text-sm:   0.83rem;   /* 13.3px — nav links, tags */
+  --text-base: 0.95rem;   /* 15.2px — body text */
+  --text-md:   1.05rem;   /* 16.8px — lead text */
+  --text-lg:   1.2rem;    /* 19.2px — sub-headings */
+  --text-xl:   1.5rem;    /* 24px   — section sub-titles */
+  --text-2xl:  1.8rem;    /* 28.8px — card headings */
+  --text-3xl:  clamp(2rem, 3.2vw, 2.6rem);   /* section headings */
+  --text-4xl:  clamp(2.4rem, 4vw, 3.4rem);   /* page headings */
+  --text-hero: clamp(2.8rem, 5vw, 4.2rem);   /* hero headings */
+
+  /* Line Heights */
+  --leading-tight:   1.2;
+  --leading-snug:    1.4;
+  --leading-normal:  1.6;
+  --leading-relaxed: 1.8;
+  --leading-loose:   2.0;
+
+  /* Letter Spacing */
+  --tracking-tight:   -0.01em;
+  --tracking-normal:   0;
+  --tracking-wide:     0.04em;
+  --tracking-wider:    0.08em;
+  --tracking-widest:   0.14em;
+  --tracking-caps:     0.15em;   /* for uppercase labels */
+
+  /* Font Weights */
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+
+  /* Spacing Scale */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-28: 112px;
+  --space-32: 128px;
+
+  /* Section Padding */
+  --section-padding: 100px 64px;
+  --section-padding-lg: 120px 64px;
+  --section-padding-sm: 72px 64px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius:    6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Transitions */
+  --transition: 0.2s ease;
+  --transition-slow: 0.35s ease;
+}
+
+/* ─── BASE ─── */
+body {
+  font-family: var(--sans);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--text-body);
+  background: var(--bg-warm);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── TYPOGRAPHY ─── */
+
+/* Headings use serif + plum */
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+}
+h4, h5, h6 {
+  font-family: var(--sans);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--text-primary);
+}
+
+h1 { font-size: var(--text-hero); }
+h2 { font-size: var(--text-4xl); }
+h3 { font-size: var(--text-3xl); }
+h4 { font-size: var(--text-xl); }
+h5 { font-size: var(--text-lg); }
+h6 { font-size: var(--text-md); }
+
+h1 em, h2 em, h3 em { font-style: italic; color: var(--teal); }
+
+p {
+  font-size: var(--text-base);
+  font-weight: var(--weight-light);
+  line-height: var(--leading-relaxed);
+  color: var(--text-muted);
+}
+
+/* Section label — uppercase small caps above headings */
+.section-label, .sl {
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--teal);
+  display: block;
+  margin-bottom: var(--space-5);
+}
+
+/* Section heading */
+.section-h, .sh {
+  font-family: var(--serif);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+  margin-bottom: var(--space-6);
+}
+
+/* Section body text */
+.section-body, .sb {
+  font-size: var(--text-md);
+  font-weight: var(--weight-light);
+  line-height: var(--leading-relaxed);
+  color: var(--text-muted);
+  max-width: 600px;
+}
+
+/* Lead paragraph */
+.lead {
+  font-size: var(--text-md);
+  font-weight: var(--weight-light);
+  line-height: var(--leading-loose);
+  color: var(--text-secondary);
+}
+
+/* ─── NAV ─── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 64px;
+  height: 68px;
+  background: rgba(245,240,232,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: var(--weight-semibold);
+  color: var(--plum);
+  text-decoration: none;
+  letter-spacing: var(--tracking-tight);
+}
+.logo span { color: var(--teal); }
+
+.nav-links {
+  display: flex;
+  gap: var(--space-8);
+  list-style: none;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--plum); }
+
+.nav-cta {
+  background: var(--plum);
+  color: var(--bg-white);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  padding: 9px 22px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background var(--transition);
+}
+.nav-cta:hover { background: var(--plum-mid); }
+
+/* ─── SECTIONS ─── */
+section { padding: var(--section-padding); }
+
+.section-warm { background: var(--bg-warm); }
+.section-beige { background: var(--bg-beige); }
+.section-white { background: var(--bg-white); }
+.section-dark  { background: var(--bg-dark); }
+
+/* On dark sections — override text colors */
+.section-dark .section-label,
+.section-dark .sl { color: var(--teal-dark); }
+.section-dark .section-h,
+.section-dark .sh,
+.section-dark h1,
+.section-dark h2,
+.section-dark h3 { color: var(--text-light); }
+.section-dark .section-body,
+.section-dark .sb,
+.section-dark p { color: var(--text-light-muted); }
+
+/* ─── BUTTONS ─── */
+.btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  text-decoration: none;
+  border-radius: var(--radius);
+  padding: 12px 28px;
+  transition: all var(--transition);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: var(--bg-white);
+}
+.btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
+
+.btn-plum {
+  background: var(--plum);
+  color: var(--bg-white);
+}
+.btn-plum:hover { background: var(--plum-mid); transform: translateY(-1px); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--plum);
+  border: 1.5px solid var(--plum);
+}
+.btn-outline:hover { background: var(--plum); color: var(--bg-white); }
+
+.btn-outline-teal {
+  background: transparent;
+  color: var(--teal);
+  border: 1.5px solid var(--teal);
+}
+.btn-outline-teal:hover { background: var(--teal); color: var(--bg-white); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-light-muted);
+  border: 1px solid rgba(245,240,232,0.25);
+}
+.btn-ghost:hover { color: var(--text-light); border-color: rgba(245,240,232,0.5); }
+
+/* ─── CARDS ─── */
+.card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-10) var(--space-8);
+  transition: all var(--transition);
+}
+.card:hover { box-shadow: 0 4px 24px rgba(71,17,50,0.08); transform: translateY(-2px); }
+
+.card-dark {
+  background: var(--bg-dark-mid);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-md);
+  padding: var(--space-10) var(--space-8);
+}
+
+/* ─── TAG / BADGE ─── */
+.tag {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(17,105,120,0.3);
+  color: var(--teal);
+}
+.tag-plum {
+  border-color: rgba(71,17,50,0.25);
+  color: var(--plum);
+}
+
+/* ─── DIVIDERS ─── */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: var(--space-12) 0;
+}
+
+/* ─── UTILITY CLASSES ─── */
+.text-plum    { color: var(--plum); }
+.text-plum-mid{ color: var(--plum-mid); }
+.text-teal    { color: var(--teal); }
+.text-coral   { color: var(--coral); }
+.text-muted   { color: var(--text-muted); }
+.text-light   { color: var(--text-light); }
+
+.font-serif   { font-family: var(--serif); }
+.font-sans    { font-family: var(--sans); }
+.font-light   { font-weight: var(--weight-light); }
+.font-medium  { font-weight: var(--weight-medium); }
+.font-semibold{ font-weight: var(--weight-semibold); }
+
+.tracking-caps { letter-spacing: var(--tracking-caps); text-transform: uppercase; }
+.tracking-wide { letter-spacing: var(--tracking-wide); }
+
+.text-center { text-align: center; }
+.max-w-sm  { max-width: 480px; }
+.max-w-md  { max-width: 600px; }
+.max-w-lg  { max-width: 720px; }
+.max-w-xl  { max-width: 900px; }
+.mx-auto   { margin-left: auto; margin-right: auto; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--bg-dark);
+  color: var(--text-light-muted);
+  padding: var(--space-20) 64px var(--space-10);
+  font-size: var(--text-sm);
+}
+footer a {
+  color: var(--text-light-muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+footer a:hover { color: var(--text-light); }
+.footer-logo {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: var(--weight-semibold);
+  color: var(--text-light);
+  text-decoration: none;
+}
+.footer-logo span { color: var(--teal-dark); }
