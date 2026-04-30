@@ -232,17 +232,58 @@ nav {
 }
 .btn-ghost:hover { color: var(--text-on-plum); border-color: rgba(243,237,227,0.45); }
 
+/* ─── STAT BAR REFRESH ─── */
 .hero-stat-bar {
+  position: relative !important;
+  display: flex !important;
+  width: 100vw !important;         /* Forces it to span the full screen width */
+  margin-left: calc(-1 * 64px);    /* Offsets the parent section padding (Desktop) */
+  margin-right: calc(-1 * 64px);
+  border-top: 1px solid rgba(71,17,50,0.12) !important;
+  background: transparent !important; /* Removes the white/cream card background */
+  grid-column: 1 / -1;
+}
+
+.hero-stat {
+  flex: 1;
+  padding: 32px 64px !important;
+  border-right: 1px solid rgba(71,17,50,0.12) !important;
+  border-bottom: 1px solid rgba(71,17,50,0.12) !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-stat:last-child {
+  border-right: none !important;
+}
+
+/* ─── MOBILE ADJUSTMENT ─── */
+@media (max-width: 768px) {
+  .hero-stat-bar {
+    width: 100vw !important;
+    margin-left: -16px !important; /* Offsets mobile padding */
+    margin-right: -16px !important;
+    flex-direction: column !important;
+  }
+  
+  .hero-stat {
+    padding: 24px 20px !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(71,17,50,0.12) !important;
+  }
+}
+/* .hero-stat-bar {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   display: flex;
   border-top: 1px solid rgba(243,237,227,0.1);
-}
-.hero-stat {
+} */
+/* .hero-stat {
   flex: 1;
   padding: 22px 64px;
   border-right: 1px solid rgba(243,237,227,0.1);
-}
+} */
 .hero-stat:last-child { border-right: none; }
 .hero-stat-num {
   font-family: var(--serif);
@@ -257,6 +298,34 @@ nav {
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--text-on-plum-muted);
+}
+
+/* 1. Hero Grid ko thoda balance karo taaki image ko zyada space mile */
+@media (min-width: 901px) {
+  .hero {
+    /* 1.1fr ki jagah 1fr 1fr kardo taaki dono sides barabar ho jayein */
+    grid-template-columns: 1fr 1fr !important; 
+    gap: 40px;
+    align-items: center;
+  }
+
+  .hero-media {
+    height: 600px !important; /* Height thodi badha di */
+    aspect-ratio: auto !important; 
+  }
+
+  .hero-media img {
+    /* Isse image center mein focus karegi aur right side ka part zyada dikhega */
+    object-position: center center !important; 
+    transform: scale(1.05); /* Halki si zoom taaki gaps na rahein */
+  }
+}
+
+/* 2. Agar aapko image ka specifically RIGHT wala part zyada dikhana hai */
+.hero-media img {
+  object-fit: cover;
+  /* Agar center se kaam na bane, toh 'right center' use karo */
+  object-position: center; 
 }
 
 /* ─── SECTION COMMONS ─── */
@@ -1363,7 +1432,7 @@ body.nav-lock { overflow: hidden; }
     </div>
   </div>
   <div class="hero-media fade-in stagger-2">
-    <img src="\assets\hero1.png" alt="Team using AI systems inside business operations">
+    <img src="assets/hero1.png"  alt="Team using AI systems inside business operations">
   </div>
 
   <div class="hero-stat-bar">
