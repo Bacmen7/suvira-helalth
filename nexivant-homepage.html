@@ -315,23 +315,11 @@ section { padding: 104px 64px; }
 
 /* ─── WHO WE ARE ─── */
 .who-section {
-  background: var(--plum);
+  background: #F7F3EE;
   position: relative;
   overflow: hidden;
 }
-.who-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    90deg,
-    rgba(243,237,227,0.018) 0px,
-    rgba(243,237,227,0.018) 1px,
-    transparent 1px,
-    transparent 80px
-  );
-  pointer-events: none;
-}
+.who-section::before { display: none; }
 
 .who-grid {
   display: grid;
@@ -342,14 +330,14 @@ section { padding: 104px 64px; }
 }
 
 .who-pillar {
-  border-top: 1px solid rgba(243,237,227,0.12);
+  border-top: 1px solid var(--plum-border);
   padding-top: 28px;
 }
 .who-pillar-num {
   font-family: var(--serif);
   font-size: 2.8rem;
   font-weight: 300;
-  color: rgba(243,237,227,0.1);
+  color: rgba(71,17,50,0.08);
   display: block;
   margin-bottom: 10px;
 }
@@ -357,14 +345,14 @@ section { padding: 104px 64px; }
   font-size: 0.88rem;
   font-weight: 500;
   letter-spacing: 0.03em;
-  color: var(--text-on-plum);
+  color: var(--plum);
   margin-bottom: 12px;
 }
 .who-pillar-text {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.625;
-  color: var(--text-on-plum-muted);
+  color: rgba(71,17,50,0.6);
 }
 
 /* ─── TIERS / SOLUTIONS ─── */
@@ -546,7 +534,7 @@ section { padding: 104px 64px; }
 .midmarket-card-icon {
   width: 38px;
   height: 38px;
-  background: rgba(243,237,227,0.07);
+  background: #1E7F7F;
   border-radius: 3px;
   display: flex;
   align-items: center;
@@ -580,7 +568,7 @@ section { padding: 104px 64px; }
 }
 
 .partner-callout {
-  background: var(--plum);
+  background: #C9A96E;
   padding: 52px 44px;
   position: relative;
 }
@@ -590,7 +578,7 @@ section { padding: 104px 64px; }
   top: 0; left: 0;
   width: 3px;
   height: 56px;
-  background: rgba(243,237,227,0.35);
+  background: rgba(71,17,50,0.3);
 }
 
 /* ─── OUTCOME ─── */
@@ -702,48 +690,93 @@ section { padding: 104px 64px; }
 
 /* ─── FOOTER ─── */
 footer {
-  background: var(--plum);
-  border-top: 1px solid rgba(243,237,227,0.08);
-  padding: 36px 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  background: var(--cream);
+  padding: 72px 64px 0;
 }
-
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 64px;
+  padding-bottom: 56px;
+}
 .footer-brand {
   font-family: var(--serif);
-  font-size: 1.08rem;
-  font-weight: 400;
-  color: var(--text-on-plum);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--plum);
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  margin-bottom: 14px;
 }
-.footer-brand span {
+.footer-brand-sub {
   font-family: var(--sans);
-  font-size: 0.76rem;
-  font-weight: 300;
-  color: var(--text-on-plum-muted);
-  display: block;
-  margin-top: 4px;
-  letter-spacing: 0.03em;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(71,17,50,0.55);
+  line-height: 1.6;
+  max-width: 280px;
 }
-
-.footer-links {
-  display: flex;
-  gap: 28px;
-  list-style: none;
-}
-.footer-links a {
-  font-size: 0.76rem;
-  letter-spacing: 0.07em;
+.footer-col-label {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-on-plum-muted);
+  color: var(--plum);
+  margin-bottom: 20px;
+  display: block;
+}
+.footer-contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: rgba(71,17,50,0.65);
+}
+.footer-contact-list li svg {
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+.footer-contact-list .footer-city {
+  padding-left: 26px;
+  color: rgba(71,17,50,0.5);
+  font-size: 0.85rem;
+}
+.footer-quick-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-quick-links a {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: rgba(71,17,50,0.65);
   text-decoration: none;
   transition: color 0.2s;
 }
-.footer-links a:hover { color: var(--text-on-plum); }
-
+.footer-quick-links a:hover { color: var(--plum); }
+.footer-bottom {
+  border-top: 1px solid var(--plum-border);
+  padding: 22px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .footer-copy {
-  font-size: 0.75rem;
-  color: var(--text-on-plum-muted);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: rgba(71,17,50,0.45);
 }
 
 /* ─── FADE IN ─── */
@@ -760,37 +793,374 @@ footer {
 .stagger-2 { transition-delay: 0.18s; }
 .stagger-3 { transition-delay: 0.28s; }
 .stagger-4 { transition-delay: 0.38s; }
-@media (max-width: 1100px) {
-  nav { padding: 16px 24px; height: auto; flex-wrap: wrap; gap: 14px 20px; }
-  .nav-links { order: 3; width: 100%; flex-wrap: wrap; gap: 14px 18px; }
-  .hero, section, .outcome-section, .cta-section, footer { padding-left: 24px; padding-right: 24px; }
-  .hero { padding-top: 160px; }
-  .context-section, .industries-section, .partners-section, .who-grid, .midmarket-grid { grid-template-columns: 1fr; }
-  .tiers-grid { grid-template-columns: repeat(2, 1fr); }
-  .outcome-metrics { gap: 28px; }
-  footer { flex-wrap: wrap; gap: 18px; }
-  .footer-links { flex-wrap: wrap; gap: 14px 18px; }
+/* ─── HAMBURGER NAV ─── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 301;
+}
+.nav-hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--plum);
+  border-radius: 2px;
+  transition: all 0.28s ease;
+  transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 900px) {
+  nav { padding: 0 24px; position: relative; }
+  .nav-hamburger { display: flex; }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: rgba(245,240,232,0.98);
+    backdrop-filter: blur(16px);
+    flex-direction: column;
+    gap: 0;
+    padding: 12px 0 20px;
+    border-bottom: 1px solid var(--border);
+    z-index: 200;
+    box-shadow: 0 8px 32px rgba(71,17,50,0.08);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { border-bottom: 1px solid rgba(71,17,50,0.06); }
+  .nav-links a {
+    display: block;
+    padding: 14px 28px;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+  }
+  .nav-cta { font-size: 0.78rem; padding: 8px 18px; }
 }
 
 @media (max-width: 768px) {
-  nav { align-items: flex-start; }
-  .logo { font-size: 1.2rem; }
-  .nav-links a, .nav-cta { font-size: 0.72rem; }
-  .hero { min-height: auto; padding: 176px 20px 72px; }
-  .hero h1 { font-size: clamp(2.2rem, 10vw, 3.2rem); }
-  .hero-sub, .section-body, .who-pillar-text, .tier-text, .industry-tile-sub, .midmarket-card-text, .cta-sub { font-size: 1rem; }
+  .hero { min-height: auto; padding: 120px 20px 64px; }
+  .hero h1 { font-size: clamp(2rem, 9vw, 2.8rem); }
+  .hero-sub, .section-body, .who-pillar-text, .tier-text, .industry-tile-sub, .midmarket-card-text, .cta-sub { font-size: 0.95rem; }
   .hero-actions, .cta-actions { flex-direction: column; align-items: stretch; }
   .hero-stat-bar { position: static; flex-direction: column; margin-top: 16px; border-top: 1px solid rgba(243,237,227,0.12); }
   .hero-stat { padding: 18px 0; border-right: none; border-bottom: 1px solid rgba(243,237,227,0.12); }
   .hero-stat:last-child { border-bottom: none; }
-  section, .outcome-section, .cta-section, footer { padding: 64px 20px; }
+  section, .outcome-section, .cta-section, footer { padding: 56px 20px; }
+  .context-section, .industries-section, .partners-section, .who-grid, .midmarket-grid { grid-template-columns: 1fr; }
   .tiers-grid, .industry-tiles { grid-template-columns: 1fr; }
   .industry-tile.wide { grid-column: auto; }
   .outcome-metrics { display: grid; grid-template-columns: 1fr; gap: 20px; }
   .outcome-section { text-align: left; }
   .outcome-section .section-body, .outcome-section .section-h { margin-left: 0; margin-right: 0; max-width: none; }
-  .partner-callout { padding: 32px 24px; }
+  .partner-callout { padding: 32px 20px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
 }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   NEXIVANT MOBILE SYSTEM — ALL 5 PAGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* HAMBURGER */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:5px;z-index:302;flex-shrink:0}
+.nav-hamburger span{display:block;height:2px;width:100%;background:rgba(243,237,227,.85);border-radius:2px;transition:all .28s ease;transform-origin:center}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ── ≤900px NAV ── */
+@media(max-width:900px){
+  nav{padding:0 18px!important;height:56px!important;position:sticky!important;top:0!important}
+  .nav-hamburger{display:flex!important}
+  .nav-cta,.logo em{display:none!important}
+  .nav-links{display:none!important;position:fixed!important;top:56px!important;left:0!important;right:0!important;background:rgba(60,8,36,.98)!important;backdrop-filter:blur(20px)!important;flex-direction:column!important;gap:0!important;padding:6px 0 18px!important;border-bottom:1px solid rgba(243,237,227,.1)!important;z-index:300!important;box-shadow:0 10px 40px rgba(0,0,0,.3)!important;list-style:none!important}
+  .nav-links.open{display:flex!important}
+  .nav-links li{border-bottom:1px solid rgba(243,237,227,.06)!important;margin:0!important;padding:0!important}
+  .nav-links li:last-child{border-bottom:none!important}
+  .nav-links a{display:block!important;padding:14px 22px!important;font-size:.88rem!important;letter-spacing:.08em!important;color:rgba(243,237,227,.72)!important;text-decoration:none!important}
+  .nav-links a:hover,.nav-links a.active{color:rgba(243,237,227,1)!important;background:rgba(243,237,227,.05)!important}
+}
+
+/* ── ≤768px FULL MOBILE ── */
+@media(max-width:768px){
+
+  /* GLOBAL PADDING */
+  section,.pad,.pad-md,.pad-sm,.outcome-section,.cta-section,.cta-wrap,.pain-section,.cover-section,.journey-section,footer{padding-left:16px!important;padding-right:16px!important}
+  section,.pad,.pad-md{padding-top:48px!important;padding-bottom:48px!important}
+  .pad-sm{padding-top:32px!important;padding-bottom:32px!important}
+  body,html{overflow-x:hidden!important;max-width:100vw!important}
+
+  /* TYPOGRAPHY */
+  h1,.hero h1,.pg-header h1{font-size:clamp(1.75rem,8.5vw,2.4rem)!important;line-height:1.18!important}
+  h2,.section-h,.sh,.cta-h,.cta-label-big{font-size:clamp(1.45rem,6.5vw,2rem)!important;line-height:1.25!important;margin-bottom:16px!important}
+  h3{font-size:clamp(1.1rem,5vw,1.4rem)!important}
+  p,.section-body,.sb,.hero-p,.hero-sub,.pain-card-a,.tier-body-p,.jstage-desc,.team-card p,.mini-phase-desc,.phil-pillar p{font-size:.9rem!important;line-height:1.65!important}
+  .section-body,.sb{max-width:100%!important}
+
+  /* ── HOMEPAGE HERO ── */
+  .hero{min-height:auto!important;padding:80px 16px 48px!important;display:block!important}
+  .hero-content{max-width:100%!important}
+  .hero-eyebrow{margin-bottom:18px!important}
+  .hero-glow{display:none!important}
+  .hero-actions{flex-direction:column!important;align-items:stretch!important;gap:10px!important;margin-bottom:40px!important}
+  .hero-actions a,.hero-actions .btn-primary,.hero-actions .btn-ghost{text-align:center!important;width:100%!important;box-sizing:border-box!important}
+  .hero-stat-bar{position:static!important;flex-direction:column!important;border-top:1px solid rgba(243,237,227,.12)!important}
+  .hero-stat{padding:14px 0!important;border-right:none!important;border-bottom:1px solid rgba(243,237,227,.1)!important;flex:none!important}
+  .hero-stat:last-child{border-bottom:none!important}
+
+  /* ── SOLUTIONS HERO (2-col grid) ── */
+  .hero[style*="grid"]{display:block!important}
+  .hero.s-hero,.pain-section ~ .hero{display:block!important}
+  /* target the solutions page hero specifically by its grid property */
+  .hero{grid-template-columns:1fr!important;gap:0!important}
+  .hero-text{width:100%!important}
+  .hero-panel{margin-top:28px!important;justify-content:stretch!important}
+  .hero-panel-inner{max-width:100%!important;padding:24px 18px!important;border-radius:8px!important}
+  .hero-panel-q{font-size:1.1rem!important;margin-bottom:24px!important}
+  .hero-stat-row{flex-direction:column!important;gap:10px!important}
+  .hero-stat-item{padding:12px 14px!important;gap:12px!important}
+  .hero-stat-num{font-size:1.05rem!important;min-width:auto!important}
+  .hero-stat-label{font-size:.82rem!important}
+
+  /* PAGE HEADER */
+  .pg-header{padding:72px 16px 56px!important}
+  .pg-header p{font-size:.92rem!important}
+
+  /* ── PAIN POINTS (2-col → 1-col) ── */
+  .pain-grid{grid-template-columns:1fr!important;gap:1px!important}
+  .pain-card{padding:24px 18px!important;gap:14px!important}
+  .pain-card-q{font-size:1rem!important}
+  .pain-close{padding:20px 18px!important;gap:14px!important;flex-wrap:wrap!important}
+  .pain-close p{font-size:.88rem!important}
+  .pain-intro-row{margin-bottom:32px!important}
+
+  /* ── PHILOSOPHY SECTION ── */
+  .phil-header{grid-template-columns:1fr!important;gap:24px!important;margin-bottom:36px!important}
+  .phil-pillars{grid-template-columns:1fr!important}
+  .phil-pillar{padding:28px 18px!important;text-align:left!important}
+  .phil-pillar .icon-c{margin:0 0 16px 0!important}
+  .phil-pillar h3{margin:0 0 10px 0!important}
+  .phil-aside p{font-size:.9rem!important}
+
+  /* ── JOURNEY / TIER SECTION ── */
+  .journey-header{margin-bottom:32px!important}
+  /* Step track — horizontal to vertical */
+  .journey-track{grid-template-columns:1fr!important;gap:12px!important}
+  .journey-track::before{display:none!important}
+  .jstage{align-items:flex-start!important;text-align:left!important;flex-direction:row!important;gap:14px!important;padding:0!important}
+  .jstage-badge{width:44px!important;height:44px!important;flex-shrink:0!important;margin-bottom:0!important}
+  .jstage-badge span{font-size:.95rem!important}
+  .jstage-card{margin-top:0!important;flex:1!important}
+  .jstage-card::before{display:none!important}
+  .jstage-name{font-size:.95rem!important}
+  .jstage-desc{font-size:.83rem!important}
+  .jstage-tag{font-size:.6rem!important}
+  /* Expanded journey body */
+  .journey-expand{margin-top:32px!important}
+  .jexp-trigger{padding:18px 16px!important;gap:12px!important;flex-wrap:wrap!important}
+  .jexp-trigger-left{flex-wrap:wrap!important;gap:8px!important}
+  .jexp-stage-name{font-size:.95rem!important;margin-left:0!important}
+  .jexp-stage-hint{display:none!important}
+  .jexp-body{display:none;padding:24px 16px!important}
+  .jexp-body.open{display:block!important}
+  /* Two col inside tier body → 1 col */
+  .tier-two-col{grid-template-columns:1fr!important;gap:28px!important}
+  .tier-body-p{font-size:.88rem!important}
+  /* Outcome chips → stack */
+  .tier-outcome-row{flex-direction:column!important;gap:10px!important}
+  .tier-chip{min-width:auto!important;width:100%!important;padding:14px 16px!important}
+  /* Mini accordion inside tier */
+  .mini-acc-btn{padding:14px 16px!important;gap:12px!important}
+  .mini-acc-body{padding:0 16px 16px!important;font-size:.88rem!important}
+  /* Phase cards 2-col → 1-col */
+  .mini-phases{grid-template-columns:1fr!important;gap:8px!important}
+  .mini-phase{padding:16px!important}
+  /* Build phases */
+  .bp-btn{padding:14px 16px!important;gap:12px!important}
+  .bp-body-item{padding:0 16px 16px 16px!important;font-size:.88rem!important}
+  /* Workshop table — scrollable */
+  .ws-table-wrap,.tier-wrap{overflow-x:auto!important;-webkit-overflow-scrolling:touch!important}
+  .ws-table,.tier-table{min-width:500px!important;font-size:.82rem!important}
+  .ws-table thead th,.tier-table thead th{padding:10px 12px!important;font-size:.72rem!important}
+  .ws-table tbody td,.tier-table td{padding:10px 12px!important;font-size:.82rem!important}
+  /* Industry tabs */
+  .ind-tabs{gap:6px!important}
+  .ind-tab{padding:7px 12px!important;font-size:.8rem!important}
+  .ind-content{padding:18px!important}
+
+  /* ── WHAT WE COVER SECTION ── */
+  .cover-top{grid-template-columns:1fr!important}
+  .cover-col{padding:24px 16px!important}
+  .prog-item{gap:12px!important;padding:16px 0!important}
+  .prog-name{font-size:.95rem!important}
+  .prog-desc{font-size:.85rem!important}
+  .tool-row{padding:14px 16px!important;gap:12px!important}
+  .tool-pill{font-size:.72rem!important;padding:3px 8px!important}
+  .duration-bar{flex-direction:column!important;align-items:flex-start!important;gap:12px!important;padding:24px 16px!important}
+  .duration-bar::before{display:none!important}
+  .duration-label{padding-left:0!important}
+
+  /* ── TEAM SECTION ── */
+  .team-grid{grid-template-columns:1fr!important;gap:14px!important;margin-top:32px!important}
+  .team-card{padding:24px 18px!important}
+  .team-card h3{font-size:1.1rem!important;margin:16px 0 10px!important}
+  .team-note{padding:20px 18px!important;gap:14px!important;flex-wrap:wrap!important}
+  .team-note-text{font-size:.88rem!important}
+
+  /* ── ALL 2-COL GRIDS → 1-COL (all pages) ── */
+  .context-section,.industries-section,.partners-section,.who-grid,.grid-2,.contact-section,.diff-grid,.thesis-grid,.phil-grid{grid-template-columns:1fr!important;gap:24px!important}
+  .diff-col{padding:24px 16px!important}
+  .diff-item{font-size:.88rem!important;line-height:1.6!important}
+  .diff-col-title{font-size:1.05rem!important}
+  .diff-col-intro{margin-bottom:28px!important}
+
+  /* ── TIERS (4-col → 1-col) ── */
+  .tiers-grid{grid-template-columns:1fr!important}
+  .tier-card{padding:24px 16px!important}
+  .tiers-intro{margin-bottom:28px!important}
+  .tier-name{font-size:1.05rem!important}
+
+  /* ── TECH GRID (4-col → 1-col) ── */
+  .tech-grid{grid-template-columns:1fr!important;border-top:none!important}
+  .tech-card{border-right:none!important;border-top:1px solid var(--border,rgba(71,17,50,.15))!important;padding:24px 0!important}
+  .tech-card:first-child{border-top:none!important}
+
+  /* ── INDUSTRY TILES (2-col → 1-col) ── */
+  .industry-tiles{grid-template-columns:1fr!important;gap:8px!important}
+  .industry-tile.wide{grid-column:auto!important;flex-direction:row!important;gap:12px!important}
+  .industry-tile{padding:18px 14px!important}
+  .industry-tile-name{font-size:1rem!important;line-height:1.35!important}
+  .industry-tile-sub{font-size:.82rem!important;line-height:1.5!important}
+
+  /* ── MIDMARKET (3-col → 1-col) ── */
+  .midmarket-grid{grid-template-columns:1fr!important;margin-top:28px!important}
+  .midmarket-card{padding:22px 16px!important}
+  .midmarket-card-title{font-size:1rem!important;line-height:1.4!important}
+  .midmarket-card-text{font-size:.88rem!important;line-height:1.6!important}
+
+  /* ── CHALLENGE GRID (3-col → 1-col) ── */
+  .ch-grid{grid-template-columns:1fr!important}
+  .ch-card{padding:24px 16px!important;text-align:left!important}
+  .ch-card .ic{margin:0 0 14px 0!important}
+  .ch-note{flex-direction:column!important;padding:18px 14px!important;gap:10px!important}
+  .ch-note-text{font-size:.88rem!important}
+
+  /* ── ACCORDION (industries page) ── */
+  .ind-nav{justify-content:flex-start!important;gap:6px!important}
+  .ind-nav-btn{font-size:.73rem!important;padding:7px 12px!important}
+  .acc-btn{padding:14px 14px!important;gap:10px!important}
+  .acc-btn-icon{width:36px!important;height:36px!important;flex-shrink:0!important}
+  .acc-meta-name{font-size:1rem!important}
+  .acc-meta-sub{font-size:.75rem!important}
+  .uc-grid{grid-template-columns:1fr!important;gap:10px!important}
+  .uc-body{font-size:.85rem!important;line-height:1.6!important}
+  .uc-outcome-text{font-size:.85rem!important}
+  .uc-wrap{padding:18px 14px 0!important}
+  .tier-wrap{padding:14px 14px 18px!important;overflow-x:auto!important}
+  .tier-table{min-width:480px!important;font-size:.8rem!important}
+  .tier-table td{padding:9px 10px!important}
+  .reality{grid-template-columns:1fr!important;gap:8px!important;padding:16px 14px!important}
+  .reality-text{font-size:.85rem!important;line-height:1.6!important}
+
+  /* ── VISION PAGE ── */
+  .cards-grid-3{grid-template-columns:1fr!important;gap:10px!important}
+  .card-light{padding:22px 16px!important}
+  .list-item{padding:14px 0!important}
+  .list-num{font-size:1.5rem!important}
+  .partner-callout{padding:24px 16px!important}
+  .chart-box{padding:22px 14px!important}
+  .gold-rule{display:none!important}
+
+  /* ── PHILOSOPHY (vision page) ── */
+  .phil-right{gap:10px!important}
+  .phil-card{padding:16px 14px!important}
+  .phil-card-text{font-size:.85rem!important}
+  .phil-card-title{font-size:.88rem!important}
+
+  /* ── OUTCOMES ── */
+  .outcome-section{text-align:left!important;padding-top:52px!important;padding-bottom:52px!important}
+  .outcome-section .section-label{justify-content:flex-start!important}
+  .outcome-section .section-label::before,.outcome-section .section-label::after{display:none!important}
+  .outcome-section .section-h,.outcome-section .section-body{margin-left:0!important;margin-right:0!important;max-width:100%!important;text-align:left!important}
+  .outcome-section .section-body{margin-bottom:32px!important}
+  .outcome-metrics{flex-direction:column!important;gap:20px!important;max-width:100%!important;align-items:flex-start!important;padding-top:28px!important}
+  .outcome-metric-num{font-size:2rem!important}
+
+  /* ── CTA SECTIONS ── */
+  .cta-section,.cta-wrap{padding:52px 16px!important;text-align:left!important}
+  .cta-section .section-h,.cta-h{max-width:100%!important;margin-left:0!important;margin-right:0!important;text-align:left!important}
+  .cta-sub{max-width:100%!important;margin-left:0!important;text-align:left!important}
+  .cta-label{justify-content:flex-start!important;margin-bottom:16px!important}
+  .cta-label::before,.cta-label::after{display:none!important}
+  .cta-actions,.cta-btns{flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:10px!important}
+  .cta-actions a,.cta-btns a,.btn-cta-w,.btn-cta-o,.btn-primary,.btn-ghost,.btn-ghost-dark,.btn-s,.btn-o,.btn-cw,.btn-cow{text-align:center!important;display:block!important;width:100%!important;box-sizing:border-box!important}
+
+  /* ── PARTNERS ── */
+  .partners-section{grid-template-columns:1fr!important;gap:24px!important}
+  .partner-callout{padding:24px 16px!important}
+
+  /* ── CONTACT PAGE ── */
+  .contact-section{grid-template-columns:1fr!important;gap:28px!important;padding:52px 16px!important}
+  .form-card{padding:20px 14px!important}
+  .form-grid{grid-template-columns:1fr!important}
+  .field.full{grid-column:auto!important}
+  .submit-row{flex-direction:column!important;align-items:stretch!important;gap:10px!important}
+  .submit-row .btn{text-align:center!important;width:100%!important}
+  .contact-list{margin-top:24px!important}
+  .contact-item span,.contact-item a{font-size:1rem!important}
+  .next-section{padding:40px 16px!important}
+  .next-grid{grid-template-columns:1fr!important}
+  .next-card{padding:22px 16px!important}
+  .next-card h3{font-size:1rem!important}
+  /* contact footer flex */
+  footer.contact-footer,footer{padding:40px 16px 18px!important}
+  footer .fb{font-size:.95rem!important}
+  footer .fl{flex-wrap:wrap!important;justify-content:center!important;gap:10px 18px!important}
+  footer .fc{text-align:center!important;display:block!important;width:100%!important}
+
+  /* ── FOOTER (all pages) ── */
+  footer{padding:40px 16px 0!important}
+  .footer-grid{grid-template-columns:1fr!important;gap:24px!important;padding-bottom:24px!important}
+  .footer-brand-sub{max-width:100%!important}
+  .footer-brand{font-size:1.3rem!important}
+  .footer-bottom{flex-direction:column!important;gap:6px!important;text-align:center!important;padding:14px 0!important}
+
+  /* ── CONTEXT QUOTE ── */
+  .context-quote{font-size:1.1rem!important;padding-left:16px!important}
+
+  /* ── WHO PILLARS ── */
+  .who-grid{margin-top:28px!important;gap:18px!important}
+  .who-pillar{padding-top:14px!important}
+  .who-pillar-text{font-size:.88rem!important}
+
+  /* ── WAVES (preserve them) ── */
+  .wave svg{min-height:20px!important}
+}
+
+/* ── ≤480px SMALL PHONES ── */
+@media(max-width:480px){
+  h1,.hero h1,.pg-header h1{font-size:clamp(1.6rem,9vw,2rem)!important}
+  h2,.section-h,.sh{font-size:clamp(1.3rem,7.5vw,1.7rem)!important}
+  .pain-card-q{font-size:.95rem!important}
+  .hero-panel-q{font-size:1rem!important}
+  .ind-nav-btn{font-size:.68rem!important;padding:6px 10px!important}
+  .outcome-metric-num{font-size:1.75rem!important}
+  .jstage-name{font-size:.88rem!important}
+  .hero-stat-num{font-size:1rem!important}
+  nav{height:52px!important}
+  .nav-links{top:52px!important}
+}
+
 </style>
 </head>
 <body>
@@ -798,13 +1168,16 @@ footer {
 <!-- NAV -->
 <nav>
   <a href="nexivant-homepage.html" class="logo">Nexivant</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="nexivant-industries.html">Industries</a></li>
     <li><a href="nexivant-solutions.html">Our Solutions</a></li>
     <li><a href="nexivant-vision.html">Our Vision</a></li>
     <li><a href="nexivant-contact.html">Contact Us</a></li>
   </ul>
   <a href="nexivant-contact.html" class="nav-cta">Talk to Us</a>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -865,10 +1238,10 @@ footer {
     </blockquote>
   </div>
 </section>
-<div class="wave wave-white-to-plum"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#471132"/></svg></div>
+<div class="wave wave-white-to-cream" style="background:#fff"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#F7F3EE"/></svg></div>
 
 <!-- SECTION 3 — WHO WE ARE -->
-<section class="who-section on-plum" id="vision">
+<section class="who-section" id="vision">
   <span class="section-label">Our Starting Point</span>
   <h2 class="section-h" style="max-width: 560px;">We come from business.<br>That is what makes this different.</h2>
   <p class="section-body" style="max-width: 600px;">
@@ -900,7 +1273,7 @@ footer {
     </div>
   </div>
 </section>
-<div class="wave wave-plum-to-cream"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#f3ede3"/></svg></div>
+<div style="background:#F7F3EE"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none" style="display:block;width:100%;margin-bottom:-1px"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#f3ede3"/></svg></div>
 
 <!-- SECTION 4 — SOLUTIONS / TIERS -->
 <section class="tiers-section" id="solutions">
@@ -1063,10 +1436,10 @@ footer {
       If you are an expert in your field and you believe your clients need to move on AI, we would like to explore what building together looks like. This is not a reseller arrangement. It is a genuine collaboration, built on shared revenue and shared upside.
     </p>
   </div>
-  <div class="partner-callout fade-in stagger-2 on-plum">
-    <span class="section-label">The Proposition</span>
-    <h3 class="section-h" style="font-size: 1.75rem;">We bring the capability. You bring the domain.</h3>
-    <p class="section-body" style="font-size: 0.9rem; max-width: 100%; margin-bottom: 32px;">
+  <div class="partner-callout fade-in stagger-2">
+    <span class="section-label" style="color:rgba(71,17,50,0.55)">The Proposition</span>
+    <h3 class="section-h" style="font-size: 1.75rem; color:var(--plum)">We bring the capability. You bring the domain.</h3>
+    <p class="section-body" style="font-size: 0.9rem; max-width: 100%; margin-bottom: 32px; color:rgba(71,17,50,0.7)">
       Together we deliver something neither of us could alone. A genuine collaboration with shared revenue and shared upside — built for long-term value, not a one-time transaction.
     </p>
     <a href="nexivant-contact.html" class="btn-primary">Let's Have That Conversation →</a>
@@ -1114,20 +1487,37 @@ footer {
   </div>
 </section>
 
+<div style="background:var(--plum)"><svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none" style="display:block;width:100%;margin-bottom:-1px"><path d="M0 0C240 80 480 80 720 40C960 0 1200 80 1440 40V80H0V0Z" fill="#f3ede3"/></svg></div>
+
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand">
-    Nexivant
-    <span>We make AI work inside your business.</span>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Nexivant</div>
+      <p class="footer-brand-sub">A Backend Operating System for Modern Clinics</p>
+    </div>
+    <div>
+      <span class="footer-col-label">Contact Us</span>
+      <ul class="footer-contact-list">
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2.5A1.5 1.5 0 013.5 1h1.236a.5.5 0 01.474.342l.966 2.9a.5.5 0 01-.115.525l-1.06 1.06a7.014 7.014 0 003.172 3.172l1.06-1.06a.5.5 0 01.525-.115l2.9.966A.5.5 0 0113 9.264V10.5A1.5 1.5 0 0111.5 12C5.701 12 1 7.299 1 1.5" stroke="#471132" stroke-width="1.2" stroke-linecap="round"/></svg> +91 9833943177</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="#471132" stroke-width="1.2"/><path d="M1 4l6 4 6-4" stroke="#471132" stroke-width="1.2" stroke-linecap="round"/></svg> chirag@navighealth.com</li>
+        <li class="footer-city">Navi Mumbai</li>
+      </ul>
+    </div>
+    <div>
+      <span class="footer-col-label">Quick Links</span>
+      <ul class="footer-quick-links">
+        <li><a href="nexivant-homepage.html">Home</a></li>
+        <li><a href="nexivant-solutions.html">Our Solutions</a></li>
+        <li><a href="nexivant-industries.html">We Work With</a></li>
+        <li><a href="nexivant-vision.html">Our Vision</a></li>
+        <li><a href="nexivant-contact.html">Contact Us</a></li>
+      </ul>
+    </div>
   </div>
-  <ul class="footer-links">
-    <li><a href="nexivant-homepage.html">Home</a></li>
-    <li><a href="nexivant-industries.html">Industries</a></li>
-    <li><a href="nexivant-solutions.html">Our Solutions</a></li>
-    <li><a href="nexivant-vision.html">Our Vision</a></li>
-    <li><a href="nexivant-contact.html">Contact Us</a></li>
-  </ul>
-  <p class="footer-copy">© 2026 Nexivant. All rights reserved.</p>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Suvira Health. All rights reserved.</p>
+  </div>
 </footer>
 
 <script>
@@ -1146,6 +1536,41 @@ footer {
       if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
     });
   });
+</script>
+<script>
+  (function(){
+    var btn = document.getElementById('navHamburger');
+    var links = document.getElementById('navLinks');
+    if(!btn||!links) return;
+    btn.addEventListener('click', function(){
+      btn.classList.toggle('open');
+      links.classList.toggle('open');
+    });
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        btn.classList.remove('open');
+        links.classList.remove('open');
+      });
+    });
+  })();
+</script>
+<script>
+(function(){
+  var btn=document.getElementById('navHamburger');
+  var menu=document.getElementById('navLinks');
+  if(!btn||!menu)return;
+  btn.addEventListener('click',function(){
+    var open=menu.classList.contains('open');
+    menu.classList.toggle('open',!open);
+    btn.classList.toggle('open',!open);
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+    });
+  });
+})();
 </script>
 </body>
 </html>

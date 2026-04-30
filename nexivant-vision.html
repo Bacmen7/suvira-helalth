@@ -7,243 +7,698 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="suvira-global.css">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --cream:#f3ede3;--cream-lt:#f3ede3;--white:#ffffff;
-  --maroon:#471132;--maroon-md:rgba(71,17,50,0.65);--maroon-dk:#34001F;
-  --plum:#471132;--plum-soft:rgba(71,17,50,0.08);--plum-border:rgba(71,17,50,0.15);
-  --teal:#471132;--teal-lt:#471132;
-  --teal-bg:rgba(71,17,50,0.08);
-  --body:#471132;--muted:rgba(71,17,50,0.6);--border:rgba(71,17,50,0.15);
-  --text-on-plum:rgba(243,237,227,0.92);--text-on-plum-muted:rgba(243,237,227,0.55);
-  --serif:p22-mackinac-pro,"P22 Mackinac Pro",Georgia,serif;
-  --sans:'DM Sans',system-ui,sans-serif;
+/* ─── BASE STYLES FROM HOMEPAGE ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream:        #f3ede3;
+  --cream-dark:   #ede5d8;
+  --offwhite:     #F7F3EE;
+  --gold:         #C9A96E;
+  --gold-soft:    rgba(201,169,110,0.15);
+  --gold-border:  rgba(201,169,110,0.3);
+  --plum:         #471132;
+  --plum-mid:     rgba(71,17,50,0.65);
+  --plum-soft:    rgba(71,17,50,0.08);
+  --plum-border:  rgba(71,17,50,0.15);
+  --white:        #ffffff;
+  --text-on-plum: rgba(243,237,227,0.92);
+  --text-on-plum-muted: rgba(243,237,227,0.55);
+  --serif: p22-mackinac-pro, "P22 Mackinac Pro", Georgia, serif;
+  --sans:  'DM Sans', system-ui, sans-serif;
 }
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--cream);color:var(--plum);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-/* ── NAV ── */
-nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 64px;height:68px;background:rgba(71,17,50,0.97);backdrop-filter:blur(14px);border-bottom:1px solid rgba(243,237,227,0.1)}
-.logo{font-family:var(--sans);font-size:1.35rem;font-weight:700;color:var(--text-on-plum);text-decoration:none;letter-spacing:0.01em}
-.nav-links{display:flex;gap:36px;list-style:none}
-.nav-links a{font-size:0.78rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-on-plum-muted);text-decoration:none;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--text-on-plum)}
-.nav-cta{background:var(--cream);color:var(--plum);font-size:0.78rem;font-weight:500;padding:9px 22px;border-radius:4px;text-decoration:none;transition:background .2s}
-.nav-cta:hover{background:#fff}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--plum);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 
-/* ── UTILITIES ── */
-.sl{font-size:.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(71,17,50,0.45);display:block;margin-bottom:18px}
-.sh{font-family:var(--serif);font-size:clamp(2rem,3.4vw,2.8rem);font-weight:500;line-height:1.12;color:var(--maroon);margin-bottom:22px;letter-spacing:normal}
-.sb{font-size:1.125rem;font-weight:400;line-height:1.625;color:var(--muted)}
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 64px;
+  height: 68px;
+  background: rgba(71,17,50,0.97);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(243,237,227,0.1);
+}
+
+.logo {
+  font-family: var(--sans);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-on-plum);
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+.logo em {
+  font-style: normal;
+  color: rgba(243,237,227,0.5);
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-on-plum-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text-on-plum); }
+
+.nav-cta {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  color: var(--plum);
+  background: var(--cream);
+  text-decoration: none;
+  padding: 9px 22px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: #fff; }
+
+/* ─── HERO (DARK) ─── */
+.hero {
+  background: var(--plum);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 160px 64px 100px;
+}
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(243,237,227,0.025) 0px, rgba(243,237,227,0.025) 1px, transparent 1px, transparent 72px),
+    repeating-linear-gradient(90deg, rgba(243,237,227,0.025) 0px, rgba(243,237,227,0.025) 1px, transparent 1px, transparent 72px);
+  pointer-events: none;
+}
+.hero-glow {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  right: -120px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(243,237,227,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(243,237,227,0.55);
+  margin-bottom: 24px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: rgba(243,237,227,0.35);
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--text-on-plum);
+  margin-bottom: 24px;
+  letter-spacing: normal;
+}
+.hero-sub {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.625;
+  color: var(--text-on-plum-muted);
+  max-width: 640px;
+}
+
+/* ─── WAVE DIVIDERS ─── */
 .wave{display:block;width:100%;line-height:0;font-size:0;margin:0;padding:0;overflow:hidden}.wave svg{display:block;width:100%;height:auto;margin-bottom:-1px}
-.fi{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
-.fi.vis{opacity:1;transform:translateY(0)}
-.d1{transition-delay:.08s}.d2{transition-delay:.17s}.d3{transition-delay:.26s}.d4{transition-delay:.35s}.d5{transition-delay:.44s}
+.wave-plum-to-cream     { background: var(--plum); }
+.wave-cream-to-offwhite { background: var(--cream); }
+.wave-offwhite-to-cream { background: var(--offwhite); }
+.wave-cream-to-plum     { background: var(--cream); }
 
-/* ──────────────────────────────────────────
-   HERO — full bleed cream, editorial
-────────────────────────────────────────── */
-.hero{background:var(--plum);padding:100px 72px 96px;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;border-bottom:1px solid rgba(243,237,227,0.1);position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(243,237,227,0.018) 0px,rgba(243,237,227,0.018) 1px,transparent 1px,transparent 80px);pointer-events:none}
-.hero>*{position:relative}
-.hero-text .sl{margin-bottom:20px}
-.hero .sl{color:rgba(243,237,227,0.45)}
-.hero-h{font-family:var(--serif);font-size:clamp(2.8rem,5.2vw,4.4rem);font-weight:500;line-height:1.12;color:var(--text-on-plum);margin-bottom:28px;letter-spacing:normal}
-.hero-h em{font-style:italic;color:rgba(243,237,227,0.5)}
-.hero-sub{font-size:1.125rem;font-weight:400;line-height:1.625;color:var(--text-on-plum-muted);max-width:560px;margin-bottom:32px}
-.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(243,237,227,0.08);border:1px solid rgba(243,237,227,.18);border-radius:40px;padding:10px 18px}
-.hero-badge-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0}
-.hero-badge-text{font-size:.9rem;font-weight:400;color:var(--text-on-plum)}
-.hero-right{display:flex;flex-direction:column;gap:14px}
-.hero-stat-card{background:rgba(243,237,227,0.06);border:1px solid rgba(243,237,227,0.14);border-radius:12px;padding:22px 24px}
-.hero-stat-card-top{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-.hero-stat-icon{width:34px;height:34px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.hero-stat-icon svg{width:14px;height:14px}
-.hero-stat-label{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(243,237,227,0.55)}
-.hero-stat-val{font-family:var(--serif);font-size:1.5rem;font-weight:500;color:var(--text-on-plum);margin-bottom:4px}
-.hero-stat-desc{font-size:1rem;font-weight:400;color:var(--text-on-plum-muted);line-height:1.625}
-
-/* ──────────────────────────────────────────
-   SECTION 1 — PARADIGM SHIFT TIMELINE
-────────────────────────────────────────── */
-.shift-section{background:var(--white);padding:80px 72px}
-.shift-header{max-width:680px;margin-bottom:60px}
-.shift-header .sb{margin-top:4px}
-.timeline-wrap{position:relative;padding:10px 0 44px}
-.timeline-line{position:absolute;top:36px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,rgba(71,17,50,.18),rgba(71,17,50,.36));border-radius:2px}
-.timeline-nodes{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;position:relative}
-.tnode{display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:0 4px}
-.tnode-dot{width:18px;height:18px;border-radius:50%;background:var(--white);border:2px solid var(--maroon);margin:17px 0 22px;position:relative;z-index:1;transition:all .3s;box-shadow:0 0 0 6px var(--white)}
-.tnode.past .tnode-dot{background:var(--maroon);border-color:var(--maroon)}
-.tnode.current .tnode-dot{width:26px;height:26px;background:var(--maroon);border-color:var(--maroon);margin:13px 0 18px;box-shadow:0 0 0 7px rgba(71,17,50,.1)}
-.tnode-era{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(71,17,50,.5);margin-bottom:8px}
-.tnode.current .tnode-era{color:var(--maroon)}
-.tnode-name{font-family:var(--serif);font-size:1.16rem;font-weight:500;color:var(--body);margin-bottom:9px;line-height:1.25}
-.tnode.current .tnode-name{color:var(--maroon);font-size:1.32rem}
-.tnode-desc{font-size:1rem;font-weight:400;color:var(--muted);line-height:1.6}
-.tnode.current .tnode-desc{color:var(--maroon-md)}
-.timeline-now-label{position:absolute;top:-8px;left:calc(50% + calc(80% / 10) * 4);transform:translateX(-50%)}
-.tnode-now-tag{display:inline-block;background:var(--maroon);color:#fff;font-size:.62rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:4px 11px;border-radius:12px;margin-bottom:10px}
-.shift-insight{margin-top:48px;padding:28px 32px;background:var(--cream);border-radius:10px;border-left:3px solid var(--maroon);display:flex;gap:16px;align-items:flex-start}
-.shift-insight-text{font-family:var(--serif);font-size:1.08rem;font-weight:400;font-style:italic;line-height:1.6;color:var(--maroon)}
-
-/* ──────────────────────────────────────────
-   SECTION 2 — THE BELIEF
-────────────────────────────────────────── */
-.belief-section{background:var(--cream);padding:80px 72px}
-.belief-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.belief-visual{position:relative}
-.belief-chart{width:100%;max-width:420px}
-.belief-quote-block{background:var(--maroon);border-radius:14px;padding:44px 40px;position:relative;overflow:hidden}
-.belief-quote-block::before{content:'\201C';font-family:var(--serif);font-size:9rem;line-height:.8;color:rgba(255,255,255,.07);position:absolute;top:8px;left:20px;pointer-events:none}
-.belief-quote{font-family:var(--serif);font-size:1.4rem;font-weight:400;font-style:italic;color:#fff;line-height:1.45;position:relative}
-.belief-quote em{font-style:normal;color:rgba(255,255,255,.6)}
-.belief-caption{font-size:1.125rem;font-weight:400;color:rgba(255,255,255,.5);margin-top:20px;line-height:1.625}
-.belief-body p{font-size:1.125rem;font-weight:400;line-height:1.625;color:var(--muted)}
-.belief-body p+p{margin-top:14px}
-.belief-body .sl{margin-top:0}
-.belief-callout{margin-top:28px;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px 22px}
-.belief-callout-h{font-family:var(--serif);font-size:1.05rem;font-weight:500;color:var(--maroon);margin-bottom:8px}
-.belief-callout-p{font-size:1.125rem;font-weight:400;line-height:1.625;color:var(--muted)}
-
-/* ──────────────────────────────────────────
-   SECTION 3 — THE OPPORTUNITY
-────────────────────────────────────────── */
-.opp-section{background:var(--white);padding:80px 72px}
-.opp-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:start}
-.opp-market-visual{display:flex;flex-direction:column;gap:12px}
-.opp-market-row{display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid var(--border);border-radius:10px;transition:border-color .2s}
-.opp-market-row.highlight{border-color:var(--maroon);background:var(--cream)}
-.opp-market-row.dim{opacity:.45}
-.opp-market-label{font-size:.78rem;font-weight:500;color:var(--muted);min-width:160px}
-.opp-market-row.highlight .opp-market-label{color:var(--maroon)}
-.opp-market-bar-wrap{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden}
-.opp-market-bar{height:100%;border-radius:4px;background:var(--teal)}
-.opp-market-row.highlight .opp-market-bar{background:var(--maroon)}
-.opp-market-tag{font-size:.7rem;font-weight:500;color:var(--teal);white-space:nowrap}
-.opp-market-row.highlight .opp-market-tag{color:var(--maroon)}
-.opp-note{margin-top:16px;font-size:1.125rem;font-weight:400;color:var(--muted);line-height:1.625;padding:14px 16px;background:var(--cream);border-radius:8px}
-.opp-body .sb+.sb{margin-top:14px}
-.opp-geo-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
-.opp-geo-pill{display:inline-flex;align-items:center;gap:7px;background:var(--cream);border:1px solid var(--border);border-radius:20px;padding:7px 14px;font-size:.8rem;font-weight:400;color:var(--body)}
-.opp-geo-dot{width:6px;height:6px;border-radius:50%;background:var(--teal)}
-
-/* ──────────────────────────────────────────
-   SECTION 4 — THE MODEL (HUB & SPOKE)
-────────────────────────────────────────── */
-.model-section{background:var(--cream);padding:80px 72px}
-.model-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.model-diagram-wrap{display:flex;justify-content:center;align-items:center}
-.model-body .sl{margin-bottom:14px}
-.model-body .sh{margin-bottom:20px}
-.model-body .sb+.sb{margin-top:14px}
-.model-steps{display:flex;flex-direction:column;gap:0;margin-top:28px}
-.model-step{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--border)}
-.model-step:last-child{border-bottom:none}
-.model-step-num{font-family:var(--serif);font-size:1.5rem;font-weight:300;color:var(--teal);line-height:1;min-width:32px;margin-top:-2px}
-.model-step-title{font-size:.92rem;font-weight:500;color:var(--maroon);margin-bottom:4px}
-.model-step-text{font-size:1.125rem;font-weight:400;color:var(--muted);line-height:1.625}
-
-/* ──────────────────────────────────────────
-   SECTION 5 — THE LONG VIEW
-────────────────────────────────────────── */
-.longview-section{background:var(--maroon);padding:88px 72px;position:relative;overflow:hidden}
-.longview-section::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:rgba(255,255,255,.025);top:-200px;right:-200px;pointer-events:none}
-.longview-section::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:rgba(255,255,255,.02);bottom:-150px;left:-100px;pointer-events:none}
-.lv-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative}
-.lv-left .sl{color:rgba(255,255,255,.45)}
-.lv-left .sh{color:#fff;font-size:clamp(2rem,3.5vw,3rem)}
-.lv-left .sb{color:rgba(255,255,255,.6)}
-.lv-left .sb+.sb{margin-top:14px}
-.lv-cities{display:flex;flex-direction:column;gap:0;margin-top:0}
-.lv-city{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.lv-city:first-child{border-top:1px solid rgba(255,255,255,.08)}
-.lv-city-dot{width:8px;height:8px;border-radius:50%;background:var(--teal-lt);flex-shrink:0}
-.lv-city-name{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:#fff}
-.lv-city-detail{font-size:1.125rem;font-weight:400;color:rgba(255,255,255,.5);margin-left:auto;text-align:right;line-height:1.625}
-.lv-big-number{font-family:var(--serif);font-size:5.5rem;font-weight:300;color:rgba(255,255,255,.08);line-height:1;margin-bottom:8px;display:block}
-.lv-metric-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
-.lv-metric{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:22px 20px}
-.lv-metric-num{font-family:var(--serif);font-size:2rem;font-weight:500;color:#fff;display:block;margin-bottom:4px}
-.lv-metric-label{font-size:.75rem;font-weight:300;color:rgba(255,255,255,.5);line-height:1.4}
-
-/* ──────────────────────────────────────────
-   SECTION 6 — WHO WE ARE
-────────────────────────────────────────── */
-.who-section{background:var(--white);padding:80px 72px}
-.who-header{max-width:640px;margin-bottom:52px}
-.who-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
-.who-card{background:var(--white);padding:44px 34px;text-align:center}
-.who-card-icon{width:64px;height:64px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
-.who-card-icon svg{width:27px;height:27px}
-.who-card h3{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--maroon);margin-bottom:12px}
-.who-card p{font-size:1.125rem;font-weight:400;line-height:1.625;color:var(--muted)}
-.who-founder-note{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.wfn-card{background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:28px 26px;display:flex;gap:14px;align-items:flex-start}
-.wfn-icon{width:40px;height:40px;border-radius:50%;background:var(--teal-bg);border:1px solid rgba(71,17,50,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.wfn-icon svg{width:17px;height:17px}
-.wfn-title{font-size:.9rem;font-weight:500;color:var(--maroon);margin-bottom:5px}
-.wfn-text{font-size:1.125rem;font-weight:400;line-height:1.625;color:var(--muted)}
-
-/* ──────────────────────────────────────────
-   SECTION 7 — DOMAIN EXPERT CTA
-────────────────────────────────────────── */
-.partner-section{background:var(--cream);padding:80px 72px;border-top:1px solid var(--border)}
-.partner-header{text-align:center;max-width:680px;margin:0 auto 56px}
-.partner-header .sl{display:flex;align-items:center;justify-content:center;gap:10px}
-.partner-header .sl::before,.partner-header .sl::after{content:'';display:block;width:20px;height:1px;background:var(--teal)}
-.partner-header .sh{text-align:center}
-.partner-value-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:44px}
-.pv-col{background:var(--white);padding:40px 32px}
-.pv-col-label{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:16px}
-.pv-col-you .pv-col-label{color:var(--teal)}
-.pv-col-nex .pv-col-label{color:var(--maroon)}
-.pv-col-together .pv-col-label{color:var(--body)}
-.pv-col-title{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--maroon);margin-bottom:16px;line-height:1.3}
-.pv-items{display:flex;flex-direction:column;gap:9px}
-.pv-item{display:flex;align-items:flex-start;gap:9px;font-size:1.125rem;font-weight:400;color:var(--muted);line-height:1.625}
-.pv-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px}
-.pv-col-you .pv-dot{background:var(--teal)}
-.pv-col-nex .pv-dot{background:var(--maroon)}
-.pv-col-together .pv-dot{background:var(--body)}
-.partner-profiles{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:44px}
-.pp-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:22px 20px;display:flex;gap:14px;align-items:flex-start}
-.pp-icon{width:38px;height:38px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.pp-icon svg{width:16px;height:16px}
-.pp-title{font-size:.88rem;font-weight:500;color:var(--maroon);margin-bottom:4px}
-.pp-text{font-size:1.125rem;font-weight:400;color:var(--muted);line-height:1.625}
-.partner-cta-block{background:var(--maroon);border-radius:14px;padding:52px 48px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
-.pcb-text{color:#fff}
-.pcb-label{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);display:block;margin-bottom:12px}
-.pcb-h{font-family:var(--serif);font-size:1.8rem;font-weight:500;color:#fff;line-height:1.25;margin-bottom:12px}
-.pcb-sub{font-size:1.125rem;font-weight:400;color:rgba(255,255,255,.6);line-height:1.625;max-width:480px}
-.pcb-actions{display:flex;flex-direction:column;gap:10px;align-items:flex-end;flex-shrink:0}
-.btn-cw{background:#fff;color:var(--maroon);font-size:.88rem;font-weight:500;padding:14px 28px;border-radius:8px;text-decoration:none;display:inline-block;transition:background .2s;white-space:nowrap}
-.btn-cw:hover{background:var(--cream)}
-.btn-cow{background:transparent;color:rgba(255,255,255,.7);font-size:.84rem;font-weight:400;padding:10px 20px;border-radius:8px;border:1px solid rgba(255,255,255,.25);text-decoration:none;display:inline-block;transition:all .2s;white-space:nowrap}
-.btn-cow:hover{color:#fff;border-color:rgba(255,255,255,.5)}
-
-/* closing line */
-.closing{background:var(--cream);padding:36px 72px;border-top:1px solid var(--border);text-align:center}
-.closing p{font-family:var(--serif);font-size:1.125rem;font-weight:400;font-style:italic;color:var(--muted);line-height:1.625}
-
-/* footer */
-footer{background:var(--plum);border-top:1px solid rgba(243,237,227,0.12);padding:28px 72px;display:flex;align-items:center;justify-content:space-between}
-.fb{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--cream)}
-.fb span{display:block;font-family:var(--sans);font-size:.75rem;font-weight:300;color:rgba(243,237,227,0.55);margin-top:3px}
-.fl{display:flex;gap:24px;list-style:none}
-.fl a{font-size:.78rem;color:rgba(243,237,227,0.65);text-decoration:none;transition:color .2s}
-.fl a:hover{color:var(--cream)}
-.fc{font-size:.75rem;color:rgba(243,237,227,0.55)}
-@media(max-width:1100px){
-  .timeline-line{display:none}
-  .timeline-nodes{grid-template-columns:1fr;gap:0;border-left:2px solid rgba(71,17,50,.18);margin-left:10px;padding-left:26px}
-  .tnode{position:relative;padding:0 0 28px}
-  .tnode-dot,.tnode.current .tnode-dot{position:absolute;left:-36px;top:2px;margin:0;box-shadow:0 0 0 6px var(--white)}
-  .tnode-now-tag{margin-bottom:8px}
+/* ─── BUTTONS ─── */
+.btn-primary {
+  background: var(--plum);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  padding: 14px 32px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
 }
+.btn-primary:hover { background: #5a1a40; transform: translateY(-1px); }
+
+.btn-ghost-dark {
+  color: var(--plum);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  padding: 14px 28px;
+  border: 1px solid rgba(71,17,50,0.2);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-block;
+}
+.btn-ghost-dark:hover { background: rgba(71,17,50,0.05); border-color: rgba(71,17,50,0.45); }
+
+/* ─── SECTION COMMONS ─── */
+section { padding: 104px 64px; }
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(71,17,50,0.45);
+  margin-bottom: 18px;
+  display: block;
+}
+.section-h {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--plum);
+  margin-bottom: 22px;
+  letter-spacing: normal;
+}
+.section-body {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.625;
+  color: rgba(71,17,50,0.65);
+}
+
+.on-plum .section-label { color: rgba(243,237,227,0.45); }
+.on-plum .section-h     { color: var(--text-on-plum); }
+.on-plum .section-body  { color: var(--text-on-plum-muted); }
+
+.context-quote {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--plum);
+  border-left: 2px solid rgba(71,17,50,0.2);
+  padding-left: 28px;
+}
+
+/* ─── CUSTOM VISION LAYOUTS ─── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.grid-2.start { align-items: start; }
+
+/* Chart & Diagram blocks */
+.chart-box {
+  background: var(--offwhite);
+  border: 1px solid var(--plum-border);
+  border-radius: 4px;
+  padding: 32px;
+  margin-top: 32px;
+}
+
+/* List Items (Gap & Steps) */
+.list-item {
+  border-top: 1px solid var(--plum-border);
+  padding-top: 24px;
+  margin-bottom: 32px;
+}
+.list-item:last-child { margin-bottom: 0; }
+.list-num {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: rgba(71,17,50,0.15);
+  display: block;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.list-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--plum);
+  margin-bottom: 8px;
+}
+.list-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(71,17,50,0.65);
+}
+
+/* On-plum list styles */
+.on-plum .list-item { border-color: rgba(243,237,227,0.12); }
+.on-plum .list-num { color: rgba(243,237,227,0.15); font-size: 1.5rem; }
+.on-plum .list-title { color: var(--text-on-plum); font-family: var(--serif); font-size: 1.25rem; font-weight: 400; }
+.on-plum .list-text { color: var(--text-on-plum-muted); font-size: 1rem; }
+
+/* Cards (Who We Are / Partner) */
+.cards-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--plum-border);
+  border: 1px solid var(--plum-border);
+  margin-top: 48px;
+}
+.card-light {
+  background: var(--offwhite);
+  padding: 40px 32px;
+}
+.card-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(30,127,127,0.1);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.card-title {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--plum);
+  margin-bottom: 12px;
+}
+
+/* Gold accent rule */
+.gold-rule {
+  display: block;
+  width: 36px;
+  height: 2px;
+  background: var(--gold);
+  margin-bottom: 20px;
+}
+
+/* Callout Box */
+.partner-callout {
+  background: var(--cream);
+  border: 1px solid var(--plum-border);
+  padding: 64px 56px;
+  position: relative;
+  text-align: center;
+  margin-top: 64px;
+  border-radius: 4px;
+}
+.partner-callout::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 56px;
+  background: var(--gold);
+}
+
+/* ─── FOOTER ─── */
+footer { background: var(--cream); padding: 72px 64px 0; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 64px; padding-bottom: 56px; }
+.footer-brand { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; color: var(--plum); letter-spacing: 0.01em; line-height: 1.1; margin-bottom: 14px; }
+.footer-brand-sub { font-family: var(--sans); font-size: 0.9rem; font-weight: 400; color: rgba(71,17,50,0.55); line-height: 1.6; max-width: 280px; }
+.footer-col-label { font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--plum); margin-bottom: 20px; display: block; }
+.footer-contact-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-contact-list li { display: flex; align-items: center; gap: 10px; font-family: var(--sans); font-size: 0.88rem; font-weight: 400; color: rgba(71,17,50,0.65); }
+.footer-contact-list li svg { flex-shrink: 0; opacity: 0.5; }
+.footer-contact-list .footer-city { padding-left: 26px; color: rgba(71,17,50,0.5); font-size: 0.85rem; }
+.footer-quick-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-quick-links a { font-family: var(--sans); font-size: 0.88rem; font-weight: 400; color: rgba(71,17,50,0.65); text-decoration: none; transition: color 0.2s; }
+.footer-quick-links a:hover { color: var(--plum); }
+.footer-bottom { border-top: 1px solid var(--plum-border); padding: 22px 0; display: flex; align-items: center; justify-content: center; }
+.footer-copy { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; color: rgba(71,17,50,0.45); }
+
+/* ─── ANIMATIONS ─── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.stagger-1 { transition-delay: 0.08s; }
+.stagger-2 { transition-delay: 0.18s; }
+.stagger-3 { transition-delay: 0.28s; }
+.stagger-4 { transition-delay: 0.38s; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1100px) {
+  nav { padding: 16px 24px; height: auto; flex-wrap: wrap; gap: 14px 20px; }
+  .nav-links { order: 3; width: 100%; flex-wrap: wrap; gap: 14px 18px; }
+  section, .hero, footer { padding-left: 24px; padding-right: 24px; }
+  .grid-2, .cards-grid-3 { grid-template-columns: 1fr; gap: 40px; }
+  footer { flex-wrap: wrap; gap: 18px; }
+}
+@media (max-width: 768px) {
+  .hero { padding-top: 140px; padding-bottom: 60px; }
+  .hero h1 { font-size: clamp(2.2rem, 8vw, 2.8rem); }
+  section { padding-top: 72px; padding-bottom: 72px; }
+  .partner-callout { padding: 40px 24px; }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   NEXIVANT MOBILE SYSTEM — ALL 5 PAGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* HAMBURGER */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:5px;z-index:302;flex-shrink:0}
+.nav-hamburger span{display:block;height:2px;width:100%;background:rgba(243,237,227,.85);border-radius:2px;transition:all .28s ease;transform-origin:center}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ── ≤900px NAV ── */
+@media(max-width:900px){
+  nav{padding:0 18px!important;height:56px!important;position:sticky!important;top:0!important}
+  .nav-hamburger{display:flex!important}
+  .nav-cta,.logo em{display:none!important}
+  .nav-links{display:none!important;position:fixed!important;top:56px!important;left:0!important;right:0!important;background:rgba(60,8,36,.98)!important;backdrop-filter:blur(20px)!important;flex-direction:column!important;gap:0!important;padding:6px 0 18px!important;border-bottom:1px solid rgba(243,237,227,.1)!important;z-index:300!important;box-shadow:0 10px 40px rgba(0,0,0,.3)!important;list-style:none!important}
+  .nav-links.open{display:flex!important}
+  .nav-links li{border-bottom:1px solid rgba(243,237,227,.06)!important;margin:0!important;padding:0!important}
+  .nav-links li:last-child{border-bottom:none!important}
+  .nav-links a{display:block!important;padding:14px 22px!important;font-size:.88rem!important;letter-spacing:.08em!important;color:rgba(243,237,227,.72)!important;text-decoration:none!important}
+  .nav-links a:hover,.nav-links a.active{color:rgba(243,237,227,1)!important;background:rgba(243,237,227,.05)!important}
+}
+
+/* ── ≤768px FULL MOBILE ── */
+@media(max-width:768px){
+
+  /* GLOBAL PADDING */
+  section,.pad,.pad-md,.pad-sm,.outcome-section,.cta-section,.cta-wrap,.pain-section,.cover-section,.journey-section,footer{padding-left:16px!important;padding-right:16px!important}
+  section,.pad,.pad-md{padding-top:48px!important;padding-bottom:48px!important}
+  .pad-sm{padding-top:32px!important;padding-bottom:32px!important}
+  body,html{overflow-x:hidden!important;max-width:100vw!important}
+
+  /* TYPOGRAPHY */
+  h1,.hero h1,.pg-header h1{font-size:clamp(1.75rem,8.5vw,2.4rem)!important;line-height:1.18!important}
+  h2,.section-h,.sh,.cta-h,.cta-label-big{font-size:clamp(1.45rem,6.5vw,2rem)!important;line-height:1.25!important;margin-bottom:16px!important}
+  h3{font-size:clamp(1.1rem,5vw,1.4rem)!important}
+  p,.section-body,.sb,.hero-p,.hero-sub,.pain-card-a,.tier-body-p,.jstage-desc,.team-card p,.mini-phase-desc,.phil-pillar p{font-size:.9rem!important;line-height:1.65!important}
+  .section-body,.sb{max-width:100%!important}
+
+  /* ── HOMEPAGE HERO ── */
+  .hero{min-height:auto!important;padding:80px 16px 48px!important;display:block!important}
+  .hero-content{max-width:100%!important}
+  .hero-eyebrow{margin-bottom:18px!important}
+  .hero-glow{display:none!important}
+  .hero-actions{flex-direction:column!important;align-items:stretch!important;gap:10px!important;margin-bottom:40px!important}
+  .hero-actions a,.hero-actions .btn-primary,.hero-actions .btn-ghost{text-align:center!important;width:100%!important;box-sizing:border-box!important}
+  .hero-stat-bar{position:static!important;flex-direction:column!important;border-top:1px solid rgba(243,237,227,.12)!important}
+  .hero-stat{padding:14px 0!important;border-right:none!important;border-bottom:1px solid rgba(243,237,227,.1)!important;flex:none!important}
+  .hero-stat:last-child{border-bottom:none!important}
+
+  /* ── SOLUTIONS HERO (2-col grid) ── */
+  .hero[style*="grid"]{display:block!important}
+  .hero.s-hero,.pain-section ~ .hero{display:block!important}
+  /* target the solutions page hero specifically by its grid property */
+  .hero{grid-template-columns:1fr!important;gap:0!important}
+  .hero-text{width:100%!important}
+  .hero-panel{margin-top:28px!important;justify-content:stretch!important}
+  .hero-panel-inner{max-width:100%!important;padding:24px 18px!important;border-radius:8px!important}
+  .hero-panel-q{font-size:1.1rem!important;margin-bottom:24px!important}
+  .hero-stat-row{flex-direction:column!important;gap:10px!important}
+  .hero-stat-item{padding:12px 14px!important;gap:12px!important}
+  .hero-stat-num{font-size:1.05rem!important;min-width:auto!important}
+  .hero-stat-label{font-size:.82rem!important}
+
+  /* PAGE HEADER */
+  .pg-header{padding:72px 16px 56px!important}
+  .pg-header p{font-size:.92rem!important}
+
+  /* ── PAIN POINTS (2-col → 1-col) ── */
+  .pain-grid{grid-template-columns:1fr!important;gap:1px!important}
+  .pain-card{padding:24px 18px!important;gap:14px!important}
+  .pain-card-q{font-size:1rem!important}
+  .pain-close{padding:20px 18px!important;gap:14px!important;flex-wrap:wrap!important}
+  .pain-close p{font-size:.88rem!important}
+  .pain-intro-row{margin-bottom:32px!important}
+
+  /* ── PHILOSOPHY SECTION ── */
+  .phil-header{grid-template-columns:1fr!important;gap:24px!important;margin-bottom:36px!important}
+  .phil-pillars{grid-template-columns:1fr!important}
+  .phil-pillar{padding:28px 18px!important;text-align:left!important}
+  .phil-pillar .icon-c{margin:0 0 16px 0!important}
+  .phil-pillar h3{margin:0 0 10px 0!important}
+  .phil-aside p{font-size:.9rem!important}
+
+  /* ── JOURNEY / TIER SECTION ── */
+  .journey-header{margin-bottom:32px!important}
+  /* Step track — horizontal to vertical */
+  .journey-track{grid-template-columns:1fr!important;gap:12px!important}
+  .journey-track::before{display:none!important}
+  .jstage{align-items:flex-start!important;text-align:left!important;flex-direction:row!important;gap:14px!important;padding:0!important}
+  .jstage-badge{width:44px!important;height:44px!important;flex-shrink:0!important;margin-bottom:0!important}
+  .jstage-badge span{font-size:.95rem!important}
+  .jstage-card{margin-top:0!important;flex:1!important}
+  .jstage-card::before{display:none!important}
+  .jstage-name{font-size:.95rem!important}
+  .jstage-desc{font-size:.83rem!important}
+  .jstage-tag{font-size:.6rem!important}
+  /* Expanded journey body */
+  .journey-expand{margin-top:32px!important}
+  .jexp-trigger{padding:18px 16px!important;gap:12px!important;flex-wrap:wrap!important}
+  .jexp-trigger-left{flex-wrap:wrap!important;gap:8px!important}
+  .jexp-stage-name{font-size:.95rem!important;margin-left:0!important}
+  .jexp-stage-hint{display:none!important}
+  .jexp-body{display:none;padding:24px 16px!important}
+  .jexp-body.open{display:block!important}
+  /* Two col inside tier body → 1 col */
+  .tier-two-col{grid-template-columns:1fr!important;gap:28px!important}
+  .tier-body-p{font-size:.88rem!important}
+  /* Outcome chips → stack */
+  .tier-outcome-row{flex-direction:column!important;gap:10px!important}
+  .tier-chip{min-width:auto!important;width:100%!important;padding:14px 16px!important}
+  /* Mini accordion inside tier */
+  .mini-acc-btn{padding:14px 16px!important;gap:12px!important}
+  .mini-acc-body{padding:0 16px 16px!important;font-size:.88rem!important}
+  /* Phase cards 2-col → 1-col */
+  .mini-phases{grid-template-columns:1fr!important;gap:8px!important}
+  .mini-phase{padding:16px!important}
+  /* Build phases */
+  .bp-btn{padding:14px 16px!important;gap:12px!important}
+  .bp-body-item{padding:0 16px 16px 16px!important;font-size:.88rem!important}
+  /* Workshop table — scrollable */
+  .ws-table-wrap,.tier-wrap{overflow-x:auto!important;-webkit-overflow-scrolling:touch!important}
+  .ws-table,.tier-table{min-width:500px!important;font-size:.82rem!important}
+  .ws-table thead th,.tier-table thead th{padding:10px 12px!important;font-size:.72rem!important}
+  .ws-table tbody td,.tier-table td{padding:10px 12px!important;font-size:.82rem!important}
+  /* Industry tabs */
+  .ind-tabs{gap:6px!important}
+  .ind-tab{padding:7px 12px!important;font-size:.8rem!important}
+  .ind-content{padding:18px!important}
+
+  /* ── WHAT WE COVER SECTION ── */
+  .cover-top{grid-template-columns:1fr!important}
+  .cover-col{padding:24px 16px!important}
+  .prog-item{gap:12px!important;padding:16px 0!important}
+  .prog-name{font-size:.95rem!important}
+  .prog-desc{font-size:.85rem!important}
+  .tool-row{padding:14px 16px!important;gap:12px!important}
+  .tool-pill{font-size:.72rem!important;padding:3px 8px!important}
+  .duration-bar{flex-direction:column!important;align-items:flex-start!important;gap:12px!important;padding:24px 16px!important}
+  .duration-bar::before{display:none!important}
+  .duration-label{padding-left:0!important}
+
+  /* ── TEAM SECTION ── */
+  .team-grid{grid-template-columns:1fr!important;gap:14px!important;margin-top:32px!important}
+  .team-card{padding:24px 18px!important}
+  .team-card h3{font-size:1.1rem!important;margin:16px 0 10px!important}
+  .team-note{padding:20px 18px!important;gap:14px!important;flex-wrap:wrap!important}
+  .team-note-text{font-size:.88rem!important}
+
+  /* ── ALL 2-COL GRIDS → 1-COL (all pages) ── */
+  .context-section,.industries-section,.partners-section,.who-grid,.grid-2,.contact-section,.diff-grid,.thesis-grid,.phil-grid{grid-template-columns:1fr!important;gap:24px!important}
+  .diff-col{padding:24px 16px!important}
+  .diff-item{font-size:.88rem!important;line-height:1.6!important}
+  .diff-col-title{font-size:1.05rem!important}
+  .diff-col-intro{margin-bottom:28px!important}
+
+  /* ── TIERS (4-col → 1-col) ── */
+  .tiers-grid{grid-template-columns:1fr!important}
+  .tier-card{padding:24px 16px!important}
+  .tiers-intro{margin-bottom:28px!important}
+  .tier-name{font-size:1.05rem!important}
+
+  /* ── TECH GRID (4-col → 1-col) ── */
+  .tech-grid{grid-template-columns:1fr!important;border-top:none!important}
+  .tech-card{border-right:none!important;border-top:1px solid var(--border,rgba(71,17,50,.15))!important;padding:24px 0!important}
+  .tech-card:first-child{border-top:none!important}
+
+  /* ── INDUSTRY TILES (2-col → 1-col) ── */
+  .industry-tiles{grid-template-columns:1fr!important;gap:8px!important}
+  .industry-tile.wide{grid-column:auto!important;flex-direction:row!important;gap:12px!important}
+  .industry-tile{padding:18px 14px!important}
+  .industry-tile-name{font-size:1rem!important;line-height:1.35!important}
+  .industry-tile-sub{font-size:.82rem!important;line-height:1.5!important}
+
+  /* ── MIDMARKET (3-col → 1-col) ── */
+  .midmarket-grid{grid-template-columns:1fr!important;margin-top:28px!important}
+  .midmarket-card{padding:22px 16px!important}
+  .midmarket-card-title{font-size:1rem!important;line-height:1.4!important}
+  .midmarket-card-text{font-size:.88rem!important;line-height:1.6!important}
+
+  /* ── CHALLENGE GRID (3-col → 1-col) ── */
+  .ch-grid{grid-template-columns:1fr!important}
+  .ch-card{padding:24px 16px!important;text-align:left!important}
+  .ch-card .ic{margin:0 0 14px 0!important}
+  .ch-note{flex-direction:column!important;padding:18px 14px!important;gap:10px!important}
+  .ch-note-text{font-size:.88rem!important}
+
+  /* ── ACCORDION (industries page) ── */
+  .ind-nav{justify-content:flex-start!important;gap:6px!important}
+  .ind-nav-btn{font-size:.73rem!important;padding:7px 12px!important}
+  .acc-btn{padding:14px 14px!important;gap:10px!important}
+  .acc-btn-icon{width:36px!important;height:36px!important;flex-shrink:0!important}
+  .acc-meta-name{font-size:1rem!important}
+  .acc-meta-sub{font-size:.75rem!important}
+  .uc-grid{grid-template-columns:1fr!important;gap:10px!important}
+  .uc-body{font-size:.85rem!important;line-height:1.6!important}
+  .uc-outcome-text{font-size:.85rem!important}
+  .uc-wrap{padding:18px 14px 0!important}
+  .tier-wrap{padding:14px 14px 18px!important;overflow-x:auto!important}
+  .tier-table{min-width:480px!important;font-size:.8rem!important}
+  .tier-table td{padding:9px 10px!important}
+  .reality{grid-template-columns:1fr!important;gap:8px!important;padding:16px 14px!important}
+  .reality-text{font-size:.85rem!important;line-height:1.6!important}
+
+  /* ── VISION PAGE ── */
+  .cards-grid-3{grid-template-columns:1fr!important;gap:10px!important}
+  .card-light{padding:22px 16px!important}
+  .list-item{padding:14px 0!important}
+  .list-num{font-size:1.5rem!important}
+  .partner-callout{padding:24px 16px!important}
+  .chart-box{padding:22px 14px!important}
+  .gold-rule{display:none!important}
+
+  /* ── PHILOSOPHY (vision page) ── */
+  .phil-right{gap:10px!important}
+  .phil-card{padding:16px 14px!important}
+  .phil-card-text{font-size:.85rem!important}
+  .phil-card-title{font-size:.88rem!important}
+
+  /* ── OUTCOMES ── */
+  .outcome-section{text-align:left!important;padding-top:52px!important;padding-bottom:52px!important}
+  .outcome-section .section-label{justify-content:flex-start!important}
+  .outcome-section .section-label::before,.outcome-section .section-label::after{display:none!important}
+  .outcome-section .section-h,.outcome-section .section-body{margin-left:0!important;margin-right:0!important;max-width:100%!important;text-align:left!important}
+  .outcome-section .section-body{margin-bottom:32px!important}
+  .outcome-metrics{flex-direction:column!important;gap:20px!important;max-width:100%!important;align-items:flex-start!important;padding-top:28px!important}
+  .outcome-metric-num{font-size:2rem!important}
+
+  /* ── CTA SECTIONS ── */
+  .cta-section,.cta-wrap{padding:52px 16px!important;text-align:left!important}
+  .cta-section .section-h,.cta-h{max-width:100%!important;margin-left:0!important;margin-right:0!important;text-align:left!important}
+  .cta-sub{max-width:100%!important;margin-left:0!important;text-align:left!important}
+  .cta-label{justify-content:flex-start!important;margin-bottom:16px!important}
+  .cta-label::before,.cta-label::after{display:none!important}
+  .cta-actions,.cta-btns{flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:10px!important}
+  .cta-actions a,.cta-btns a,.btn-cta-w,.btn-cta-o,.btn-primary,.btn-ghost,.btn-ghost-dark,.btn-s,.btn-o,.btn-cw,.btn-cow{text-align:center!important;display:block!important;width:100%!important;box-sizing:border-box!important}
+
+  /* ── PARTNERS ── */
+  .partners-section{grid-template-columns:1fr!important;gap:24px!important}
+  .partner-callout{padding:24px 16px!important}
+
+  /* ── CONTACT PAGE ── */
+  .contact-section{grid-template-columns:1fr!important;gap:28px!important;padding:52px 16px!important}
+  .form-card{padding:20px 14px!important}
+  .form-grid{grid-template-columns:1fr!important}
+  .field.full{grid-column:auto!important}
+  .submit-row{flex-direction:column!important;align-items:stretch!important;gap:10px!important}
+  .submit-row .btn{text-align:center!important;width:100%!important}
+  .contact-list{margin-top:24px!important}
+  .contact-item span,.contact-item a{font-size:1rem!important}
+  .next-section{padding:40px 16px!important}
+  .next-grid{grid-template-columns:1fr!important}
+  .next-card{padding:22px 16px!important}
+  .next-card h3{font-size:1rem!important}
+  /* contact footer flex */
+  footer.contact-footer,footer{padding:40px 16px 18px!important}
+  footer .fb{font-size:.95rem!important}
+  footer .fl{flex-wrap:wrap!important;justify-content:center!important;gap:10px 18px!important}
+  footer .fc{text-align:center!important;display:block!important;width:100%!important}
+
+  /* ── FOOTER (all pages) ── */
+  footer{padding:40px 16px 0!important}
+  .footer-grid{grid-template-columns:1fr!important;gap:24px!important;padding-bottom:24px!important}
+  .footer-brand-sub{max-width:100%!important}
+  .footer-brand{font-size:1.3rem!important}
+  .footer-bottom{flex-direction:column!important;gap:6px!important;text-align:center!important;padding:14px 0!important}
+
+  /* ── CONTEXT QUOTE ── */
+  .context-quote{font-size:1.1rem!important;padding-left:16px!important}
+
+  /* ── WHO PILLARS ── */
+  .who-grid{margin-top:28px!important;gap:18px!important}
+  .who-pillar{padding-top:14px!important}
+  .who-pillar-text{font-size:.88rem!important}
+
+  /* ── WAVES (preserve them) ── */
+  .wave svg{min-height:20px!important}
+}
+
+/* ── ≤480px SMALL PHONES ── */
+@media(max-width:480px){
+  h1,.hero h1,.pg-header h1{font-size:clamp(1.6rem,9vw,2rem)!important}
+  h2,.section-h,.sh{font-size:clamp(1.3rem,7.5vw,1.7rem)!important}
+  .pain-card-q{font-size:.95rem!important}
+  .hero-panel-q{font-size:1rem!important}
+  .ind-nav-btn{font-size:.68rem!important;padding:6px 10px!important}
+  .outcome-metric-num{font-size:1.75rem!important}
+  .jstage-name{font-size:.88rem!important}
+  .hero-stat-num{font-size:1rem!important}
+  nav{height:52px!important}
+  .nav-links{top:52px!important}
+}
+
 </style>
 </head>
 <body>
@@ -251,539 +706,384 @@ footer{background:var(--plum);border-top:1px solid rgba(243,237,227,0.12);paddin
 <!-- NAV -->
 <nav>
   <a href="nexivant-homepage.html" class="logo">Nexivant</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="nexivant-industries.html">Industries</a></li>
     <li><a href="nexivant-solutions.html">Our Solutions</a></li>
     <li><a href="nexivant-vision.html" class="active">Our Vision</a></li>
     <li><a href="nexivant-contact.html">Contact Us</a></li>
   </ul>
-  <a href="nexivant-contact.html" class="nav-cta">Build With Us</a>
+  <a href="nexivant-contact.html" class="nav-cta">Talk to Us</a>
+
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- ══ HERO ══ -->
+<!-- PAGE HEADER (HERO STYLE) -->
 <section class="hero">
-  <div class="hero-text fi">
-    <span class="sl">Our Vision</span>
-    <h1 class="hero-h">This page is not for our clients.<br><em>It is for the people who might want to build this with us.</em></h1>
-    <p class="hero-sub">We are at the beginning of the largest workplace transformation in a generation. The gap between what AI can do and what most organisations are actually doing with it has never been wider. Nexivant is built to close that gap — and we cannot build it alone.</p>
-    <div class="hero-badge"><span class="hero-badge-dot"></span><span class="hero-badge-text">Early stage. The partners who join now shape what this becomes.</span></div>
-  </div>
-  <div class="hero-right fi d2">
-    <div class="hero-stat-card">
-      <div class="hero-stat-card-top">
-        <div class="hero-stat-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 1v6.5L10.5 11" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/><circle cx="7" cy="7" r="6" stroke="#fff" stroke-width="1.2"/></svg></div>
-        <span class="hero-stat-label">The Moment</span>
-      </div>
-      <div class="hero-stat-val">Right Now</div>
-      <p class="hero-stat-desc">We are at the beginning of the gap — before most mid-sized businesses have implemented anything meaningfully. The window to build a leading position is open. It will not stay open.</p>
-    </div>
-    <div class="hero-stat-card">
-      <div class="hero-stat-card-top">
-        <div class="hero-stat-icon"><svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#fff" stroke-width="1.2"/><path d="M4.5 7l2 2 3-3" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="hero-stat-label">The Model</span>
-      </div>
-      <div class="hero-stat-val">Hub + Domain</div>
-      <p class="hero-stat-desc">Nexivant holds the AI methodology and engineering capability. Domain partners bring the industry credibility. Together, we deliver what neither can build alone.</p>
-    </div>
-    <div class="hero-stat-card">
-      <div class="hero-stat-card-top">
-        <div class="hero-stat-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M2 10l3-4 3 3 2-3 2 2" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="hero-stat-label">The Goal</span>
-      </div>
-      <div class="hero-stat-val">Thousands of Orgs</div>
-      <p class="hero-stat-desc">Every organisation we work with leaves more capable than when we found them. Multiply that across industries and geographies. That is the impact we are working towards.</p>
-    </div>
+  <div class="hero-noise"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content fade-in">
+    <div class="hero-eyebrow">Our Vision</div>
+    <h1>AI is changing how the world works.<br>Most businesses have not caught up yet.</h1>
+    <p class="hero-sub">That gap — between what AI makes possible and what organisations are actually doing with it — is where Nexivant operates. We believe every business deserves to own this capability. Not rent it. Not depend on an external vendor indefinitely. Own it, run it, and grow it from the inside.</p>
   </div>
 </section>
+<div class="wave wave-plum-to-cream"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#f3ede3"/></svg></div>
 
-<div class="wave" style="background:var(--cream)"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#ffffff"/></svg></div>
-
-<!-- ══ SECTION 1: PARADIGM TIMELINE ══ -->
-<section class="shift-section">
-  <div class="shift-header fi">
-    <span class="sl">The Moment We Are In</span>
-    <h2 class="sh">Every decade or so, a technology arrives that changes how the world works. We are in the middle of one right now.</h2>
-    <p class="sb">Each major technology transition created an enormous gap — between those who understood the new paradigm and those still operating in the old one. That gap always closes. But in the years before it does, enormous value is created by the people who move first.</p>
-  </div>
-
-  <!-- Timeline Visual -->
-  <div class="timeline-wrap fi d1">
-    <div class="timeline-line"></div>
-    <div class="timeline-nodes">
-      <div class="tnode past">
-        <div class="tnode-dot"></div>
-        <div class="tnode-era">1960s – 80s</div>
-        <div class="tnode-name">Mainframes</div>
-        <div class="tnode-desc">Changed who had access to computing. Concentrated in institutions.</div>
-      </div>
-      <div class="tnode past">
-        <div class="tnode-dot"></div>
-        <div class="tnode-era">1980s – 2000s</div>
-        <div class="tnode-name">Personal Computers</div>
-        <div class="tnode-desc">Changed where computing happened. Put capability on every desk.</div>
-      </div>
-      <div class="tnode past">
-        <div class="tnode-dot"></div>
-        <div class="tnode-era">2000s – 2010s</div>
-        <div class="tnode-name">Internet &amp; Cloud</div>
-        <div class="tnode-desc">Changed how work moved. Eliminated distance. Enabled scale.</div>
-      </div>
-      <div class="tnode past">
-        <div class="tnode-dot"></div>
-        <div class="tnode-era">2010s – 2020s</div>
-        <div class="tnode-name">Mobile &amp; Platforms</div>
-        <div class="tnode-desc">Changed when people engaged. Always-on. Always-connected.</div>
-      </div>
-      <div class="tnode current">
-        <span class="tnode-now-tag">Now</span>
-        <div class="tnode-dot"></div>
-        <div class="tnode-era">2020s onwards</div>
-        <div class="tnode-name">Artificial Intelligence</div>
-        <div class="tnode-desc">Changing what work gets done — and who is capable of doing it. The gap is forming now.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="shift-insight fi d2">
-    <div style="flex-shrink:0;width:3px;background:var(--maroon);border-radius:2px;align-self:stretch"></div>
-    <p class="shift-insight-text">"AI is that shift today. The gap it is creating is significant — not because the technology is inaccessible, but because the knowledge of how to use it meaningfully inside real organisations is still concentrated in a very small number of hands. We are at the beginning of that gap. Nexivant is built to close it — one organisation at a time, and at scale."</p>
-  </div>
-</section>
-
-<div class="wave" style="background:var(--white)"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#f3ede3"/></svg></div>
-
-<!-- ══ SECTION 2: THE BELIEF ══ -->
-<section class="belief-section">
-  <div class="belief-grid">
-    <div class="fi">
-      <div class="belief-quote-block">
-        <p class="belief-quote">"The cost of technology is falling.<br><em>The cost of not understanding it is rising.</em>"</p>
-        <p class="belief-caption">The implication: organisations that build AI capability in-house — rather than renting it forever from external vendors — will carry a permanent structural advantage. That is the business Nexivant is building. Not a software product. A capability transfer engine.</p>
-      </div>
-      <!-- Cost crossing chart -->
-      <div style="margin-top:16px;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:22px 24px">
-        <svg viewBox="0 0 360 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
-          <text x="8" y="20" fill="#6B6878" font-size="9" font-family="DM Sans, sans-serif" font-weight="400">Cost of AI technology</text>
-          <text x="8" y="130" fill="#6B6878" font-size="9" font-family="DM Sans, sans-serif" font-weight="400">Cost of not adapting</text>
-          <!-- Grid lines -->
-          <line x1="8" y1="75" x2="352" y2="75" stroke="#E2DAD0" stroke-width="0.5" stroke-dasharray="3 3"/>
-          <!-- Falling cost line (teal) -->
-          <path d="M 8 30 C 60 35 120 50 180 70 C 240 88 300 100 352 108" stroke="#1E7F7F" stroke-width="2" stroke-linecap="round" fill="none"/>
-          <!-- Rising cost line (maroon) -->
-          <path d="M 8 118 C 60 108 120 92 180 75 C 240 58 300 44 352 32" stroke="#4A1942" stroke-width="2" stroke-linecap="round" fill="none"/>
-          <!-- Intersection dot -->
-          <circle cx="180" cy="73" r="5" fill="#1E7F7F"/>
-          <text x="186" y="70" fill="#1E7F7F" font-size="8.5" font-family="DM Sans, sans-serif" font-weight="500">The window is now</text>
-          <!-- Teal end label -->
-          <circle cx="352" cy="108" r="3" fill="#1E7F7F"/>
-          <!-- Maroon end label -->
-          <circle cx="352" cy="32" r="3" fill="#4A1942"/>
-          <!-- Time axis -->
-          <text x="8" y="145" fill="#B4B0A9" font-size="8" font-family="DM Sans, sans-serif">2020</text>
-          <text x="162" y="145" fill="#B4B0A9" font-size="8" font-family="DM Sans, sans-serif">Today</text>
-          <text x="328" y="145" fill="#B4B0A9" font-size="8" font-family="DM Sans, sans-serif">2030</text>
+<!-- ══ SECTION 1: THE BELIEF ══ -->
+<section style="background: var(--cream);" id="belief">
+  <div class="grid-2">
+    <div class="fade-in">
+      <blockquote class="context-quote">
+        "The cost of technology is falling.<br>
+        <span style="color: rgba(71,17,50,0.55); font-style: normal;">The cost of not understanding it is rising.</span>"
+      </blockquote>
+      <p class="section-body" style="margin-top: 20px; font-size: 1rem;">
+        What required a large engineering team two years ago can be built by a small capable team today. What requires a small team today will soon be within reach of a single informed person inside any organisation.
+      </p>
+      
+      <!-- Crossing lines chart -->
+      <div class="chart-box fade-in stagger-1">
+        <svg viewBox="0 0 340 130" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; display:block;">
+          <text x="4" y="16" fill="rgba(71,17,50,0.6)" font-size="9" font-family="DM Sans,sans-serif">Cost of AI technology</text>
+          <text x="4" y="122" fill="rgba(71,17,50,0.6)" font-size="9" font-family="DM Sans,sans-serif">Cost of not adapting</text>
+          <line x1="4" y1="68" x2="336" y2="68" stroke="rgba(71,17,50,0.15)" stroke-width=".8" stroke-dasharray="3 3"/>
+          <path d="M4 26 C55 32 110 46 170 66 C230 84 285 97 336 104" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M4 112 C55 104 110 89 170 68 C230 52 285 38 336 28" stroke="#471132" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <circle cx="170" cy="67" r="5" fill="#F7F3EE" stroke="#471132" stroke-width="1.5"/>
+          <circle cx="170" cy="67" r="2.5" fill="#471132"/>
+          <text x="178" y="63" fill="#471132" font-size="8.5" font-family="DM Sans,sans-serif" font-weight="600">The window is now</text>
+          <circle cx="336" cy="104" r="3" fill="#C9A96E"/>
+          <circle cx="336" cy="28" r="3" fill="#471132"/>
+          <text x="4" y="142" fill="rgba(71,17,50,0.3)" font-size="8" font-family="DM Sans,sans-serif">2022</text>
+          <text x="155" y="142" fill="rgba(71,17,50,0.3)" font-size="8" font-family="DM Sans,sans-serif">Today</text>
+          <text x="316" y="142" fill="rgba(71,17,50,0.3)" font-size="8" font-family="DM Sans,sans-serif">2028</text>
         </svg>
       </div>
     </div>
-    <div class="belief-body fi d2">
-      <span class="sl">The Core Belief</span>
-      <h2 class="sh">Companies do not need to rent AI capability indefinitely. They can own it.</h2>
-      <p class="sb">Something important is happening that most people have not fully internalised yet. The cost of building and running sophisticated AI systems is dropping dramatically — and it will continue to drop. What required a large engineering team two years ago can today be built by a small, capable team.</p>
-      <p class="sb">This has a profound implication. Companies do not need to depend on a SaaS product whose roadmap they cannot control. They can own this capability in-house — if someone helps them build it.</p>
-      <div class="belief-callout">
-        <div class="belief-callout-h">That is exactly what Nexivant is building.</div>
-        <p class="belief-callout-p">Not a software product. Not a platform. A capability transfer engine — one that leaves every organisation we work with more powerful, more independent, and more capable than when we found them. The goal is never ongoing dependency. The goal is permanent capability transfer.</p>
+    <div class="fade-in stagger-2">
+      <span class="section-label">The Core Belief</span>
+      <h2 class="section-h">Companies do not need to rent AI capability. They can own it.</h2>
+      <p class="section-body">Something important is happening that most businesses have not fully internalised yet. The cost of building and running AI systems is dropping significantly — and will continue to drop. What required a large engineering team two years ago can be built and maintained by a small, capable team today.</p>
+      <br>
+      <p class="section-body">This has a meaningful implication. Businesses do not need to depend on a SaaS product whose roadmap they cannot control. They can own this capability in-house — if someone helps them build it right.</p>
+      <div style="margin-top: 32px; padding: 24px; background: var(--offwhite); border-left: 3px solid var(--gold);">
+        <p style="font-family: var(--serif); font-size: 1.1rem; font-weight: 500; color: var(--plum); margin-bottom: 8px;">That is the business Nexivant is building.</p>
+        <p style="font-size: 1rem; color: rgba(71,17,50,0.65); line-height: 1.6;">Not a software product. Not a platform. A capability transfer engine — one that leaves every organisation we work with genuinely more capable and independent than when we found them.</p>
       </div>
     </div>
   </div>
 </section>
+<div class="wave wave-cream-to-offwhite"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#F7F3EE"/></svg></div>
 
-<div class="wave" style="background:var(--cream)"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#FFFFFF"/></svg></div>
-
-<!-- ══ SECTION 3: THE OPPORTUNITY ══ -->
-<section class="opp-section">
-  <div class="opp-grid">
-    <div class="opp-body fi">
-      <span class="sl">The Opportunity</span>
-      <h2 class="sh">AI is percolating into every industry. The gap between awareness and implementation has never been larger.</h2>
-      <p class="sb">Walk into any mid-sized business today — a hospital, a CA firm, a manufacturing plant, a recruitment agency, a hotel group — and you will find the same situation. Leadership is aware. Someone has experimented. There is genuine interest. And there is almost no structured implementation.</p>
-      <p class="sb">This gap exists across industries and across geographies. It is not specific to one market. It is a global problem in every market where mid-sized businesses are the backbone of the economy — which is most markets.</p>
-      <p class="sb">Nexivant is positioned to work in that gap. Not at the enterprise level where armies of consultants already operate. Not at the startup level where AI-native teams are already ahead. In the middle — where the largest number of businesses are, where the opportunity is greatest, and where genuine, grounded help is almost entirely absent.</p>
-      <div class="opp-geo-row">
-        <span class="opp-geo-pill"><span class="opp-geo-dot"></span>India</span>
-        <span class="opp-geo-pill"><span class="opp-geo-dot"></span>Middle East</span>
-        <span class="opp-geo-pill"><span class="opp-geo-dot"></span>Southeast Asia</span>
-        <span class="opp-geo-pill"><span class="opp-geo-dot"></span>East Africa</span>
-        <span class="opp-geo-pill"><span class="opp-geo-dot"></span>And beyond</span>
-      </div>
+<!-- ══ SECTION 2: THE GAP ══ -->
+<section style="background: var(--offwhite);">
+  <div class="grid-2 start">
+    <div class="fade-in">
+      <span class="section-label">The Opportunity</span>
+      <h2 class="section-h">The gap between awareness and implementation has never been larger.</h2>
+      <p class="section-body">Walk into any mid-sized business today — a hospital, a CA firm, a manufacturing plant, a recruitment agency — and you will find the same situation. Leadership is aware. Someone has experimented. There is genuine interest. And there is almost no structured implementation.</p>
+      <br>
+      <p class="section-body">The reasons are predictable — vendors who do not understand the specific workflows of that business, internal teams that lack the capability to evaluate what they are being sold, and a gap between what AI can do in a demo and what it actually does inside a real operation.</p>
     </div>
-    <div class="fi d2">
-      <div style="margin-bottom:12px">
-        <span class="sl">Where Nexivant Operates</span>
-        <p style="font-size:.82rem;font-weight:300;color:var(--muted);margin-top:4px;margin-bottom:16px">The market by segment — where the real gap lives</p>
+    <div class="fade-in stagger-2">
+      <div class="list-item">
+        <span class="list-num">01</span>
+        <div class="list-title">Awareness without direction</div>
+        <p class="list-text">Teams know AI is important but have no structured view of where to start, which workflows to change first, or how to do it without disrupting what is already working.</p>
       </div>
-      <div class="opp-market-visual">
-        <div class="opp-market-row dim">
-          <span class="opp-market-label">Large Enterprises</span>
-          <div class="opp-market-bar-wrap"><div class="opp-market-bar" style="width:85%"></div></div>
-          <span class="opp-market-tag">Well served</span>
-        </div>
-        <div class="opp-market-row highlight">
-          <span class="opp-market-label">Mid-Market Businesses ←</span>
-          <div class="opp-market-bar-wrap"><div class="opp-market-bar" style="width:22%"></div></div>
-          <span class="opp-market-tag">Underserved</span>
-        </div>
-        <div class="opp-market-row dim">
-          <span class="opp-market-label">AI-Native Startups</span>
-          <div class="opp-market-bar-wrap"><div class="opp-market-bar" style="width:70%"></div></div>
-          <span class="opp-market-tag">Already ahead</span>
-        </div>
+      <div class="list-item">
+        <span class="list-num">02</span>
+        <div class="list-title">Vendors who do not understand the work</div>
+        <p class="list-text">Most AI solution providers pitch to every industry with the same generic framework. They understand the tools. They do not understand how your business actually runs.</p>
       </div>
-      <div class="opp-note">The mid-market segment — hospitals, agencies, CA firms, manufacturers, hospitality businesses — represents the largest number of organisations globally. Most have awareness. Almost none have structured AI implementation. This is the gap Nexivant is built for.</div>
-      <!-- Compound growth visual -->
-      <div style="margin-top:16px;background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:20px">
-        <svg viewBox="0 0 320 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
-          <text x="0" y="14" fill="#6B6878" font-family="DM Sans,sans-serif" font-size="9" font-weight="500">How the model compounds over time</text>
-          <!-- bars -->
-          <rect x="0" y="70" width="30" height="25" rx="3" fill="#E2DAD0"/>
-          <rect x="38" y="58" width="30" height="37" rx="3" fill="#E2DAD0"/>
-          <rect x="76" y="42" width="30" height="53" rx="3" fill="#E2DAD0"/>
-          <rect x="114" y="28" width="30" height="67" rx="3" fill="#1E7F7F" opacity=".4"/>
-          <rect x="152" y="16" width="30" height="79" rx="3" fill="#1E7F7F" opacity=".6"/>
-          <rect x="190" y="6" width="30" height="89" rx="3" fill="#4A1942" opacity=".7"/>
-          <rect x="228" y="0" width="30" height="95" rx="3" fill="#4A1942"/>
-          <!-- labels -->
-          <text x="5" y="98" fill="#B4B0A9" font-family="DM Sans,sans-serif" font-size="7.5">Yr 1</text>
-          <text x="43" y="98" fill="#B4B0A9" font-family="DM Sans,sans-serif" font-size="7.5">Yr 2</text>
-          <text x="81" y="98" fill="#B4B0A9" font-family="DM Sans,sans-serif" font-size="7.5">Yr 3</text>
-          <text x="117" y="98" fill="#B4B0A9" font-family="DM Sans,sans-serif" font-size="7.5">Yr 4</text>
-          <text x="155" y="98" fill="#B4B0A9" font-family="DM Sans,sans-serif" font-size="7.5">Yr 5</text>
-          <text x="193" y="98" fill="#B4B0A9" font-family="DM Sans,sans-serif" font-size="7.5">Yr 6</text>
-          <text x="231" y="98" fill="#B4B0A9" font-family="DM Sans,sans-serif" font-size="7.5">Yr 7</text>
-          <text x="272" y="50" fill="#4A1942" font-family="DM Sans,sans-serif" font-size="8" font-weight="500">Each partner</text>
-          <text x="272" y="62" fill="#4A1942" font-family="DM Sans,sans-serif" font-size="8" font-weight="500">compounds</text>
-          <text x="272" y="74" fill="#4A1942" font-family="DM Sans,sans-serif" font-size="8" font-weight="500">the network</text>
-        </svg>
+      <div class="list-item">
+        <span class="list-num">03</span>
+        <div class="list-title">Tools without the capability to use them</div>
+        <p class="list-text">Buying access to an AI platform does not build a team's ability to use it well. Without structured capability building alongside implementation, organisations end up with powerful tools operated poorly.</p>
       </div>
     </div>
   </div>
 </section>
+<div class="wave wave-offwhite-to-cream"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#f3ede3"/></svg></div>
 
-<div class="wave" style="background:var(--white)"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#f3ede3"/></svg></div>
+<!-- ══ SECTION 3: THE MODEL ══ -->
+<section style="background: var(--cream);">
+  <div class="grid-2">
+    <!-- Hub-spoke diagram -->
+    <div class="fade-in" style="display: flex; justify-content: center;">
+      <svg viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:400px;">
+        <circle cx="170" cy="170" r="130" stroke="rgba(71,17,50,0.15)" stroke-width="1" stroke-dasharray="3 4" fill="none"/>
+        <line x1="170" y1="170" x2="170" y2="44" stroke="rgba(71,17,50,0.15)" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <line x1="170" y1="170" x2="294" y2="105" stroke="rgba(71,17,50,0.15)" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <line x1="170" y1="170" x2="294" y2="236" stroke="rgba(71,17,50,0.15)" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <line x1="170" y1="170" x2="46" y2="236" stroke="rgba(71,17,50,0.15)" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <line x1="170" y1="170" x2="46" y2="105" stroke="rgba(71,17,50,0.15)" stroke-width="1.5" stroke-dasharray="3 3"/>
+        
+        <circle cx="170" cy="170" r="48" fill="#471132"/>
+        <text x="170" y="165" text-anchor="middle" fill="#ffffff" font-family="p22-mackinac-pro,serif" font-size="14" font-weight="500">Nexivant</text>
+        <text x="170" y="181" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="DM Sans,sans-serif" font-size="8">AI Capability Hub</text>
 
-<!-- ══ SECTION 4: THE MODEL ══ -->
-<section class="model-section">
-  <div class="model-grid">
-    <!-- Hub and Spoke diagram -->
-    <div class="model-diagram-wrap fi">
-      <svg viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px">
-        <!-- spokes -->
-        <line x1="190" y1="190" x2="190" y2="52" stroke="#E2DAD0" stroke-width="1.5" stroke-dasharray="4 3"/>
-        <line x1="190" y1="190" x2="329" y2="107" stroke="#E2DAD0" stroke-width="1.5" stroke-dasharray="4 3"/>
-        <line x1="190" y1="190" x2="329" y2="273" stroke="#E2DAD0" stroke-width="1.5" stroke-dasharray="4 3"/>
-        <line x1="190" y1="190" x2="51" y2="273" stroke="#E2DAD0" stroke-width="1.5" stroke-dasharray="4 3"/>
-        <line x1="190" y1="190" x2="51" y2="107" stroke="#E2DAD0" stroke-width="1.5" stroke-dasharray="4 3"/>
-        <!-- outer orbit ring -->
-        <circle cx="190" cy="190" r="138" stroke="#E2DAD0" stroke-width="1" stroke-dasharray="3 4" fill="none"/>
-        <!-- center -->
-        <circle cx="190" cy="190" r="52" fill="#4A1942"/>
-        <text x="190" y="185" text-anchor="middle" fill="#fff" font-family="Playfair Display, serif" font-size="13" font-weight="500">Nexivant</text>
-        <text x="190" y="202" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-family="DM Sans, sans-serif" font-size="8.5">The Hub</text>
-        <!-- spoke nodes -->
-        <!-- Top: Healthcare -->
-        <circle cx="190" cy="40" r="34" fill="#1E7F7F" opacity=".12"/>
-        <circle cx="190" cy="40" r="28" fill="#1E7F7F"/>
-        <text x="190" y="36" text-anchor="middle" fill="#fff" font-family="DM Sans,sans-serif" font-size="7" font-weight="500">Hospitals &amp;</text>
-        <text x="190" y="47" text-anchor="middle" fill="#fff" font-family="DM Sans,sans-serif" font-size="7" font-weight="500">Healthcare</text>
-        <!-- Top-right: Prof Services -->
-        <circle cx="329" cy="96" r="34" fill="#1E7F7F" opacity=".12"/>
-        <circle cx="329" cy="96" r="28" fill="#1E7F7F"/>
-        <text x="329" y="92" text-anchor="middle" fill="#fff" font-family="DM Sans,sans-serif" font-size="7" font-weight="500">Professional</text>
-        <text x="329" y="103" text-anchor="middle" fill="#fff" font-family="DM Sans,sans-serif" font-size="7" font-weight="500">Services</text>
-        <!-- Bottom-right: Agencies -->
-        <circle cx="329" cy="284" r="34" fill="#1E7F7F" opacity=".12"/>
-        <circle cx="329" cy="284" r="28" fill="#1E7F7F"/>
-        <text x="329" y="280" text-anchor="middle" fill="#fff" font-family="DM Sans,sans-serif" font-size="7" font-weight="500">Agencies &amp;</text>
-        <text x="329" y="291" text-anchor="middle" fill="#fff" font-family="DM Sans,sans-serif" font-size="7" font-weight="500">Outsourcing</text>
-        <!-- Bottom-left: Manufacturing -->
-        <circle cx="51" cy="284" r="34" fill="#1E7F7F" opacity=".12"/>
-        <circle cx="51" cy="284" r="28" fill="#1E7F7F"/>
-        <text x="51" y="280" text-anchor="middle" fill="#fff" font-family="DM Sans,sans-serif" font-size="7" font-weight="500">Manufacturing</text>
-        <text x="51" y="291" text-anchor="middle" fill="#fff" font-family="DM Sans,sans-serif" font-size="7" font-weight="500">&amp; Operations</text>
-        <!-- Top-left: Hospitality -->
-        <circle cx="51" cy="96" r="34" fill="#1E7F7F" opacity=".12"/>
-        <circle cx="51" cy="96" r="28" fill="#1E7F7F"/>
-        <text x="51" y="92" text-anchor="middle" fill="#fff" font-family="DM Sans,sans-serif" font-size="7" font-weight="500">Hospitality</text>
-        <text x="51" y="103" text-anchor="middle" fill="#fff" font-family="DM Sans,sans-serif" font-size="7" font-weight="500">&amp; Travel</text>
-        <!-- domain expert mini-dots on spokes -->
-        <circle cx="190" cy="120" r="5" fill="#4A1942" opacity=".4"/>
-        <circle cx="265" cy="140" r="5" fill="#4A1942" opacity=".4"/>
-        <circle cx="265" cy="240" r="5" fill="#4A1942" opacity=".4"/>
-        <circle cx="115" cy="240" r="5" fill="#4A1942" opacity=".4"/>
-        <circle cx="115" cy="140" r="5" fill="#4A1942" opacity=".4"/>
-        <!-- legend -->
-        <circle cx="8" cy="354" r="5" fill="#4A1942"/>
-        <text x="18" y="358" fill="#6B6878" font-family="DM Sans,sans-serif" font-size="8.5">Domain partner</text>
-        <circle cx="110" cy="354" r="5" fill="#1E7F7F"/>
-        <text x="120" y="358" fill="#6B6878" font-family="DM Sans,sans-serif" font-size="8.5">Industry sector</text>
-        <circle cx="210" cy="354" r="5" fill="#4A1942"/>
-        <rect x="205" y="349" width="10" height="10" rx="5" fill="#4A1942"/>
-        <text x="220" y="358" fill="#6B6878" font-family="DM Sans,sans-serif" font-size="8.5">Nexivant hub</text>
+        <circle cx="170" cy="35" r="26" fill="#F7F3EE" stroke="#C9A96E" stroke-width="1.5"/>
+        <text x="170" y="31" text-anchor="middle" fill="#471132" font-family="DM Sans,sans-serif" font-size="7" font-weight="600">Hospitals &amp;</text>
+        <text x="170" y="42" text-anchor="middle" fill="#471132" font-family="DM Sans,sans-serif" font-size="7" font-weight="600">Healthcare</text>
+
+        <circle cx="294" cy="97" r="26" fill="#F7F3EE" stroke="#C9A96E" stroke-width="1.5"/>
+        <text x="294" y="93" text-anchor="middle" fill="#471132" font-family="DM Sans,sans-serif" font-size="7" font-weight="600">Professional</text>
+        <text x="294" y="104" text-anchor="middle" fill="#471132" font-family="DM Sans,sans-serif" font-size="7" font-weight="600">Services</text>
+
+        <circle cx="294" cy="244" r="26" fill="#F7F3EE" stroke="#C9A96E" stroke-width="1.5"/>
+        <text x="294" y="240" text-anchor="middle" fill="#471132" font-family="DM Sans,sans-serif" font-size="7" font-weight="600">Agencies &amp;</text>
+        <text x="294" y="251" text-anchor="middle" fill="#471132" font-family="DM Sans,sans-serif" font-size="7" font-weight="600">Outsourcing</text>
+
+        <circle cx="46" cy="244" r="26" fill="#F7F3EE" stroke="#C9A96E" stroke-width="1.5"/>
+        <text x="46" y="240" text-anchor="middle" fill="#471132" font-family="DM Sans,sans-serif" font-size="7" font-weight="600">Manufacturing</text>
+        <text x="46" y="251" text-anchor="middle" fill="#471132" font-family="DM Sans,sans-serif" font-size="7" font-weight="600">&amp; Operations</text>
+
+        <circle cx="46" cy="97" r="26" fill="#F7F3EE" stroke="#C9A96E" stroke-width="1.5"/>
+        <text x="46" y="93" text-anchor="middle" fill="#471132" font-family="DM Sans,sans-serif" font-size="7" font-weight="600">Hospitality</text>
+        <text x="46" y="104" text-anchor="middle" fill="#471132" font-family="DM Sans,sans-serif" font-size="7" font-weight="600">&amp; Travel</text>
+
+        <circle cx="170" cy="112" r="5" fill="#C9A96E" opacity=".9"/>
+        <circle cx="237" cy="132" r="5" fill="#C9A96E" opacity=".9"/>
+        <circle cx="237" cy="208" r="5" fill="#C9A96E" opacity=".9"/>
+        <circle cx="103" cy="208" r="5" fill="#C9A96E" opacity=".9"/>
+        <circle cx="103" cy="132" r="5" fill="#C9A96E" opacity=".9"/>
       </svg>
     </div>
-    <!-- Model text -->
-    <div class="model-body fi d2">
-      <span class="sl">The Model</span>
-      <h2 class="sh">We are not building a technology company.<br>We are building a knowledge network.</h2>
-      <p class="sb">Deep AI knowledge and deep industry knowledge almost never sit in the same place. Technology firms understand the tools. Domain experts understand the business. The client is left trying to bridge that gap alone. Nexivant is the bridge.</p>
-      <div class="model-steps">
-        <div class="model-step">
-          <span class="model-step-num">01</span>
-          <div>
-            <div class="model-step-title">Nexivant holds the core AI capability</div>
-            <p class="model-step-text">The methodology, the tools, the engineering depth, the implementation frameworks — built into a repeatable system that can be deployed across industries and markets.</p>
-          </div>
+    <div class="fade-in stagger-2">
+      <span class="section-label">The Model</span>
+      <h2 class="section-h">We are not building a technology company. We are building a knowledge network.</h2>
+      <p class="section-body">Deep AI knowledge and deep industry knowledge almost never sit in the same place. Technology firms understand the tools. Domain experts understand the business. The client is left bridging that gap themselves.</p>
+      
+      <div style="margin-top: 32px;">
+        <div class="list-item" style="padding-top: 16px; margin-bottom: 24px;">
+          <span class="list-num" style="font-size: 1.4rem; margin-bottom: 4px;">01</span>
+          <div class="list-title">Nexivant is the hub</div>
+          <p class="list-text">Core AI capability, implementation methodology, engineering depth — built into a repeatable system.</p>
         </div>
-        <div class="model-step">
-          <span class="model-step-num">02</span>
-          <div>
-            <div class="model-step-title">Domain partners bring the industry credibility</div>
-            <p class="model-step-text">Experts from inside specific industries who bring the operational depth and client understanding that we cannot replicate from the outside. They are the spokes. We are the hub.</p>
-          </div>
+        <div class="list-item" style="padding-top: 16px; margin-bottom: 24px;">
+          <span class="list-num" style="font-size: 1.4rem; margin-bottom: 4px;">02</span>
+          <div class="list-title">Domain partners are the spokes</div>
+          <p class="list-text">Experts from inside specific industries who bring the operational credibility and client understanding.</p>
         </div>
-        <div class="model-step">
-          <span class="model-step-num">03</span>
-          <div>
-            <div class="model-step-title">Together, the model compounds</div>
-            <p class="model-step-text">Each domain partner brings relationships. Each successful implementation builds a case study. Each case study opens the next door. The network scales without losing what makes it work — genuine domain understanding at every engagement.</p>
-          </div>
+        <div class="list-item" style="padding-top: 16px; margin-bottom: 0; border-bottom: 1px solid var(--plum-border); padding-bottom: 24px;">
+          <span class="list-num" style="font-size: 1.4rem; margin-bottom: 4px;">03</span>
+          <div class="list-title">Together, we deliver</div>
+          <p class="list-text">AI implementation that is technically rigorous and operationally grounded.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
+<div class="wave wave-cream-to-offwhite"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#F7F3EE"/></svg></div>
 
-<!-- ══ SECTION 5: THE LONG VIEW ══ -->
-<section class="longview-section">
-  <div class="lv-grid">
-    <div class="fi">
-      <span class="lv-left sl">The Long View</span>
-      <h2 class="lv-left sh">Thousands of organisations, across industries and geographies, running AI from the inside.</h2>
-      <p class="lv-left sb">The long-term vision for Nexivant is not a large consulting firm. It is not a SaaS product. It is not a training academy.</p>
-      <p class="lv-left sb" style="margin-top:14px">It is a world where the companies we have worked with are all running AI-powered operations independently. Where the capability we helped them build is fully theirs. Where the people inside those organisations are more skilled, more effective, and more valuable because of what they learned.</p>
-      <p class="lv-left sb" style="margin-top:14px">That outcome, multiplied across thousands of organisations, has a meaningful impact on how work gets done globally. It decentralises AI capability away from a small number of large technology companies — and towards the businesses that actually make up the global economy.</p>
-      <div class="lv-metric-row" style="margin-top:32px">
-        <div class="lv-metric">
-          <span class="lv-metric-num">5</span>
-          <span class="lv-metric-label">Industries we work in — growing as the network compounds</span>
-        </div>
-        <div class="lv-metric">
-          <span class="lv-metric-num">Global</span>
-          <span class="lv-metric-label">Markets where mid-sized businesses are underserved</span>
-        </div>
-      </div>
+<!-- ══ SECTION 4: THE LONG VIEW ══ -->
+<section style="background: var(--offwhite);">
+  <div class="grid-2 start">
+    <div class="fade-in">
+      <span class="section-label">The Long View</span>
+      <h2 class="section-h">Organisations running AI from the inside. Capability they own. Not rent.</h2>
+      <p class="section-body">The vision for Nexivant is not a large consulting firm. It is not a SaaS product. It is not a training academy.</p>
+      <br>
+      <p class="section-body">It is a world where the organisations we have worked with are running AI-powered operations independently. Where the capability we helped them build is fully theirs — the code, the systems, the knowledge. Where the people inside those organisations are genuinely more skilled and more valuable.</p>
     </div>
-    <div class="fi d2">
-      <div style="margin-bottom:16px">
-        <span style="font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);display:block;margin-bottom:12px">The vision, made concrete</span>
+    
+    <div class="fade-in stagger-2">
+      <span style="font-size:.68rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:rgba(71,17,50,0.45); display:block; margin-bottom: 20px;">What this looks like in practice</span>
+      
+      <div class="list-item">
+        <div class="list-title">A hospital administration team</div>
+        <p class="list-text">Handling documentation in under an hour that used to take most of the morning. Clinical staff spending that time on patients.</p>
       </div>
-      <div class="lv-cities">
-        <div class="lv-city">
-          <span class="lv-city-dot"></span>
-          <span class="lv-city-name">A hospital in Mumbai</span>
-          <span class="lv-city-detail">Doctors recover hours daily<br>from automated documentation</span>
-        </div>
-        <div class="lv-city">
-          <span class="lv-city-dot"></span>
-          <span class="lv-city-name">A recruitment firm in Dubai</span>
-          <span class="lv-city-detail">CV screening time reduced 70%.<br>Consultants focused on clients.</span>
-        </div>
-        <div class="lv-city">
-          <span class="lv-city-dot"></span>
-          <span class="lv-city-name">A CA practice in Nairobi</span>
-          <span class="lv-city-detail">Document processing cut in half.<br>Senior staff doing advisory work.</span>
-        </div>
-        <div class="lv-city">
-          <span class="lv-city-dot"></span>
-          <span class="lv-city-name">A marketing agency in Singapore</span>
-          <span class="lv-city-detail">Content capacity doubled.<br>No additional headcount.</span>
-        </div>
-        <div class="lv-city">
-          <span class="lv-city-dot"></span>
-          <span class="lv-city-name">A manufacturer in Pune</span>
-          <span class="lv-city-detail">Shift reporting from 40 minutes<br>to under 5. Across every line.</span>
-        </div>
-        <div class="lv-city">
-          <span class="lv-city-dot" style="background:rgba(255,255,255,.25)"></span>
-          <span class="lv-city-name" style="color:rgba(255,255,255,.4);font-style:italic">And thousands more</span>
-          <span class="lv-city-detail" style="color:rgba(255,255,255,.25)">That is the ambition.<br>It is entirely achievable.</span>
-        </div>
+      <div class="list-item">
+        <div class="list-title">A recruitment firm</div>
+        <p class="list-text">CV screening that used to take a day now takes minutes. Consultants focused on relationships, not administration.</p>
+      </div>
+      <div class="list-item">
+        <div class="list-title">A CA practice</div>
+        <p class="list-text">Document review time cut by more than half. Senior staff doing the advisory work they trained for, not extraction.</p>
       </div>
     </div>
   </div>
 </section>
+<div class="wave wave-offwhite-to-cream"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#f3ede3"/></svg></div>
 
-<div class="wave" style="background:var(--maroon)"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#ffffff"/></svg></div>
+<!-- ══ SECTION 5: WHO WE ARE ══ -->
+<section style="background: var(--cream);">
+  <div class="fade-in" style="max-width: 680px;">
+    <span class="section-label">Where We Come From</span>
+    <h2 class="section-h">We are business people who went deep into AI.<br>Not the other way around.</h2>
+    <p class="section-body">Nexivant was not started by engineers who decided to build a training company. It was started by people who have worked inside businesses — in operations, in marketing, in client-facing roles — and spent years watching technology promise transformation while most organisations were left behind.</p>
+  </div>
+  
+  <div class="cards-grid-3">
+    <div class="card-light fade-in stagger-1">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" style="width: 24px; height: 24px;">
+          <path d="M4 19V12l8-6 8 6v7" stroke="#1E7F7F" stroke-width="1.5" stroke-linejoin="round"/>
+          <rect x="9" y="13" width="6" height="6" rx="1" stroke="#1E7F7F" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <span class="gold-rule"></span>
+      <h3 class="card-title">We Have Run Businesses</h3>
+      <p class="section-body" style="font-size: 1rem;">We have built products, managed operations, and worked with clients across industries. We understand what it takes to get a team to change.</p>
+    </div>
+    <div class="card-light fade-in stagger-2">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" style="width: 24px; height: 24px;">
+          <rect x="3" y="3" width="7" height="7" rx="1" stroke="#1E7F7F" stroke-width="1.5"/>
+          <rect x="14" y="3" width="7" height="7" rx="1" stroke="#1E7F7F" stroke-width="1.5"/>
+          <rect x="8.5" y="14" width="7" height="7" rx="1" stroke="#1E7F7F" stroke-width="1.5"/>
+          <path d="M6.5 10v4h5.5M17.5 10v4h-5.5" stroke="#1E7F7F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="gold-rule"></span>
+      <h3 class="card-title">We Went Deep Into AI</h3>
+      <p class="section-body" style="font-size: 1rem;">Not because it was a career move — because the gap between what AI could do and what organisations were doing was too large to ignore.</p>
+    </div>
+    <div class="card-light fade-in stagger-3">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" style="width: 24px; height: 24px;">
+          <path d="M4 13l5 4 11-10" stroke="#1E7F7F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="gold-rule"></span>
+      <h3 class="card-title">We Measure One Thing</h3>
+      <p class="section-body" style="font-size: 1rem;">Does your organisation run better because of what we built together? That is the only measure of success we care about.</p>
+    </div>
+  </div>
+</section>
+<div class="wave wave-cream-to-offwhite"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#F7F3EE"/></svg></div>
 
-<!-- ══ SECTION 6: WHO WE ARE ══ -->
-<section class="who-section">
-  <div class="who-header fi">
-    <span class="sl">Where We Come From</span>
-    <h2 class="sh">We are business people who went deep into AI.<br>Not the other way around.</h2>
-    <p class="sb" style="max-width:580px">Nexivant was not started by engineers who decided to build a training company. It was started by people who have worked inside businesses — in operations, in marketing, in product development — and who spent years watching technology promise transformation while most organisations were left behind.</p>
+<!-- ══ SECTION 6: PARTNER CTA ══ -->
+<section style="background: var(--offwhite);">
+  <div class="fade-in" style="max-width: 680px; text-align: center; margin: 0 auto 64px;">
+    <span class="section-label" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+      <span style="display: block; width: 20px; height: 1px; background: rgba(71,17,50,0.3);"></span>
+      Building Together
+      <span style="display: block; width: 20px; height: 1px; background: rgba(71,17,50,0.3);"></span>
+    </span>
+    <h2 class="section-h">If you have spent years building expertise in a specific industry, we would like to talk.</h2>
+    <p class="section-body">We are not looking for resellers. We are looking for people with genuine operational depth who believe their industry is underserved when it comes to practical AI implementation.</p>
   </div>
-  <div class="who-cards">
-    <div class="who-card fi d1">
-      <div class="who-card-icon">
-        <svg viewBox="0 0 27 27" fill="none"><path d="M4 21V13l9.5-8L23 13v8" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><rect x="10" y="14" width="7" height="7" rx="1" stroke="#fff" stroke-width="1.5"/></svg>
-      </div>
-      <h3>We Have Run Businesses</h3>
-      <p>We have built products. We have managed operations. We have worked with clients across industries and understood — from the inside — what it actually takes to get a team to change how it works. That is the foundation of everything we do.</p>
+
+  <div class="cards-grid-3" style="margin-top: 0;">
+    <div class="card-light fade-in stagger-1">
+      <span class="section-label">What You Bring</span>
+      <h3 class="card-title" style="font-size: 1.25rem;">Domain depth & relationships</h3>
+      <ul style="list-style: none; margin-top: 16px;">
+        <li style="margin-bottom: 12px; font-size: 0.95rem; color: rgba(71,17,50,0.65); display: flex; gap: 10px;">
+          <span style="color: #471132;">•</span> Genuine operational credibility inside a specific sector
+        </li>
+        <li style="margin-bottom: 12px; font-size: 0.95rem; color: rgba(71,17,50,0.65); display: flex; gap: 10px;">
+          <span style="color: #471132;">•</span> Existing client relationships and trust
+        </li>
+        <li style="margin-bottom: 12px; font-size: 0.95rem; color: rgba(71,17,50,0.65); display: flex; gap: 10px;">
+          <span style="color: #471132;">•</span> Deep understanding of real workflows and constraints
+        </li>
+      </ul>
     </div>
-    <div class="who-card fi d2">
-      <div class="who-card-icon">
-        <svg viewBox="0 0 27 27" fill="none"><rect x="4" y="4" width="8" height="8" rx="2" stroke="#fff" stroke-width="1.6"/><rect x="15" y="4" width="8" height="8" rx="2" stroke="#fff" stroke-width="1.6"/><rect x="9.5" y="15" width="8" height="8" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M8 12v3h5.5M19 12v3h-5.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <h3>We Went Deep Into AI</h3>
-      <p>We went deep into AI not because it was the next career move, but because we saw what it could do for the organisations we had worked with. The gap between what was possible and what was actually happening was too large to ignore.</p>
+    <div class="card-light fade-in stagger-2">
+      <span class="section-label">What We Bring</span>
+      <h3 class="card-title" style="font-size: 1.25rem;">AI methodology & engineering</h3>
+      <ul style="list-style: none; margin-top: 16px;">
+        <li style="margin-bottom: 12px; font-size: 0.95rem; color: rgba(71,17,50,0.65); display: flex; gap: 10px;">
+          <span style="color: #471132;">•</span> A proven implementation methodology
+        </li>
+        <li style="margin-bottom: 12px; font-size: 0.95rem; color: rgba(71,17,50,0.65); display: flex; gap: 10px;">
+          <span style="color: #471132;">•</span> AI-first engineering capability and custom builds
+        </li>
+        <li style="margin-bottom: 12px; font-size: 0.95rem; color: rgba(71,17,50,0.65); display: flex; gap: 10px;">
+          <span style="color: #471132;">•</span> Structured training and workshop programmes
+        </li>
+      </ul>
     </div>
-    <div class="who-card fi d3">
-      <div class="who-card-icon">
-        <svg viewBox="0 0 27 27" fill="none"><path d="M4 14l4 4 15-12" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <h3>We Stay Until It Works</h3>
-      <p>We do not hand over a framework and move on. We stay until the change is real — until the team operates differently, the workflows are running, and the organisation is genuinely more capable than when we found it. That is the only measure of success we care about.</p>
+    <div class="card-light fade-in stagger-3" style="background: var(--cream-dark);">
+      <span class="section-label">What We Build</span>
+      <h3 class="card-title" style="font-size: 1.25rem;">Something greater together</h3>
+      <ul style="list-style: none; margin-top: 16px;">
+        <li style="margin-bottom: 12px; font-size: 0.95rem; color: rgba(71,17,50,0.65); display: flex; gap: 10px;">
+          <span style="color: #471132;">•</span> AI implementation that is operationally grounded
+        </li>
+        <li style="margin-bottom: 12px; font-size: 0.95rem; color: rgba(71,17,50,0.65); display: flex; gap: 10px;">
+          <span style="color: #471132;">•</span> A track record in your sector that compounds
+        </li>
+        <li style="margin-bottom: 12px; font-size: 0.95rem; color: rgba(71,17,50,0.65); display: flex; gap: 10px;">
+          <span style="color: #471132;">•</span> A long-term collaboration with shared revenue
+        </li>
+      </ul>
     </div>
   </div>
-  <div class="who-founder-note">
-    <div class="wfn-card fi d1">
-      <div class="wfn-icon"><svg viewBox="0 0 17 17" fill="none"><circle cx="8.5" cy="5.5" r="3.5" stroke="#1E7F7F" stroke-width="1.3"/><path d="M2 15c0-3.6 2.9-6.5 6.5-6.5S15 11.4 15 15" stroke="#1E7F7F" stroke-width="1.3" stroke-linecap="round"/></svg></div>
-      <div>
-        <div class="wfn-title">Not engineers. Business people.</div>
-        <p class="wfn-text">Our starting point is always the operational problem — the inefficiency, the bottleneck, the process eating your team's time. The technology is the answer to that problem. Never the other way around.</p>
-      </div>
-    </div>
-    <div class="wfn-card fi d2">
-      <div class="wfn-icon"><svg viewBox="0 0 17 17" fill="none"><path d="M2 9l4 4 9-8" stroke="#1E7F7F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div>
-        <div class="wfn-title">Nexivant is our answer.</div>
-        <p class="wfn-text">We built Nexivant because the gap between what AI could do and what most organisations were doing with it was too large to ignore. We built it to close that gap — permanently, not temporarily.</p>
-      </div>
+
+  <div class="partner-callout fade-in stagger-3">
+    <h3 class="section-h" style="font-size: 2rem; max-width: 600px; margin: 0 auto 16px;">We are at an early stage. The partners who join now shape what Nexivant becomes.</h3>
+    <p class="section-body" style="max-width: 580px; margin: 0 auto 32px; font-size: 1.05rem;">Which industries we go deep into first. Which markets we enter. If the vision on this page resonates, we would like to have a real conversation about what building this together looks like.</p>
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="nexivant-contact.html" class="btn-primary">Start That Conversation →</a>
+      <a href="nexivant-solutions.html" class="btn-ghost-dark">Explore Our Solutions</a>
     </div>
   </div>
 </section>
 
-<div class="wave" style="background:var(--white)"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#f3ede3"/></svg></div>
+<div style="background:#F7F3EE"><svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none" style="display:block;width:100%;margin-bottom:-1px"><path d="M0 0C240 80 480 80 720 40C960 0 1200 80 1440 40V80H0V0Z" fill="#f3ede3"/></svg></div>
 
-<!-- ══ SECTION 7: DOMAIN EXPERT CTA ══ -->
-<section class="partner-section" id="partner">
-  <div class="partner-header fi">
-    <span class="sl">Building Together</span>
-    <h2 class="sh">If you have spent years building expertise in a specific industry,<br>we would like to talk.</h2>
-    <p class="sb" style="text-align:center;max-width:560px;margin:0 auto">We are not looking for resellers. We are not looking for referral partners. We are looking for people who have genuine operational depth in a sector — and who believe their industry is underserved when it comes to practical, grounded AI implementation.</p>
-  </div>
-
-  <!-- Value exchange grid -->
-  <div class="partner-value-grid fi d1">
-    <div class="pv-col pv-col-you">
-      <span class="pv-col-label">What You Bring</span>
-      <div class="pv-col-title">Your domain depth and your client relationships</div>
-      <div class="pv-items">
-        <div class="pv-item"><span class="pv-dot"></span><span>Genuine operational credibility inside a specific sector — you have run it, not just advised it</span></div>
-        <div class="pv-item"><span class="pv-dot"></span><span>Existing client relationships and trust built over years in your industry</span></div>
-        <div class="pv-item"><span class="pv-dot"></span><span>Deep understanding of the real workflows, the real constraints, and what actually changes behaviour on the ground</span></div>
-        <div class="pv-item"><span class="pv-dot"></span><span>The credibility that opens the door to conversations we cannot open alone</span></div>
-      </div>
-    </div>
-    <div class="pv-col pv-col-nex">
-      <span class="pv-col-label">What Nexivant Brings</span>
-      <div class="pv-col-title">The AI methodology, the engineering, and the implementation framework</div>
-      <div class="pv-items">
-        <div class="pv-item"><span class="pv-dot"></span><span>A proven implementation methodology built around how real businesses adopt and embed AI</span></div>
-        <div class="pv-item"><span class="pv-dot"></span><span>AI-first engineering capability — the systems, the integrations, the custom builds your clients need</span></div>
-        <div class="pv-item"><span class="pv-dot"></span><span>A structured training and workshop programme that can be adapted to any industry</span></div>
-        <div class="pv-item"><span class="pv-dot"></span><span>Shared revenue on every engagement — structured fairly and transparently from day one</span></div>
-      </div>
-    </div>
-    <div class="pv-col pv-col-together">
-      <span class="pv-col-label">What We Build Together</span>
-      <div class="pv-col-title">Something neither of us could deliver alone</div>
-      <div class="pv-items">
-        <div class="pv-item"><span class="pv-dot"></span><span>AI implementation that is technically rigorous and operationally grounded — the combination the market is missing</span></div>
-        <div class="pv-item"><span class="pv-dot"></span><span>A track record in your sector that builds the next engagement and the one after that</span></div>
-        <div class="pv-item"><span class="pv-dot"></span><span>A long-term collaboration — shared revenue, shared upside, built for the long term</span></div>
-        <div class="pv-item"><span class="pv-dot"></span><span>A stake in something that is still early — where the partners who come now shape what this becomes</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Who we are looking for -->
-  <div style="margin-bottom:40px">
-    <span class="sl fi" style="text-align:center;display:block">The Profiles We Are Looking For</span>
-    <div class="partner-profiles fi d1">
-      <div class="pp-card">
-        <div class="pp-icon"><svg viewBox="0 0 16 16" fill="none"><path d="M8 2v5.5L11.5 10" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/><rect x="3" y="4" width="10" height="9" rx="2" stroke="#fff" stroke-width="1.2" fill="none"/></svg></div>
-        <div>
-          <div class="pp-title">Healthcare Operators</div>
-          <p class="pp-text">Someone who has managed a hospital department, run a clinic network, or led healthcare administration — and understands the operational and regulatory reality of the sector from the inside.</p>
-        </div>
-      </div>
-      <div class="pp-card">
-        <div class="pp-icon"><svg viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="#fff" stroke-width="1.2"/><path d="M5 7h6M5 10h4" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-        <div>
-          <div class="pp-title">CA &amp; Finance Leaders</div>
-          <p class="pp-text">A CA partner, finance director, or compliance professional who understands how a practice manages clients, handles documentation, and builds trust over time in this sector.</p>
-        </div>
-      </div>
-      <div class="pp-card">
-        <div class="pp-icon"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3.5" stroke="#fff" stroke-width="1.2"/><path d="M2 15c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-        <div>
-          <div class="pp-title">Recruitment &amp; Agency Leaders</div>
-          <p class="pp-text">Someone who has built or run a recruitment operation, managed a marketing agency, or led a BPO — and understands the delivery pressures and client dynamics from the front lines.</p>
-        </div>
-      </div>
-      <div class="pp-card">
-        <div class="pp-icon"><svg viewBox="0 0 16 16" fill="none"><path d="M2 12l3-5 3 3 2-3 4 5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div>
-          <div class="pp-title">Manufacturing &amp; Operations Heads</div>
-          <p class="pp-text">A plant manager, operations director, or supply chain leader who knows what it takes to implement real change on a manufacturing floor — not just in a boardroom presentation.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Final CTA block -->
-  <div class="partner-cta-block fi d2">
-    <div class="pcb-text">
-      <span class="pcb-label">The Conversation We Want to Have</span>
-      <h3 class="pcb-h">We are at an early stage. The partners who join now will shape what Nexivant becomes.</h3>
-      <p class="pcb-sub">Which industries we go deep into first. Which markets we enter. How the model evolves. That is an opportunity, not just an arrangement. If the vision on this page resonates — genuinely, not just in principle — we would like to have a real conversation about what building this together looks like.</p>
-    </div>
-    <div class="pcb-actions">
-      <a href="nexivant-contact.html" class="btn-cw">Start That Conversation →</a>
-      <a href="nexivant-solutions.html" class="btn-cow">Read Our Solutions</a>
-    </div>
-  </div>
-</section>
-
-<!-- CLOSING LINE -->
-<div class="closing">
-  <p>Nexivant — We make AI work inside your business. One organisation at a time.</p>
-</div>
-
+<!-- FOOTER -->
 <footer>
-  <div class="fb">Nexivant<span>We make AI work inside your business.</span></div>
-  <ul class="fl">
-    <li><a href="nexivant-homepage.html">Home</a></li><li><a href="nexivant-industries.html">Industries</a></li>
-    <li><a href="nexivant-solutions.html">Our Solutions</a></li><li><a href="nexivant-vision.html">Our Vision</a></li>
-    <li><a href="nexivant-contact.html">Contact Us</a></li>
-  </ul>
-  <p class="fc">© 2026 Nexivant. All rights reserved.</p>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Nexivant</div>
+      <p class="footer-brand-sub">A Backend Operating System for Modern Clinics</p>
+    </div>
+    <div>
+      <span class="footer-col-label">Contact Us</span>
+      <ul class="footer-contact-list">
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2.5A1.5 1.5 0 013.5 1h1.236a.5.5 0 01.474.342l.966 2.9a.5.5 0 01-.115.525l-1.06 1.06a7.014 7.014 0 003.172 3.172l1.06-1.06a.5.5 0 01.525-.115l2.9.966A.5.5 0 0113 9.264V10.5A1.5 1.5 0 0111.5 12C5.701 12 1 7.299 1 1.5" stroke="#471132" stroke-width="1.2" stroke-linecap="round"/></svg> +91 9833943177</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="#471132" stroke-width="1.2"/><path d="M1 4l6 4 6-4" stroke="#471132" stroke-width="1.2" stroke-linecap="round"/></svg> chirag@navighealth.com</li>
+        <li class="footer-city">Navi Mumbai</li>
+      </ul>
+    </div>
+    <div>
+      <span class="footer-col-label">Quick Links</span>
+      <ul class="footer-quick-links">
+        <li><a href="nexivant-homepage.html">Home</a></li>
+        <li><a href="nexivant-solutions.html">Our Solutions</a></li>
+        <li><a href="nexivant-industries.html">We Work With</a></li>
+        <li><a href="nexivant-vision.html">Our Vision</a></li>
+        <li><a href="nexivant-contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Suvira Health. All rights reserved.</p>
+  </div>
 </footer>
 
 <script>
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:0.08});
-document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+<script>
+(function(){
+  var btn=document.getElementById('navHamburger');
+  var menu=document.getElementById('navLinks');
+  if(!btn||!menu)return;
+  btn.addEventListener('click',function(){
+    var open=menu.classList.contains('open');
+    menu.classList.toggle('open',!open);
+    btn.classList.toggle('open',!open);
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+    });
+  });
+})();
 </script>
 </body>
 </html>
