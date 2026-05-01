@@ -421,22 +421,44 @@ footer{background:var(--cream);padding:72px 72px 0}
   .ch-note{flex-direction:column!important;padding:18px 14px!important;gap:10px!important}
   .ch-note-text{font-size:.88rem!important}
 
-  /* ── ACCORDION (industries page) ── */
-  .iw-shell{grid-template-columns:1fr!important;border-top:none!important}
-  .iw-sidebar{position:static!important;border-right:none!important;border-bottom:1px solid var(--border);display:flex;overflow-x:auto;white-space:nowrap}
-  .iw-tab{border-bottom:none!important;border-right:1px solid var(--border);flex-shrink:0;min-width:140px;padding:16px 18px!important}
-  .iw-tab:last-child{border-right:none}
+  /* ── INDUSTRY SECTION (mobile) ── */
+  #industries{width:100vw!important;margin-left:calc(-50vw + 50%)!important}
+  #industries>div{padding:32px 20px 20px!important;text-align:center!important}
+  #industries>div .sh{font-size:clamp(1.3rem,5vw,1.6rem)!important;text-align:center!important}
+  #industries>div .sb{text-align:center!important;font-size:.88rem!important}
+  .iw-shell{grid-template-columns:1fr!important;width:100%!important}
+  .iw-sidebar{position:static!important;border-right:none!important;border-bottom:1px solid var(--border)!important;display:flex!important;flex-direction:column!important;gap:0;width:100%!important}
+  .iw-tab{border-bottom:1px solid var(--border)!important;border-right:none!important;border-left:3px solid transparent!important;padding:14px 20px!important;min-width:0!important;white-space:normal!important;display:flex!important;flex-direction:row!important;align-items:center!important;gap:12px!important;width:100%!important}
+  .iw-tab:last-child{border-bottom:none!important}
+  .iw-tab.active{border-left-color:var(--maroon)!important;background:var(--cream)!important}
+  .iw-tab-num{font-size:.55rem!important;flex-shrink:0;min-width:20px}
+  .iw-tab-name{font-size:.88rem!important;font-family:var(--serif)!important}
   .iw-tab-sub{display:none!important}
-  .iw-tab.active::after{display:none}
-  .uc-grid{grid-template-columns:1fr!important;gap:10px!important}
-  .uc-body{font-size:.85rem!important;line-height:1.6!important}
-  .uc-outcome-text{font-size:.85rem!important}
-  .uc-wrap{padding:18px 14px 0!important}
-  .tier-wrap{padding:14px 14px 18px!important;overflow-x:auto!important}
-  .tier-table{min-width:480px!important;font-size:.8rem!important}
-  .tier-table td{padding:9px 10px!important}
-  .reality{grid-template-columns:1fr!important;gap:8px!important;padding:16px 14px!important}
-  .reality-text{font-size:.85rem!important;line-height:1.6!important}
+  .iw-content{width:100%!important}
+  .iw-panel{width:100%!important;box-sizing:border-box!important}
+  .iw-content{border-top:none}
+  .reality{grid-template-columns:1fr!important;gap:10px!important;padding:18px 16px!important;text-align:left!important}
+  .reality-label-wrap{flex-direction:row!important;gap:8px!important;justify-content:flex-start}
+  .reality-text{font-size:.88rem!important;line-height:1.65!important;text-align:left!important}
+  .uc-section-label{text-align:left!important}
+  .uc-title{text-align:left!important}
+  .uc-body{text-align:left!important}
+  .uc-outcome-text{text-align:left!important}
+  .tier-section-label{text-align:left!important}
+  .uc-wrap{padding:18px 16px 0!important}
+  .uc-section-label{font-size:.56rem!important}
+  .uc-grid{grid-template-columns:1fr!important;gap:10px!important;background:none!important;border:none!important;border-radius:0!important}
+  .uc-card{border:1px solid var(--border)!important;border-radius:8px!important}
+  .uc-top{padding:16px 14px 12px!important}
+  .uc-title{font-size:.92rem!important}
+  .uc-body{font-size:.83rem!important;line-height:1.6!important}
+  .uc-outcome{padding:10px 14px!important}
+  .uc-outcome-text{font-size:.8rem!important}
+  .reality-icon{display:none!important}
+  .tier-wrap{overflow-x:auto!important;-webkit-overflow-scrolling:touch!important;padding:14px 16px 24px!important;width:100%!important;box-sizing:border-box!important}
+  .tier-table{min-width:400px!important;font-size:.78rem!important;width:100%!important}
+  .tier-table td{padding:9px 10px!important;white-space:normal!important}
+  .tier-table th{padding:9px 10px!important;font-size:.68rem!important;white-space:normal!important}
 
   /* ── VISION PAGE ── */
   .cards-grid-3{grid-template-columns:1fr!important;gap:10px!important}
@@ -447,11 +469,12 @@ footer{background:var(--cream);padding:72px 72px 0}
   .chart-box{padding:22px 14px!important}
   .gold-rule{display:none!important}
 
-  /* ── PHILOSOPHY (vision page) ── */
-  .phil-right{gap:10px!important}
-  .phil-card{padding:16px 14px!important}
-  .phil-card-text{font-size:.85rem!important}
-  .phil-card-title{font-size:.88rem!important}
+  /* ── PHILOSOPHY ── */
+  .phil-right{gap:8px!important}
+  .phil-card{padding:14px 12px!important;gap:10px!important;align-items:flex-start!important;min-height:0!important;height:auto!important}
+  .phil-card-text{font-size:.85rem!important;line-height:1.55!important}
+  .phil-card-title{font-size:.88rem!important;margin-bottom:3px!important}
+  .ic-bg{width:36px!important;height:36px!important;flex-shrink:0!important}
 
   /* ── OUTCOMES ── */
   .outcome-section{text-align:left!important;padding-top:52px!important;padding-bottom:52px!important}
@@ -644,11 +667,16 @@ nav {
 
   .ch-card,
   .tech-card,
-  .uc-card,
-  .phil-card {
+  .uc-card {
     flex: 0 0 min(84vw, 330px) !important;
     min-height: 210px;
     scroll-snap-align: start;
+  }
+  .phil-card {
+    flex: unset !important;
+    min-height: 0 !important;
+    height: auto !important;
+    scroll-snap-align: unset;
   }
   .ch-card { text-align: left !important; }
   .ch-card .ic { margin: 0 0 14px 0 !important; }
