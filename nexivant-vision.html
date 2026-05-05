@@ -153,9 +153,9 @@ nav {
 }
 .hero h1 {
   font-family: var(--serif);
-  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
-  font-weight: 500;
-  line-height: 1.15;
+  font-size: 58px;
+  font-weight: 400;
+  line-height: 58px;
   color: var(--text-on-plum);
   margin-bottom: 24px;
   letter-spacing: normal;
@@ -863,16 +863,33 @@ body.nav-lock { overflow: hidden; }
   .nav-links a.active { color: var(--plum) !important; }
 }
 
+@media (max-width: 768px) {
+  footer { padding-left: 28px !important; padding-right: 28px !important; }
+  footer,
+  footer .footer-grid,
+  footer .footer-grid > div,
+  footer .footer-brand-sub,
+  footer .footer-contact-list,
+  footer .footer-quick-links,
+  footer .footer-contact-list li,
+  footer .footer-quick-links a {
+    text-align: left !important;
+  }
+  footer .footer-brand img { margin: 0 !important; }
+  footer .footer-brand-sub { padding-left: 0 !important; }
+  footer .footer-contact-list li { justify-content: flex-start !important; }
+  nav .logo img { height: 42px !important; }
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo">Nexivant</a>
+  <a href="index.html" class="logo"><img src="assets/logo.png" alt="Nexivant" style="height:56px;width:auto;display:block;"></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="nexivant-industries.html">Industries</a></li>
     <li><a href="nexivant-solutions.html">Our Solutions</a></li>
+    <li><a href="index.html#industries">Industry Focus</a></li>
     <li><a href="nexivant-vision.html">Our Vision</a></li>
     <li><a href="nexivant-contact.html">Contact Us</a></li>
     <li class="mobile-cta-row" style="display:none;border-bottom:none!important">
@@ -992,7 +1009,7 @@ body.nav-lock { overflow: hidden; }
 </section>
 <div class="wave wave-cream-to-offwhite"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#F7F3EE"/></svg></div>
 
-<!-- ══ SECTION 4: THE LONG VIEW ══ -->
+<!-- SECTION 4: THE LONG VIEW
 <section style="background: var(--offwhite);">
   <div class="grid-2 start">
     <div class="fade-in">
@@ -1021,7 +1038,7 @@ body.nav-lock { overflow: hidden; }
     </div>
   </div>
 </section>
-<div class="wave wave-offwhite-to-cream"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#f3ede3"/></svg></div>
+<div class="wave wave-offwhite-to-cream"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#f3ede3"/></svg></div> -->
 
 <!-- ══ SECTION 5: WHO WE ARE ══ -->
 <section style="background: var(--cream);">
@@ -1146,8 +1163,8 @@ body.nav-lock { overflow: hidden; }
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-brand">Nexivant</div>
-      <p class="footer-brand-sub">A Backend Operating System for Modern Clinics</p>
+      <div class="footer-brand"><img src="assets/logo.png" alt="Nexivant" style="height:52px;width:auto;display:block;"></div>
+      <p class="footer-brand-sub" style="text-align:left; padding-left:16px;">Nexivant — We Make AI Work Inside Your Business.</p>
     </div>
     <div>
       <span class="footer-col-label">Contact Us</span>
@@ -1162,7 +1179,7 @@ body.nav-lock { overflow: hidden; }
       <ul class="footer-quick-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="nexivant-solutions.html">Our Solutions</a></li>
-        <li><a href="nexivant-industries.html">We Work With</a></li>
+        <li><a href="index.html#industries">Industry Focus</a></li>
         <li><a href="nexivant-vision.html">Our Vision</a></li>
         <li><a href="nexivant-contact.html">Contact Us</a></li>
       </ul>

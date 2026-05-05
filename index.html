@@ -99,12 +99,12 @@ nav {
 /* ─── HERO ─── */
 .hero {
   min-height: 100vh;
-  background: var(--plum);
+  background: #faf0e7;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 128px 64px 100px;
+  padding: 128px 72px 100px;
 }
 
 .hero-noise {
@@ -166,9 +166,9 @@ nav {
 
 .hero h1 {
   font-family: var(--serif);
-  font-size: clamp(2.8rem, 5.2vw, 4.4rem);
-  font-weight: 500;
-  line-height: 1.12;
+  font-size: 58px;
+  font-weight: 400;
+  line-height: 58px;
   color: var(--text-on-plum);
   margin-bottom: 32px;
   letter-spacing: normal;
@@ -241,6 +241,7 @@ nav {
   flex: 1;
   padding: 22px 32px;
   border-right: 1px solid rgba(243,237,227,0.1);
+  text-align: center;
 }
 .hero-stat:last-child { border-right: none; }
 .hero-stat-num {
@@ -373,6 +374,18 @@ section { padding: 104px 64px; }
   margin-top: 64px;
 }
 
+/* Who Accordion */
+.who-accordion{width:100%;margin-top:48px}
+.wacc-item{border-top:1px solid var(--plum-border)}
+.wacc-item:last-child{border-bottom:1px solid var(--plum-border)}
+.wacc-btn{width:100%;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:22px 0;text-align:left;font-family:var(--sans)}
+.wacc-title{font-size:1.25rem;font-weight:500;color:var(--plum);line-height:1.3}
+.wacc-icon{flex-shrink:0;color:var(--plum);transition:transform .25s}
+.wacc-item.wacc-open .wacc-plus{opacity:0}
+.wacc-body{display:none;padding-bottom:22px}
+.wacc-item.wacc-open .wacc-body{display:block}
+.wacc-text{font-size:1.125rem;font-weight:400;line-height:1.625;color:rgba(71,17,50,0.65);max-width:640px}
+
 .who-pillar {
   border-top: 1px solid var(--plum-border);
   padding-top: 28px;
@@ -485,76 +498,101 @@ section { padding: 104px 64px; }
 /* ─── INDUSTRIES ─── */
 .industries-section {
   background: var(--white);
-  display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 80px;
-  align-items: start;
+  padding: 80px 64px 104px;
 }
 
-.industry-tiles {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+.industries-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  gap: 40px;
 }
 
-.industry-tile {
-  background: var(--cream);
-  border: 1px solid var(--plum-border);
-  padding: 22px 20px;
-  border-radius: 3px;
-  transition: all 0.2s;
-  cursor: default;
-  position: relative;
-  overflow: hidden;
-}
-.industry-tile::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--plum);
-  transform: scaleX(0);
-  transition: transform 0.22s;
-  transform-origin: left;
-}
-.industry-tile:hover::after { transform: scaleX(1); }
-.industry-tile:hover { border-color: rgba(71,17,50,0.3); }
+.industries-header-left { max-width: 560px; }
+.industries-header-left .section-label { margin-bottom: 12px; }
+.industries-header-left .section-h { margin-bottom: 16px; }
+.industries-header-left .section-body { margin-bottom: 0; }
 
-.industry-tile-icon {
-  width: 34px;
-  height: 34px;
-  margin-bottom: 12px;
-  background: var(--plum-soft);
+.industries-arrows {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+.iw-arrow {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
+  border: 1.5px solid rgba(71,17,50,0.25);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--plum);
+  transition: border-color 0.2s, background 0.2s;
+}
+.iw-arrow:hover { border-color: var(--plum); background: var(--plum); color: #fff; }
+.iw-arrow svg { display: block; }
+
+.industry-scroll-wrap {
+  overflow: hidden;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+}
+
+.industry-cards {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+.industry-card {
+  flex: 0 0 280px;
+  width: 280px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+}
+
+.industry-card-img {
+  width: 100%;
+  flex: 1;
+  min-height: 280px;
+  object-fit: cover;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.industry-tile-name {
-  font-family: var(--serif);
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 32px;
-  color: var(--plum);
-  margin-bottom: 8px;
-}
-.industry-tile-sub {
+.industry-card-label {
+  padding: 18px 20px;
   font-family: var(--sans);
-  font-size: 18px;
-  font-weight: 400;
-  color: rgba(71,17,50,0.9);
-  line-height: 29px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1.35;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.industry-tile.wide {
-  grid-column: span 2;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 20px;
+.industry-card-sub {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgba(0,0,0,0.55);
+  margin-top: 4px;
+  line-height: 1.4;
 }
-.industry-tile.wide .industry-tile-icon { margin-bottom: 0; flex-shrink: 0; }
 
 /* ─── MID MARKET ─── */
 .midmarket-section {
@@ -1089,7 +1127,11 @@ footer {
   .team-note-text{font-size:.88rem!important}
 
   /* ── ALL 2-COL GRIDS → 1-COL (all pages) ── */
-  .context-section,.industries-section,.partners-section,.who-grid,.grid-2,.contact-section,.diff-grid,.thesis-grid,.phil-grid{grid-template-columns:1fr!important;gap:24px!important}
+  .context-section,.partners-section,.who-grid,.grid-2,.contact-section,.diff-grid,.thesis-grid,.phil-grid{grid-template-columns:1fr!important;gap:24px!important}
+  .industries-section{padding:56px 24px 64px!important}
+  .industries-header{flex-direction:column!important;align-items:flex-start!important;gap:24px!important}
+  .industry-card{flex:0 0 min(78vw,320px)!important}
+  .industry-card-img{height:260px!important}
   .diff-col{padding:24px 16px!important}
   .diff-item{font-size:.88rem!important;line-height:1.6!important}
   .diff-col-title{font-size:1.05rem!important}
@@ -1231,11 +1273,9 @@ footer {
   .context-quote{font-size:1.1rem!important;padding-left:16px!important}
 
   /* ── WHO SECTION ── */
-  .who-section{grid-template-columns:1fr!important;grid-template-rows:auto auto!important;padding:56px 24px 64px!important;gap:32px 0!important;overflow:visible!important}
+  .who-section{grid-template-columns:1fr!important;padding:56px 24px 64px!important;gap:32px!important;overflow:visible!important}
   .who-section::before,.who-section::after{display:none!important}
-  .who-text{padding:0!important;grid-column:1!important;grid-row:1!important}
-  .who-image{display:none!important}
-  .who-grid{grid-column:1!important;grid-row:2!important;margin-top:32px!important;grid-template-columns:1fr!important}
+  .who-image{min-height:280px!important;border-radius:8px!important}
 
   /* ── WAVES (preserve them) ── */
   .wave svg{min-height:20px!important}
@@ -1273,7 +1313,7 @@ nav {
 .nav-hamburger span { background: var(--plum) !important; }
 /* ── HERO: 2-col left-text right-image ── */
 .hero {
-  background: var(--cream) !important;
+  background: #faf0e7 !important;
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
   grid-template-rows: 1fr auto !important;
@@ -1307,7 +1347,8 @@ nav {
   box-shadow: none !important;
   aspect-ratio: unset !important;
   position: relative !important;
-  min-height: 100vh !important;
+  min-height: 120vh !important;
+  background: rgba(243,237,227,0.06) !important;
 }
 .hero-media img {
   position: absolute !important;
@@ -1315,8 +1356,8 @@ nav {
   width: 100% !important;
   height: 100% !important;
   display: block !important;
-  object-fit: cover !important;
-  object-position: center !important;
+  object-fit: contain !important;
+  object-position: right center !important;
 }
 
 /* Stat bar spans full width under both columns */
@@ -1412,16 +1453,33 @@ body.nav-lock { overflow: hidden; }
   .footer-contact-list .footer-city { padding-left: 0 !important; }
 }
 
+@media (max-width: 768px) {
+  footer { padding-left: 28px !important; padding-right: 28px !important; }
+  footer,
+  footer .footer-grid,
+  footer .footer-grid > div,
+  footer .footer-brand-sub,
+  footer .footer-contact-list,
+  footer .footer-quick-links,
+  footer .footer-contact-list li,
+  footer .footer-quick-links a {
+    text-align: left !important;
+  }
+  footer .footer-brand img { margin: 0 !important; }
+  footer .footer-brand-sub { padding-left: 0 !important; }
+  footer .footer-contact-list li { justify-content: flex-start !important; }
+  nav .logo img { height: 42px !important; }
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo">Nexivant</a>
+  <a href="index.html" class="logo"><img src="assets/logo.png" alt="Nexivant" style="height:56px;width:auto;display:block;"></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="nexivant-industries.html">Industries</a></li>
     <li><a href="nexivant-solutions.html">Our Solutions</a></li>
+    <li><a href="index.html#industries">Industry Focus</a></li>
     <li><a href="nexivant-vision.html">Our Vision</a></li>
     <li><a href="nexivant-contact.html">Contact Us</a></li>
     <li class="mobile-cta-row" style="display:none;border-bottom:none!important">
@@ -1495,38 +1553,56 @@ body.nav-lock { overflow: hidden; }
   </div>
 </section>
 <!-- SECTION 3 — WHO WE ARE -->
-<section class="who-section" id="vision" style="display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto; padding: 80px 64px 104px; gap:0 80px;">
-  <div class="who-text fade-in" style="display:flex; flex-direction:column; justify-content:center;">
+<section class="who-section" id="vision" style="display:grid; grid-template-columns:1fr 1fr; padding: 80px 64px 104px; gap:0 80px; align-items:stretch;">
+  <!-- LEFT: text + accordion -->
+  <div style="display:flex; flex-direction:column; justify-content:center;">
     <span class="section-label">Where We Come From</span>
     <h2 class="section-h">We are business people who went deep into AI.<br>Not the other way around.</h2>
     <p class="section-body">
-      Nexivant was not started by engineers who decided to build a training company. It was started by people who have worked inside businesses — in operations, in marketing, in client-facing roles — and spent years watching technology promise transformation while most organisations were left behind.
+      Nexivant was started by people who have worked inside businesses — in operations, in marketing, in client-facing roles — and spent years watching technology promise transformation while most organisations were left behind.
     </p>
+    <div class="who-accordion" style="margin-top:32px;">
+      <div class="wacc-item wacc-open">
+        <button class="wacc-btn" onclick="toggleWacc(this)">
+          <span class="wacc-title">Business-First Thinking</span>
+          <span class="wacc-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M7 10h6M10 7v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" class="wacc-plus"/></svg></span>
+        </button>
+        <div class="wacc-body">
+          <p class="wacc-text">We start with your workflows, your inefficiencies, your team. The technology follows the problem — not the other way around.</p>
+        </div>
+      </div>
+      <div class="wacc-item">
+        <button class="wacc-btn" onclick="toggleWacc(this)">
+          <span class="wacc-title">Deep Domain Knowledge</span>
+          <span class="wacc-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M7 10h6M10 7v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" class="wacc-plus"/></svg></span>
+        </button>
+        <div class="wacc-body">
+          <p class="wacc-text">We understand what a hospital unit faces, what a recruitment pipeline looks like, what a CA firm actually needs. We do not bring generic frameworks.</p>
+        </div>
+      </div>
+      <div class="wacc-item">
+        <button class="wacc-btn" onclick="toggleWacc(this)">
+          <span class="wacc-title">We Stay Until It's Done</span>
+          <span class="wacc-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M7 10h6M10 7v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" class="wacc-plus"/></svg></span>
+        </button>
+        <div class="wacc-body">
+          <p class="wacc-text">We do not hand you a framework and leave. This shapes how we train, how we run workshops, and how we build the systems your business runs on.</p>
+        </div>
+      </div>
+      <div class="wacc-item">
+        <button class="wacc-btn" onclick="toggleWacc(this)">
+          <span class="wacc-title">Honest Engagement</span>
+          <span class="wacc-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M7 10h6M10 7v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" class="wacc-plus"/></svg></span>
+        </button>
+        <div class="wacc-body">
+          <p class="wacc-text">If working together makes sense, we will say so honestly. If it doesn't, we will say that too. Our measure of success is your business running better.</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="who-image fade-in stagger-2" style="grid-column:2 !important; grid-row:1 !important; min-height:320px; max-height:440px; overflow:hidden; position:relative;">
+  <!-- RIGHT: full-height image -->
+  <div class="who-image fade-in" style="overflow:hidden; border-radius:12px; min-height:480px; margin-top:80px;">
     <img src="assets/hero3.png" alt="Business team working with AI" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;">
-  </div>
-  <div class="who-grid" style="grid-column:1 / -1 !important; grid-row:2 !important; margin-top:0;">
-    <div class="who-pillar fade-in stagger-1">
-      <span class="who-pillar-num">01</span>
-      <div class="who-pillar-title">Business-First Thinking</div>
-      <p class="who-pillar-text">We start with your workflows, your inefficiencies, your team. The technology follows the problem — not the other way around.</p>
-    </div>
-    <div class="who-pillar fade-in stagger-2">
-      <span class="who-pillar-num">02</span>
-      <div class="who-pillar-title">Deep Domain Knowledge</div>
-      <p class="who-pillar-text">We understand what a hospital unit faces, what a recruitment pipeline looks like, what a CA firm actually needs. We do not bring generic frameworks.</p>
-    </div>
-    <div class="who-pillar fade-in stagger-3">
-      <span class="who-pillar-num">03</span>
-      <div class="who-pillar-title">We Stay Until It's Done</div>
-      <p class="who-pillar-text">We do not hand you a framework and leave. This shapes how we train, how we run workshops, and how we build the systems your business runs on.</p>
-    </div>
-    <div class="who-pillar fade-in stagger-4">
-      <span class="who-pillar-num">04</span>
-      <div class="who-pillar-title">Honest Engagement</div>
-      <p class="who-pillar-text">If working together makes sense, we will say so honestly. If it doesn't, we will say that too. Our measure of success is your business running better.</p>
-    </div>
   </div>
 </section>
 <!-- SECTION 4 — SOLUTIONS / TIERS -->
@@ -1572,73 +1648,116 @@ body.nav-lock { overflow: hidden; }
 
 <!-- SECTION 5 — INDUSTRIES -->
 <section class="industries-section" id="industries">
-  <div>
-    <span class="section-label">Where We Work</span>
-    <h2 class="section-h">Every industry has a different problem. We treat it that way.</h2>
-    <p class="section-body">
-      We work across sectors — but we never bring a generic programme to an industry-specific challenge. A hospital's AI opportunity looks nothing like a marketing agency's. We go deep into the specifics of each industry before we design anything.
-    </p>
-    <br>
-    <a href="nexivant-industries.html" class="btn-primary" style="margin-top: 8px; display: inline-block;">Explore by Industry →</a>
+  <div class="industries-header">
+    <div class="industries-header-left">
+      <span class="section-label">Where We Work</span>
+      <h2 class="section-h">Every industry has a different problem. We treat it that way.</h2>
+      <p class="section-body">We work across sectors — but we never bring a generic programme to an industry-specific challenge. A hospital's AI opportunity looks nothing like a marketing agency's. We go deep into the specifics of each industry before we design anything.</p>
+    </div>
+    <div class="industries-arrows">
+      <button class="iw-arrow" onclick="scrollIndustry(-1)" aria-label="Previous">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 13L7 9l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="iw-arrow" onclick="scrollIndustry(1)" aria-label="Next">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
   </div>
-  <div class="industry-tiles">
-    <div class="industry-tile fade-in stagger-1">
-      <div class="industry-tile-icon">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <path d="M9 3v12M3 9h12" stroke="#471132" stroke-width="1.4" stroke-linecap="round"/>
-          <rect x="6" y="6" width="6" height="6" rx="0.5" stroke="#471132" stroke-width="1" fill="none"/>
-        </svg>
+
+  <div class="industry-scroll-wrap">
+    <div class="industry-cards" id="industryCards">
+
+      <!-- Healthcare -->
+      <div class="industry-card">
+        <div class="industry-card-img" style="background:#F3EDE3; display:flex; align-items:center; justify-content:center;">
+          <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="30" y="20" width="40" height="60" rx="4" fill="#471132" fill-opacity="0.08"/>
+            <rect x="44" y="30" width="12" height="40" rx="2" fill="#471132" fill-opacity="0.45"/>
+            <rect x="30" y="44" width="40" height="12" rx="2" fill="#471132" fill-opacity="0.45"/>
+            <circle cx="50" cy="50" r="32" stroke="#471132" stroke-opacity="0.12" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="industry-card-label" style="background:#EDE8E2;">
+          Hospitals &amp; Healthcare
+          <div class="industry-card-sub">Operations, Patient Flow, Admin</div>
+        </div>
       </div>
-      <div class="industry-tile-name">Hospitals & Healthcare</div>
-      <div class="industry-tile-sub">Operations, Patient Flow, Admin</div>
-    </div>
-    <div class="industry-tile fade-in stagger-2">
-      <div class="industry-tile-icon">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <circle cx="9" cy="7" r="3.5" stroke="#471132" stroke-width="1.4" fill="none"/>
-          <path d="M3 16c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#471132" stroke-width="1.4" stroke-linecap="round"/>
-        </svg>
+
+      <!-- Hospitality -->
+      <div class="industry-card">
+        <div class="industry-card-img" style="background:#F3EDE3; display:flex; align-items:center; justify-content:center;">
+          <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 70 L50 30 L80 70 Z" fill="#471132" fill-opacity="0.1"/>
+            <rect x="36" y="50" width="28" height="20" rx="2" fill="#471132" fill-opacity="0.2"/>
+            <rect x="44" y="58" width="12" height="12" rx="1" fill="#471132" fill-opacity="0.4"/>
+            <path d="M15 72 L85 72" stroke="#471132" stroke-opacity="0.3" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="72" cy="34" r="10" fill="none" stroke="#471132" stroke-opacity="0.3" stroke-width="1.5"/>
+            <path d="M68 34 Q72 28 76 34" stroke="#471132" stroke-opacity="0.5" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="industry-card-label" style="background:#EDE8E2;">
+          Hospitality &amp; Travel
+          <div class="industry-card-sub">Hotels, Resorts, Travel Agencies, OTAs</div>
+        </div>
       </div>
-      <div class="industry-tile-name">Digital Marketing Agencies</div>
-      <div class="industry-tile-sub">Content, Campaign, Analytics</div>
-    </div>
-    <div class="industry-tile fade-in stagger-3">
-      <div class="industry-tile-icon">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <rect x="2" y="5" width="14" height="10" rx="1" stroke="#471132" stroke-width="1.4" fill="none"/>
-          <path d="M6 5V3.5h6V5" stroke="#471132" stroke-width="1.4" stroke-linecap="round"/>
-          <path d="M6 9h6M6 12h4" stroke="#471132" stroke-width="1.2" stroke-linecap="round"/>
-        </svg>
+
+      <!-- Manufacturing -->
+      <div class="industry-card">
+        <div class="industry-card-img" style="background:#F3EDE3; display:flex; align-items:center; justify-content:center;">
+          <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="52" width="18" height="28" rx="2" fill="#471132" fill-opacity="0.15"/>
+            <rect x="42" y="38" width="18" height="42" rx="2" fill="#471132" fill-opacity="0.25"/>
+            <rect x="64" y="26" width="18" height="54" rx="2" fill="#471132" fill-opacity="0.35"/>
+            <path d="M15 82 L88 82" stroke="#471132" stroke-opacity="0.25" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="industry-card-label" style="background:#EDE8E2;">
+          Manufacturing &amp; Operations
+          <div class="industry-card-sub">Supply Chain, Procurement, Production</div>
+        </div>
       </div>
-      <div class="industry-tile-name">Recruitment Agencies</div>
-      <div class="industry-tile-sub">Pipeline, Screening, Placement</div>
-    </div>
-    <div class="industry-tile fade-in stagger-4">
-      <div class="industry-tile-icon">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <path d="M4 14V8l5-4 5 4v6" stroke="#471132" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-          <rect x="7" y="10" width="4" height="4" rx="0.5" stroke="#471132" stroke-width="1" fill="none"/>
-        </svg>
+
+      <!-- Professional -->
+      <div class="industry-card">
+        <div class="industry-card-img" style="background:#F3EDE3; display:flex; align-items:center; justify-content:center;">
+          <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="28" y="22" width="44" height="56" rx="3" fill="#471132" fill-opacity="0.08" stroke="#471132" stroke-opacity="0.2" stroke-width="1.5"/>
+            <path d="M38 38 L62 38" stroke="#471132" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round"/>
+            <path d="M38 48 L62 48" stroke="#471132" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round"/>
+            <path d="M38 58 L52 58" stroke="#471132" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round"/>
+            <rect x="40" y="14" width="20" height="12" rx="2" fill="#471132" fill-opacity="0.2"/>
+          </svg>
+        </div>
+        <div class="industry-card-label" style="background:#EDE8E2;">
+          Professional Services
+          <div class="industry-card-sub">CA Firms, Legal, Financial Advisory</div>
+        </div>
       </div>
-      <div class="industry-tile-name">CA & Finance Firms</div>
-      <div class="industry-tile-sub">Compliance, Reporting, Advisory</div>
-    </div>
-    <div class="industry-tile wide fade-in stagger-4">
-      <div class="industry-tile-icon">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <path d="M3 13l4-7 4 5 2-3 3 5" stroke="#471132" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+
+      <!-- Agencies -->
+      <div class="industry-card">
+        <div class="industry-card-img" style="background:#F3EDE3; display:flex; align-items:center; justify-content:center;">
+          <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="38" r="14" fill="#471132" fill-opacity="0.1" stroke="#471132" stroke-opacity="0.3" stroke-width="1.5"/>
+            <circle cx="26" cy="56" r="9" fill="#471132" fill-opacity="0.08" stroke="#471132" stroke-opacity="0.2" stroke-width="1.2"/>
+            <circle cx="74" cy="56" r="9" fill="#471132" fill-opacity="0.08" stroke="#471132" stroke-opacity="0.2" stroke-width="1.2"/>
+            <path d="M36 72 Q50 64 64 72" stroke="#471132" stroke-opacity="0.35" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M17 78 Q26 73 35 78" stroke="#471132" stroke-opacity="0.2" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M65 78 Q74 73 83 78" stroke="#471132" stroke-opacity="0.2" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="industry-card-label" style="background:#EDE8E2;">
+          Agencies &amp; Outsourcing
+          <div class="industry-card-sub">Marketing, Recruitment, KPO, BPO</div>
+        </div>
       </div>
-      <div>
-        <div class="industry-tile-name">Services & Others</div>
-        <div class="industry-tile-sub">Legal, Consulting, Professional Services — we tailor the programme to your specific workflows</div>
-      </div>
+
     </div>
   </div>
 </section>
-<div class="wave wave-white-to-plum"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#3a0e26"/></svg></div>
+<!-- <div class="wave wave-white-to-plum"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#3a0e26"/></svg></div>
 
-<!-- SECTION 6 — BUILT FOR GROWING CLINICS -->
+SECTION 6 - BUILT FOR GROWING CLINICS
 <section class="midmarket-section on-plum">
   <span class="section-label">Who We Are Designed For</span>
   <h2 class="section-h" style="max-width: 580px;">This is not built for large enterprises with 12-month transformation roadmaps.</h2>
@@ -1676,13 +1795,16 @@ body.nav-lock { overflow: hidden; }
     </div>
   </div>
 </section>
-<div class="wave wave-plum-to-cream"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#f3ede3"/></svg></div>
+<div class="wave wave-plum-to-cream"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#f3ede3"/></svg></div> -->
+
+<!-- wave: white → cream -->
+<div class="wave wave-white-to-cream"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#f3ede3"/></svg></div>
 
 <!-- SECTION 7 — PARTNERS -->
 <section class="partners-section">
   <div>
     <span class="section-label">Are You a Domain Expert?</span>
-    <h2 class="section-h">We are building something larger than a training company.</h2>
+    <h2 class="section-h">We are looking for Domain Experts to build our AI Industry Expertise</h2>
     <p class="section-body">
       Our model is built on a straightforward belief — the best outcomes happen when deep AI knowledge meets deep industry knowledge. Nexivant holds the AI methodology, the tools expertise, and the build capability. What we bring in through partnerships is the operational depth of specific industries and markets.
     </p>
@@ -1699,9 +1821,7 @@ body.nav-lock { overflow: hidden; }
     <a href="nexivant-contact.html" class="btn-primary">Let's Have That Conversation →</a>
   </div>
 </section>
-<div class="wave wave-cream-to-white"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#ffffff"/></svg></div>
-
-<!-- SECTION 8 — OUTCOME -->
+<!-- SECTION 8 - OUTCOME
 <section class="outcome-section fade-in">
   <span class="section-label">What We Are Actually Here To Do</span>
   <h2 class="section-h">We are not in the business of making your team dependent on us.</h2>
@@ -1724,7 +1844,7 @@ body.nav-lock { overflow: hidden; }
     </div>
   </div>
 </section>
-<div class="wave wave-white-to-plum"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#471132"/></svg></div>
+<div class="wave wave-white-to-plum"><svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none"><path d="M0 0C360 48 1080 48 1440 0V48H0V0Z" fill="#471132"/></svg></div> -->
 
 <!-- SECTION 9 — CLOSING CTA -->
 <section class="cta-section" id="contact">
@@ -1747,8 +1867,8 @@ body.nav-lock { overflow: hidden; }
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-brand">Nexivant</div>
-      <p class="footer-brand-sub">A Backend Operating System for Modern Clinics</p>
+      <div class="footer-brand" style="margin-bottom:12px;"><img src="assets/logo.png" alt="Nexivant" style="height:52px;width:auto;display:block;"></div>
+      <p class="footer-brand-sub" style="text-align:left; padding-left:16px;">Nexivant — We Make AI Work Inside Your Business.</p>
     </div>
     <div>
       <span class="footer-col-label">Contact Us</span>
@@ -1763,7 +1883,7 @@ body.nav-lock { overflow: hidden; }
       <ul class="footer-quick-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="nexivant-solutions.html">Our Solutions</a></li>
-        <li><a href="nexivant-industries.html">We Work With</a></li>
+        <li><a href="index.html#industries">Industry Focus</a></li>
         <li><a href="nexivant-vision.html">Our Vision</a></li>
         <li><a href="nexivant-contact.html">Contact Us</a></li>
       </ul>
@@ -1775,6 +1895,54 @@ body.nav-lock { overflow: hidden; }
 </footer>
 
 <script>
+  // Industry card scroll
+  var industryOffset = 0;
+  function scrollIndustry(dir) {
+    var wrap = document.querySelector('.industry-scroll-wrap');
+    var cards = document.getElementById('industryCards');
+    var cardW = 300;
+    var maxOffset = cards.scrollWidth - wrap.offsetWidth;
+    industryOffset = Math.max(0, Math.min(maxOffset, industryOffset + dir * cardW));
+    cards.style.transform = 'translateX(-' + industryOffset + 'px)';
+  }
+
+  // Drag to scroll
+  (function() {
+    var wrap = document.querySelector('.industry-scroll-wrap');
+    var cards = document.getElementById('industryCards');
+    var startX = 0, startOffset = 0, dragging = false;
+
+    function getX(e) { return e.touches ? e.touches[0].clientX : e.clientX; }
+
+    wrap.addEventListener('mousedown', function(e) { dragging = true; startX = getX(e); startOffset = industryOffset; wrap.style.cursor = 'grabbing'; });
+    wrap.addEventListener('touchstart', function(e) { dragging = true; startX = getX(e); startOffset = industryOffset; }, { passive: true });
+
+    window.addEventListener('mousemove', function(e) {
+      if (!dragging) return;
+      var dx = startX - getX(e);
+      var maxOffset = cards.scrollWidth - wrap.offsetWidth;
+      industryOffset = Math.max(0, Math.min(maxOffset, startOffset + dx));
+      cards.style.transform = 'translateX(-' + industryOffset + 'px)';
+    });
+    window.addEventListener('touchmove', function(e) {
+      if (!dragging) return;
+      var dx = startX - getX(e);
+      var maxOffset = cards.scrollWidth - wrap.offsetWidth;
+      industryOffset = Math.max(0, Math.min(maxOffset, startOffset + dx));
+      cards.style.transform = 'translateX(-' + industryOffset + 'px)';
+    }, { passive: true });
+
+    window.addEventListener('mouseup', function() { dragging = false; wrap.style.cursor = ''; });
+    window.addEventListener('touchend', function() { dragging = false; });
+  })();
+
+  function toggleWacc(btn) {
+    var item = btn.closest('.wacc-item');
+    var isOpen = item.classList.contains('wacc-open');
+    document.querySelectorAll('.wacc-item').forEach(function(i){ i.classList.remove('wacc-open'); });
+    if (!isOpen) item.classList.add('wacc-open');
+  }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) e.target.classList.add('visible');

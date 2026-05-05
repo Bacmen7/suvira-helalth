@@ -160,10 +160,10 @@ nav {
 }
 .hero h1 {
   font-family: var(--serif);
-  font-size: clamp(2.8rem, 4.5vw, 4rem);
-  font-weight: 500;
-  line-height: 1.12;
-  color: var(--plum);
+  font-size: 58px;
+  font-weight: 400;
+  line-height: 58px;
+  color: rgb(0,0,0);
   margin-bottom: 24px;
 }
 .hero h1 em { font-style: italic; color: var(--plum-mid); }
@@ -1197,27 +1197,58 @@ nav {
   color: var(--cream) !important;
 }
 .nav-hamburger span { background: var(--plum) !important; }
-.hero { background: var(--cream) !important; }
+.hero {
+  background: #faf0e7 !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 40px !important;
+  min-height: 100vh !important;
+  padding: 0 !important;
+  align-items: center !important;
+}
+.hero-text {
+  max-width: 760px !important;
+  padding: 140px 56px 48px !important;
+}
 .hero-panel {
   flex-direction: column;
   gap: 16px;
+  padding: 120px 56px 48px 0 !important;
+  align-items: center !important;
 }
 .hero-image-card {
   width: 100%;
-  max-width: 480px;
-  aspect-ratio: 16 / 10;
-  border-radius: 10px;
+  max-width: 720px;
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
   overflow: hidden;
-  border: 1px solid rgba(71,17,50,0.14);
-  box-shadow: 0 22px 60px rgba(71,17,50,0.12);
+  border: none;
+  box-shadow: none;
 }
 .hero-image-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 @media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    min-height: auto !important;
+  }
+  .hero-text {
+    max-width: 100% !important;
+    padding: 110px 20px 28px !important;
+    text-align: center !important;
+  }
+  .hero-panel {
+    padding: 0 20px 56px !important;
+  }
+  .hero-image-card {
+    max-width: 520px !important;
+    margin: 0 auto !important;
+  }
   .nav-links {
     background: rgba(243,237,227,0.98) !important;
     border-bottom: 1px solid rgba(71,17,50,0.12) !important;
@@ -1329,16 +1360,33 @@ body.nav-lock { overflow: hidden; }
   .nav-links a.active { color: var(--plum) !important; }
 }
 
+@media (max-width: 768px) {
+  footer { padding-left: 28px !important; padding-right: 28px !important; }
+  footer,
+  footer .footer-grid,
+  footer .footer-grid > div,
+  footer .footer-brand-sub,
+  footer .footer-contact-list,
+  footer .footer-quick-links,
+  footer .footer-contact-list li,
+  footer .footer-quick-links a {
+    text-align: left !important;
+  }
+  footer .footer-brand img { margin: 0 !important; }
+  footer .footer-brand-sub { padding-left: 0 !important; }
+  footer .footer-contact-list li { justify-content: flex-start !important; }
+  nav .logo img { height: 42px !important; }
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo">Nexivant</a>
+  <a href="index.html" class="logo"><img src="assets/logo.png" alt="Nexivant" style="height:56px;width:auto;display:block;"></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="nexivant-industries.html">Industries</a></li>
     <li><a href="nexivant-solutions.html" class="active">Our Solutions</a></li>
+    <li><a href="index.html#industries">Industry Focus</a></li>
     <li><a href="nexivant-vision.html">Our Vision</a></li>
     <li><a href="nexivant-contact.html">Contact Us</a></li>
   </ul>
@@ -1361,23 +1409,8 @@ body.nav-lock { overflow: hidden; }
     </div>
   </div>
   <div class="hero-panel fade-in stagger-2">
-    <div class="hero-panel-inner">
-      <span class="hero-panel-eyebrow">What we hear from leaders</span>
-      <p class="hero-panel-q">"We ran an AI session. Two weeks later the team was back to working the same way."</p>
-      <div class="hero-stat-row">
-        <div class="hero-stat-item">
-          <div class="hero-stat-num">4 Stages</div>
-          <div class="hero-stat-label">From awareness to full AI infrastructure — you decide where to start</div>
-        </div>
-        <div class="hero-stat-item">
-          <div class="hero-stat-num">5 Sectors</div>
-          <div class="hero-stat-label">Built around your industry, not a generic curriculum</div>
-        </div>
-        <div class="hero-stat-item">
-          <div class="hero-stat-num">Business-first</div>
-          <div class="hero-stat-label">We start with your problem. The tools follow from there.</div>
-        </div>
-      </div>
+    <div class="hero-image-card">
+      <img src="assets/hero5.png" alt="AI implementation inside business operations">
     </div>
   </div>
 </section>
@@ -1425,10 +1458,6 @@ body.nav-lock { overflow: hidden; }
       <p class="pain-card-a">Enterprise-grade AI transformation is built for organisations with the budget, time, and internal teams to support it. Most growing businesses need something leaner, faster, and more practical.</p>
     </div>
 
-  </div>
-
-  <div class="pain-close fade-in stagger-2">
-    <p><strong>This is the context in which Suvira Health was built.</strong> Not for enterprise transformation programmes. For growing businesses that need AI to work inside their operations — practically, quickly, and without creating a new dependency on external consultants. Our work starts with your workflows. It ends when the change is real and your team is running independently.</p>
   </div>
 
 </section>
@@ -1855,7 +1884,7 @@ body.nav-lock { overflow: hidden; }
 <section class="w-white pad-md" id="team">
   <div style="max-width:640px" class="fade-in">
     <span class="section-label">Who Does This Work</span>
-    <h2 class="section-h">We are not a training company that learned AI. We are an AI-first team with genuine business experience.</h2>
+    <h2 class="section-h">We are an AI-first team with genuine business experience who would train + handhold your team.</h2>
     <p class="section-body">The people who work on your engagement bring two things together — deep technical understanding of AI systems, and real experience running businesses.</p>
   </div>
   <div class="team-grid">
@@ -1897,8 +1926,8 @@ body.nav-lock { overflow: hidden; }
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-brand">Nexivant</div>
-      <p class="footer-brand-sub">A Backend Operating System for Modern Clinics</p>
+      <div class="footer-brand"><img src="assets/logo.png" alt="Nexivant" style="height:52px;width:auto;display:block;"></div>
+      <p class="footer-brand-sub" style="text-align:left; padding-left:16px;">Nexivant — We Make AI Work Inside Your Business.</p>
     </div>
     <div>
       <span class="footer-col-label">Contact Us</span>
@@ -1913,7 +1942,7 @@ body.nav-lock { overflow: hidden; }
       <ul class="footer-quick-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="nexivant-solutions.html">Our Solutions</a></li>
-        <li><a href="nexivant-industries.html">We Work With</a></li>
+        <li><a href="index.html#industries">Industry Focus</a></li>
         <li><a href="nexivant-vision.html">Our Vision</a></li>
         <li><a href="nexivant-contact.html">Contact Us</a></li>
       </ul>

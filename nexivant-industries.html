@@ -757,16 +757,33 @@ body.nav-lock { overflow: hidden; }
   .nav-links a.active { color: var(--plum) !important; }
 }
 
+@media (max-width: 768px) {
+  footer { padding-left: 28px !important; padding-right: 28px !important; }
+  footer,
+  footer .footer-grid,
+  footer .footer-grid > div,
+  footer .footer-brand-sub,
+  footer .footer-contact-list,
+  footer .footer-quick-links,
+  footer .footer-contact-list li,
+  footer .footer-quick-links a {
+    text-align: left !important;
+  }
+  footer .footer-brand img { margin: 0 !important; }
+  footer .footer-brand-sub { padding-left: 0 !important; }
+  footer .footer-contact-list li { justify-content: flex-start !important; }
+  nav .logo img { height: 42px !important; }
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo">Nexivant</a>
+  <a href="index.html" class="logo"><img src="assets/logo.png" alt="Nexivant" style="height:56px;width:auto;display:block;"></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="nexivant-industries.html">Industries</a></li>
     <li><a href="nexivant-solutions.html">Our Solutions</a></li>
+    <li><a href="index.html#industries">Industry Focus</a></li>
     <li><a href="nexivant-vision.html">Our Vision</a></li>
     <li><a href="nexivant-contact.html">Contact Us</a></li>
     <li class="mobile-cta-row" style="display:none;border-bottom:none!important">
@@ -1357,8 +1374,8 @@ body.nav-lock { overflow: hidden; }
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-brand">Nexivant</div>
-      <p class="footer-brand-sub">A Backend Operating System for Modern Clinics</p>
+      <div class="footer-brand"><img src="assets/logo.png" alt="Nexivant" style="height:52px;width:auto;display:block;"></div>
+      <p class="footer-brand-sub" style="text-align:left; padding-left:16px;">Nexivant — We Make AI Work Inside Your Business.</p>
     </div>
     <div>
       <span class="footer-col-label">Contact Us</span>
@@ -1373,7 +1390,7 @@ body.nav-lock { overflow: hidden; }
       <ul class="footer-quick-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="nexivant-solutions.html">Our Solutions</a></li>
-        <li><a href="nexivant-industries.html">We Work With</a></li>
+        <li><a href="index.html#industries">Industry Focus</a></li>
         <li><a href="nexivant-vision.html">Our Vision</a></li>
         <li><a href="nexivant-contact.html">Contact Us</a></li>
       </ul>
