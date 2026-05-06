@@ -104,7 +104,7 @@ nav {
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 128px 72px 100px;
+  padding: 160px 80px 120px;
 }
 
 .hero-noise {
@@ -143,6 +143,7 @@ nav {
   position: relative;
   z-index: 2;
   max-width: 780px;
+  margin-left: 40px;
 }
 
 .hero-eyebrow {
@@ -260,7 +261,7 @@ nav {
 }
 
 /* ─── SECTION COMMONS ─── */
-section { padding: 104px 64px; }
+section { padding: 104px 80px; }
 
 .section-label {
   font-size: 0.7rem;
@@ -975,7 +976,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .hero { min-height: auto; padding: 120px 20px 64px; }
+  .hero { min-height: auto; padding: 180px 20px 72px; }
   .hero h1 { font-size: clamp(2rem, 9vw, 2.8rem); }
   .hero-sub, .section-body, .who-pillar-text, .tier-text, .industry-tile-sub, .midmarket-card-text, .cta-sub { font-size: 0.95rem; }
   .hero-actions, .cta-actions { flex-direction: column; align-items: stretch; }
@@ -1017,9 +1018,10 @@ footer {
   .section-body,.sb{max-width:100%!important}
 
   /* ── HOMEPAGE HERO ── */
-  .hero{min-height:auto!important;padding:80px 16px 48px!important;display:block!important}
-  .hero-content{max-width:100%!important}
-  .hero-eyebrow{margin-bottom:18px!important}
+  .hero{min-height:auto!important}
+  .hero-content{max-width:100%!important;margin-left:0!important}
+  .hero-eyebrow{margin-bottom:18px!important;color:rgba(71,17,50,0.85)!important;font-size:0.75rem!important;letter-spacing:0.1em!important}
+  .hero-eyebrow::before{background:rgba(71,17,50,0.5)!important;width:20px!important}
   .hero-glow{display:none!important}
   .hero-actions{flex-direction:column!important;align-items:stretch!important;gap:10px!important;margin-bottom:40px!important}
   .hero-actions a,.hero-actions .btn-primary,.hero-actions .btn-ghost{text-align:center!important;width:100%!important;box-sizing:border-box!important}
@@ -1394,11 +1396,13 @@ nav {
     display: flex !important;
     flex-direction: column !important;
     min-height: auto !important;
+    padding: 0 !important;
   }
   .hero-noise, .hero-glow { display: none !important; }
   .hero-content {
     order: 1 !important;
-    padding: 40px 20px 24px !important;
+    padding: 100px 20px 24px !important;
+    margin-left: 0 !important;
   }
   .hero-media {
     order: 2 !important;
